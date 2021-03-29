@@ -1,0 +1,6 @@
+{
+    "python.pythonPath": "/Users/stephen/.pyenv/shims/python",
+    "python.linting.pylintEnabled": false,
+    "python.linting.enabled": true,
+    "python.linting.pycodestyleEnabled": true
+}
