@@ -10,6 +10,7 @@ const NavBar = ({
     toggleMorning,
     toggleLogin,
     nav,
+    setNav,
     toggleNav,
     setAuthenticated,
     toggleSignup,
@@ -22,13 +23,15 @@ const NavBar = ({
     );
 
     const onLogout = async (e) => {
+        e.preventDefault();
         await dispatch(logout());
         setAuthenticated(false);
+        setNav(true);
     };
 
     if (sessionUser && !errors) {
         return (
-            <div className="navbar">
+            <div className="navbar" onMouseLeave={toggleNav}>
                 <div className="menu-bars" onMouseEnter={toggleNav}>
                     <i class="fas fa-bars"></i>h
                 </div>
@@ -60,7 +63,9 @@ const NavBar = ({
                                 onClick={onLogout}
                                 activeClassName="active"
                             >
-                                Logout
+                                <button className="login-signup-button">
+                                    Logout
+                                </button>
                             </NavLink>
                         </li>
                     </ul>

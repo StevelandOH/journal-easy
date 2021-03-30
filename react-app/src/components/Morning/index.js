@@ -3,7 +3,14 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import './Morning.css';
 
-const Morning = ({ toggleMorning, slideMorning, toggleNav }) => {
+const Morning = ({
+    dream,
+    setDream,
+    toggleDream,
+    toggleMorning,
+    slideMorning,
+    toggleNav,
+}) => {
     return (
         <div
             className={
@@ -12,7 +19,7 @@ const Morning = ({ toggleMorning, slideMorning, toggleNav }) => {
         >
             <ul onClick={toggleMorning} className="morning-menu-items">
                 <li className="morning-text">
-                    <a activeClassName="active">Dream Journal</a>
+                    <a onClick={toggleDream}>Dream Journal</a>
                 </li>
                 <li className="morning-text">
                     <a activeClassName="active">Brain Boosters</a>

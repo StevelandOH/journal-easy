@@ -1,0 +1,20 @@
+.dream-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 300px;
+    display: flex;
+    justify-content: left;
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    transition: 1000ms;
+    border-radius: 0px 100px 100px 0px;
+}
+
+.dream-container.active {
+    left: 0;
+    transition: 350ms;
+}
+
+.dream-form-container {
+    margin: 30px;
+}

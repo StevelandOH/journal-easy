@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { signUp } from '../../store/users';
 import './Signup.css';
 
-const SignUpForm = ({ slideSignup, toggleSignup }) => {
+const SignUpForm = ({ slideSignup, toggleSignup, setNav }) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const [username, setUsername] = useState('');
@@ -17,6 +17,7 @@ const SignUpForm = ({ slideSignup, toggleSignup }) => {
         const user = await dispatch(signUp({ name, username, password }));
         if (!user.payload.errors) {
             toggleSignup();
+            setNav(true);
             history.push('/');
         } else {
             setErrors(user.payload.errors);

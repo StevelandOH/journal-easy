@@ -7,6 +7,7 @@ import NavBar from './components/Navigation';
 import Slash from './components/Slash';
 import Morning from './components/Morning';
 import Evening from './components/Evening';
+import Dream from './components/Dream';
 import { restoreUser, authenticate } from './store/users';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
     const [slideSignup, setSlideSignup] = useState(false);
     const [slideMorning, setSlideMorning] = useState(false);
     const [slideEvening, setSlideEvening] = useState(false);
+    const [dream, setDream] = useState(false);
     const toggleNav = () => {
         if (
             !nav &&
@@ -38,6 +40,7 @@ function App() {
     const toggleSignup = () => setSlideSignup(!slideSignup);
     const toggleMorning = () => setSlideMorning(!slideMorning);
     const toggleEvening = () => setSlideEvening(!slideEvening);
+    const toggleDream = () => setDream(!dream);
 
     useEffect(() => {
         const user = authenticate();
@@ -47,6 +50,10 @@ function App() {
         }
         setLoaded(true);
     });
+
+    useEffect(() => {
+        setNav(true);
+    }, []);
 
     if (!loaded) return null;
 
@@ -89,6 +96,9 @@ function App() {
                 toggleSignup={toggleSignup}
             />
             <Morning
+                dream={dream}
+                setDream={setDream}
+                toggleDream={toggleDream}
                 toggleMorning={toggleMorning}
                 slideMorning={slideMorning}
                 setSlideMorning={setSlideMorning}
@@ -103,6 +113,11 @@ function App() {
                 nav={nav}
                 setNav={setNav}
                 toggleNav={toggleNav}
+            />
+            <Dream
+                dream={dream}
+                setDream={setDream}
+                toggleDream={toggleDream}
             />
             <Switch>
                 <Route path="/" exact={true}>
