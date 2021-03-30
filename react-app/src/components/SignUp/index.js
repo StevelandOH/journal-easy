@@ -2,8 +2,16 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { signUp } from '../../store/users';
+import './Signup.css';
 
-const SignUpForm = () => {
+const SignUpForm = ({
+    nav,
+    setNav,
+    toggleNav,
+    slideSignup,
+    setSlideSignup,
+    toggleSignup,
+}) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const [username, setUsername] = useState('');
@@ -34,37 +42,48 @@ const SignUpForm = () => {
     };
 
     return (
-        <form onSubmit={onSignUp}>
+        <div
+            className={
+                slideSignup ? 'signup-container active' : 'signup-container'
+            }
+        >
             <div>
-                <label>Name</label>
-                <input
-                    type="text"
-                    name="name"
-                    onChange={updateName}
-                    value={name}
-                ></input>
-            </div>
-            <div>
-                <label>Username</label>
-                <input
-                    type="text"
-                    name="username"
-                    onChange={updateUsername}
-                    value={username}
-                ></input>
-            </div>
-            <div>
-                <label>Password</label>
-                <input
-                    type="password"
-                    name="password"
-                    onChange={updatePassword}
-                    value={password}
-                ></input>
-            </div>
+                <form onSubmit={onSignUp}>
+                    <div>
+                        <label>Name</label>
+                        <input
+                            type="text"
+                            name="name"
+                            onChange={updateName}
+                            value={name}
+                        ></input>
+                    </div>
+                    <div>
+                        <label>Username</label>
+                        <input
+                            type="text"
+                            name="username"
+                            onChange={updateUsername}
+                            value={username}
+                        ></input>
+                    </div>
+                    <div>
+                        <label>Password</label>
+                        <input
+                            type="password"
+                            name="password"
+                            onChange={updatePassword}
+                            value={password}
+                        ></input>
+                    </div>
 
-            <button type="submit">Sign Up</button>
-        </form>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+            <div>
+                <button onClick={toggleSignup}>cancel</button>
+            </div>
+        </div>
     );
 };
 

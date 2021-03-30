@@ -1,25 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from '../../store/users';
 import Modal from 'react-modal';
 import './Login.css';
 
-const LoginForm = ({ loginOpen, setLoginOpen, toggleLogin }) => {
+const LoginForm = ({
+    toggleLogin,
+    slideLogin,
+    setSlideLogin,
+    toggleNav,
+    nav,
+    setNav,
+}) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const [errors, setErrors] = useState([]);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-
-    const style = {
-        overlay: {
-            textAlign: 'center',
-            height: '100',
-            backgroundColor: 'rgba(0,0, 0, 0.8)',
-            zIndex: '1000',
-        },
-    };
 
     const onLogin = async (e) => {
         e.preventDefault();
@@ -41,8 +39,12 @@ const LoginForm = ({ loginOpen, setLoginOpen, toggleLogin }) => {
     };
 
     return (
-        <div className="container">
-            <div className="login-container">
+        <div
+            className={
+                slideLogin ? 'login-container active' : 'login-container'
+            }
+        >
+            <div>
                 <form onSubmit={onLogin}>
                     <div className="errors-container">
                         {errors &&
@@ -76,6 +78,9 @@ const LoginForm = ({ loginOpen, setLoginOpen, toggleLogin }) => {
                         </div>
                     </div>
                 </form>
+            </div>
+            <div>
+                <button onClick={toggleLogin}>cancel</button>
             </div>
         </div>
     );

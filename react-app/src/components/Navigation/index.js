@@ -5,9 +5,21 @@ import { logout } from '../../store/users';
 
 import './Navigation.css';
 
-const NavBar = ({ authenticated, setAuthenticated }) => {
+const NavBar = ({
+    slideLogin,
+    setSlideLogin,
+    toggleLogin,
+    nav,
+    setNav,
+    toggleNav,
+    authenticated,
+    setAuthenticated,
+    slideSignup,
+    setSlideSignup,
+    toggleSignup,
+}) => {
     const dispatch = useDispatch();
-    const [nav, setNav] = useState(false);
+
     const sessionUser = useSelector((state) => state.users.user);
     const errors = useSelector((state) =>
         sessionUser ? sessionUser.errors : null
@@ -17,8 +29,6 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
         await dispatch(logout());
         setAuthenticated(false);
     };
-
-    const toggleNav = () => setNav(!nav);
 
     if (sessionUser && !errors) {
         return (
@@ -61,22 +71,14 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
                 <nav className={nav ? 'nav-menu active' : 'nav-menu'}>
                     <ul onClick={toggleNav} className="nav-menu-items">
                         <li className="nav-text">
-                            <NavLink
-                                to="/login"
-                                exact={true}
-                                activeClassName="active"
-                            >
+                            <a onClick={toggleLogin} activeClassName="active">
                                 Login
-                            </NavLink>
+                            </a>
                         </li>
                         <li className="nav-text">
-                            <NavLink
-                                to="/signup"
-                                exact={true}
-                                activeClassName="active"
-                            >
-                                Sign Up
-                            </NavLink>
+                            <a onClick={toggleSignup} activeClassName="active">
+                                Signup
+                            </a>
                         </li>
                     </ul>
                 </nav>
