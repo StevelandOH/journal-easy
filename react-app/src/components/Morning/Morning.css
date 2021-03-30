@@ -1,0 +1,41 @@
+.morning-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 250px;
+    display: flex;
+    align-items: left;
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    transition: 1000ms;
+    border-radius: 0px 100px 100px 0px;
+    padding: 25px;
+}
+
+.morning-container.active {
+    left: 0;
+    transition: 350ms;
+}
+
+.morning-text {
+    width: 200px;
+    list-style: none;
+    height: 60px;
+}
+.morning-text a {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    width: 95%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    border-radius: 4px;
+}
+
+.morning-text a:hover {
+    font-size: 20px;
+    margin-left: 2px;
+    margin-top: 2px;
+}

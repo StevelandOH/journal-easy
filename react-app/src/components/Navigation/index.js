@@ -6,6 +6,8 @@ import { logout } from '../../store/users';
 import './Navigation.css';
 
 const NavBar = ({
+    toggleEvening,
+    toggleMorning,
     toggleLogin,
     nav,
     toggleNav,
@@ -28,7 +30,7 @@ const NavBar = ({
         return (
             <div className="navbar">
                 <div className="menu-bars" onMouseEnter={toggleNav}>
-                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-bars"></i>h
                 </div>
 
                 <nav className={nav ? 'nav-menu active' : 'nav-menu'}>
@@ -41,6 +43,16 @@ const NavBar = ({
                             >
                                 Home
                             </NavLink>
+                        </li>
+                        <li className="nav-text">
+                            <a onClick={toggleMorning} activeClassName="active">
+                                Morning
+                            </a>
+                        </li>
+                        <li className="nav-text">
+                            <a onClick={toggleEvening} activeClassName="active">
+                                Evening
+                            </a>
                         </li>
                         <li className="nav-text">
                             <NavLink
@@ -57,8 +69,8 @@ const NavBar = ({
         );
     } else {
         return (
-            <div className="navbar">
-                <div className="menu-bars" onClick={toggleNav}>
+            <div className="navbar" onMouseLeave={toggleNav}>
+                <div className="menu-bars" onMouseEnter={toggleNav}>
                     <i class="fas fa-bars"></i>
                 </div>
 
