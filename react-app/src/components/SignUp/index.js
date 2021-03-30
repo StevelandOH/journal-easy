@@ -15,7 +15,7 @@ const SignUpForm = () => {
         e.preventDefault();
         const user = await dispatch(signUp({ name, username, password }));
         if (!user.payload.errors) {
-            history.push('/dashboard');
+            history.push('/');
         } else {
             setErrors(user.payload.errors);
         }

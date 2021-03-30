@@ -2,20 +2,30 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from '../../store/users';
+import Modal from 'react-modal';
 import './Login.css';
 
-const LoginForm = () => {
+const LoginForm = ({ loginOpen, setLoginOpen, toggleLogin }) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const [errors, setErrors] = useState([]);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
+    const style = {
+        overlay: {
+            textAlign: 'center',
+            height: '100',
+            backgroundColor: 'rgba(0,0, 0, 0.8)',
+            zIndex: '1000',
+        },
+    };
+
     const onLogin = async (e) => {
         e.preventDefault();
         const user = await dispatch(login({ username, password }));
         if (!user.payload.errors) {
-            history.push('/dashboard');
+            history.push('/');
         } else {
             setErrors(user.payload.errors);
         }
