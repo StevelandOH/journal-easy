@@ -1,1 +1,17 @@
 /* TODO Add site wide styles */
+@import url('https://fonts.googleapis.com/css27family-Lato&display-swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+html {
+    background: url('../src/images/birds-eye.jpg') no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}

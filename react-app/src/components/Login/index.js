@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from '../../store/users';
+import './Login.css';
 
 const LoginForm = () => {
     const dispatch = useDispatch();
@@ -30,37 +31,43 @@ const LoginForm = () => {
     };
 
     return (
-        <form onSubmit={onLogin}>
-            <div>
-                {errors &&
-                    errors.map((error, idx) => (
-                        <div key={idx} value={error}>
-                            {error}
+        <div className="container">
+            <div className="login-container">
+                <form onSubmit={onLogin}>
+                    <div className="errors-container">
+                        {errors &&
+                            errors.map((error, idx) => (
+                                <div className="error" key={idx} value={error}>
+                                    {error}
+                                </div>
+                            ))}
+                    </div>
+                    <div className="username-container">
+                        <input
+                            className="username"
+                            name="username"
+                            type="text"
+                            placeholder="username"
+                            value={username}
+                            onChange={updateUsername}
+                        />
+                    </div>
+                    <div className="password-container">
+                        <input
+                            className="password"
+                            name="password"
+                            type="password"
+                            placeholder="Password"
+                            value={password}
+                            onChange={updatePassword}
+                        />
+                        <div className="button-container">
+                            <button type="submit">Login</button>
                         </div>
-                    ))}
+                    </div>
+                </form>
             </div>
-            <div>
-                <label htmlFor="username">Username</label>
-                <input
-                    name="username"
-                    type="text"
-                    placeholder="username"
-                    value={username}
-                    onChange={updateUsername}
-                />
-            </div>
-            <div>
-                <label htmlFor="password">Password</label>
-                <input
-                    name="password"
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={updatePassword}
-                />
-                <button type="submit">Login</button>
-            </div>
-        </form>
+        </div>
     );
 };
 
