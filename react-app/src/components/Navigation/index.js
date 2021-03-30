@@ -8,7 +8,6 @@ import './Navigation.css';
 const NavBar = ({ authenticated, setAuthenticated }) => {
     const dispatch = useDispatch();
     const [nav, setNav] = useState(false);
-    const [loginOpen, setLoginOpen] = useState(false);
     const sessionUser = useSelector((state) => state.users.user);
     const errors = useSelector((state) =>
         sessionUser ? sessionUser.errors : null
@@ -18,8 +17,6 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
         await dispatch(logout());
         setAuthenticated(false);
     };
-
-    const toggleLogin = () => setLoginOpen(!loginOpen);
 
     const toggleNav = () => setNav(!nav);
 
