@@ -4,14 +4,7 @@ import { useDispatch } from 'react-redux';
 import { signUp } from '../../store/users';
 import './Signup.css';
 
-const SignUpForm = ({
-    nav,
-    setNav,
-    toggleNav,
-    slideSignup,
-    setSlideSignup,
-    toggleSignup,
-}) => {
+const SignUpForm = ({ slideSignup, toggleSignup }) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const [username, setUsername] = useState('');

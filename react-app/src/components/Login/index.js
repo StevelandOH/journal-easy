@@ -1,18 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from '../../store/users';
-import Modal from 'react-modal';
 import './Login.css';
 
-const LoginForm = ({
-    toggleLogin,
-    slideLogin,
-    setSlideLogin,
-    toggleNav,
-    nav,
-    setNav,
-}) => {
+const LoginForm = ({ toggleLogin, slideLogin }) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const [errors, setErrors] = useState([]);

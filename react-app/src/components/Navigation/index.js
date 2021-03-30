@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../store/users';
@@ -6,16 +6,10 @@ import { logout } from '../../store/users';
 import './Navigation.css';
 
 const NavBar = ({
-    slideLogin,
-    setSlideLogin,
     toggleLogin,
     nav,
-    setNav,
     toggleNav,
-    authenticated,
     setAuthenticated,
-    slideSignup,
-    setSlideSignup,
     toggleSignup,
 }) => {
     const dispatch = useDispatch();
