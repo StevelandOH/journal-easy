@@ -27,7 +27,7 @@ const NavBar = ({
     if (sessionUser && !errors) {
         return (
             <div className="navbar">
-                <div className="menu-bars" onClick={toggleNav}>
+                <div className="menu-bars" onMouseEnter={toggleNav}>
                     <i class="fas fa-bars"></i>
                 </div>
 

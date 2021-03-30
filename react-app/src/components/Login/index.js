@@ -15,6 +15,7 @@ const LoginForm = ({ toggleLogin, slideLogin }) => {
         e.preventDefault();
         const user = await dispatch(login({ username, password }));
         if (!user.payload.errors) {
+            toggleLogin();
             history.push('/');
         } else {
             setErrors(user.payload.errors);
@@ -36,7 +37,7 @@ const LoginForm = ({ toggleLogin, slideLogin }) => {
                 slideLogin ? 'login-container active' : 'login-container'
             }
         >
-            <div>
+            <div className="login-form-container">
                 <form onSubmit={onLogin}>
                     <div className="errors-container">
                         {errors &&
@@ -65,14 +66,18 @@ const LoginForm = ({ toggleLogin, slideLogin }) => {
                             value={password}
                             onChange={updatePassword}
                         />
-                        <div className="button-container">
-                            <button type="submit">Login</button>
-                        </div>
+                    </div>
+                    <div className="button-container">
+                        <button className="login-signup-button" type="submit">
+                            Login
+                        </button>
                     </div>
                 </form>
-            </div>
-            <div>
-                <button onClick={toggleLogin}>cancel</button>
+                <div>
+                    <button className="cancel-button" onClick={toggleLogin}>
+                        ⬅
+                    </button>
+                </div>
             </div>
         </div>
     );

@@ -16,6 +16,7 @@ const SignUpForm = ({ slideSignup, toggleSignup }) => {
         e.preventDefault();
         const user = await dispatch(signUp({ name, username, password }));
         if (!user.payload.errors) {
+            toggleSignup();
             history.push('/');
         } else {
             setErrors(user.payload.errors);
@@ -40,29 +41,32 @@ const SignUpForm = ({ slideSignup, toggleSignup }) => {
                 slideSignup ? 'signup-container active' : 'signup-container'
             }
         >
-            <div>
+            <div className="signup-form-container">
                 <form onSubmit={onSignUp}>
-                    <div>
-                        <label>Name</label>
+                    <div className="name-container">
                         <input
+                            className="name"
+                            placeholder="Name"
                             type="text"
                             name="name"
                             onChange={updateName}
                             value={name}
                         ></input>
                     </div>
-                    <div>
-                        <label>Username</label>
+                    <div className="username-container">
                         <input
+                            className="username"
+                            placeholder="Username"
                             type="text"
                             name="username"
                             onChange={updateUsername}
                             value={username}
                         ></input>
                     </div>
-                    <div>
-                        <label>Password</label>
+                    <div className="password-container">
                         <input
+                            className="password"
+                            placeholder="Password"
                             type="password"
                             name="password"
                             onChange={updatePassword}
@@ -70,11 +74,17 @@ const SignUpForm = ({ slideSignup, toggleSignup }) => {
                         ></input>
                     </div>
 
-                    <button type="submit">Sign Up</button>
+                    <div className="button-container">
+                        <button className="login-signup-button" type="submit">
+                            Signup
+                        </button>
+                    </div>
                 </form>
-            </div>
-            <div>
-                <button onClick={toggleSignup}>cancel</button>
+                <div>
+                    <button className="cancel-button" onClick={toggleSignup}>
+                        ⬅
+                    </button>
+                </div>
             </div>
         </div>
     );
