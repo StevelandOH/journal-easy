@@ -8,6 +8,7 @@ import Slash from './components/Slash';
 import Morning from './components/Morning';
 import Evening from './components/Evening';
 import { restoreUser, authenticate } from './store/users';
+import { getAffirmations } from './store/affirmations';
 
 function App() {
     const dispatch = useDispatch();
@@ -45,6 +46,7 @@ function App() {
         if (!user.errors) {
             dispatch(restoreUser());
             setAuthenticated(true);
+            dispatch(getAffirmations());
         }
         setLoaded(true);
     });
