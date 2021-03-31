@@ -76,6 +76,9 @@ const Ratings = ({ toggleRating }) => {
                     })}
                 </div>
             </div>
+            <div className="cancel-div">
+                <i onClick={toggleRating} class="far fa-times-circle"></i>
+            </div>
         </div>
     );
 };

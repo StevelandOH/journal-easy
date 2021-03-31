@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import userReducer from './users';
 import entryReducer from './entries';
 import ratingReducer from './ratings';
+import affirmationReducer from './affirmations';
 
 const rootReducer = combineReducers({
     users: userReducer,
     entries: entryReducer,
     ratings: ratingReducer,
+    affirmations: affirmationReducer,
 });
 
 let enhancer;

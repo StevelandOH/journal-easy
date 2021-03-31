@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Modal from 'react-modal';
+import Affirmations from '../Affirmations';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../store/users';
@@ -16,11 +18,22 @@ const NavBar = ({
     toggleSignup,
 }) => {
     const dispatch = useDispatch();
+    const [affirmationModal, setAffirmationModal] = useState(false);
 
     const sessionUser = useSelector((state) => state.users.user);
     const errors = useSelector((state) =>
         sessionUser ? sessionUser.errors : null
     );
+
+    const style = {
+        overlay: {
+            textAlign: 'center',
+            backgroundColor: 'white',
+            zIndex: '1000',
+        },
+    };
+
+    const toggleAffirmation = () => setAffirmationModal(!affirmationModal);
 
     const onLogout = async (e) => {
         e.preventDefault();
@@ -62,6 +75,14 @@ const NavBar = ({
                             </a>
                         </li>
                         <li className="nav-text">
+                            <a
+                                onClick={toggleAffirmation}
+                                activeClassName="active"
+                            >
+                                add Affirmation
+                            </a>
+                        </li>
+                        <li className="nav-text">
                             <NavLink
                                 to="/"
                                 onClick={onLogout}
@@ -73,6 +94,18 @@ const NavBar = ({
                             </NavLink>
                         </li>
                     </ul>
+                    <Modal
+                        appElement={document.getElementById('root')}
+                        className="affirmation-modal"
+                        style={style}
+                        isOpen={affirmationModal}
+                    >
+                        <div>
+                            <Affirmations
+                                toggleAffirmation={toggleAffirmation}
+                            />
+                        </div>
+                    </Modal>
                 </nav>
             </div>
         );
