@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import Dream from '../Dream';
+import Gratitude from '../Gratitude';
 import './Morning.css';
 
 const Morning = ({ toggleMorning, slideMorning, toggleNav }) => {
-    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [dreamModal, setDreamModal] = useState(false);
+    const [gratModal, setGratModal] = useState(false);
 
     const style = {
         overlay: {
@@ -14,7 +16,8 @@ const Morning = ({ toggleMorning, slideMorning, toggleNav }) => {
         },
     };
 
-    const toggleModal = () => setModalIsOpen(!modalIsOpen);
+    const toggleDreamModal = () => setDreamModal(!dreamModal);
+    const toggleGratModal = () => setGratModal(!gratModal);
 
     return (
         <div
@@ -24,13 +27,15 @@ const Morning = ({ toggleMorning, slideMorning, toggleNav }) => {
         >
             <ul onClick={toggleMorning} className="morning-menu-items">
                 <li className="morning-text">
-                    <a onClick={toggleModal}>Dream Journal</a>
+                    <a onClick={toggleDreamModal}>Dream Journal</a>
                 </li>
                 <li className="morning-text">
                     <a activeClassName="active">Brain Boosters</a>
                 </li>
                 <li className="morning-text">
-                    <a activeClassName="active">Gratitude</a>
+                    <a onClick={toggleGratModal} activeClassName="active">
+                        Gratitude
+                    </a>
                 </li>
                 <li className="morning-text">
                     <a activeClassName="active">Daily Health Tips</a>
@@ -43,13 +48,25 @@ const Morning = ({ toggleMorning, slideMorning, toggleNav }) => {
             </ul>
             <div>
                 <Modal
-                    // appElement={document.getElementById('root')}
+                    appElement={document.getElementById('root')}
                     className="dream-modal"
                     style={style}
-                    isOpen={modalIsOpen}
+                    isOpen={dreamModal}
                 >
                     <div>
-                        <Dream toggleModal={toggleModal} />
+                        <Dream toggleDreamModal={toggleDreamModal} />
+                    </div>
+                </Modal>
+            </div>
+            <div>
+                <Modal
+                    appElement={document.getElementById('root')}
+                    className="grat-modal"
+                    style={style}
+                    isOpen={gratModal}
+                >
+                    <div>
+                        <Gratitude toggleGratModal={toggleGratModal} />
                     </div>
                 </Modal>
             </div>

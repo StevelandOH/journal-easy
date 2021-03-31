@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addEntry } from '../../store/entries';
 import './Dream.css';
 
-const Dream = ({ dreamModal, toggleModal }) => {
+const Dream = ({ dreamModal, toggleDreamModal }) => {
     const dispatch = useDispatch();
     const [data, setData] = useState('');
     const user = useSelector((state) => state.users.user);
@@ -20,7 +20,7 @@ const Dream = ({ dreamModal, toggleModal }) => {
         let x = new Date();
         let date = x.toLocaleDateString();
         await dispatch(addEntry(userId, { prompt, data, type, date }));
-        toggleModal();
+        toggleDreamModal();
     };
 
     const updateEntry = (e) => {
@@ -59,7 +59,10 @@ const Dream = ({ dreamModal, toggleModal }) => {
                     </div>
                 </form>
                 <div className="cancel-div">
-                    <i onClick={toggleModal} class="far fa-times-circle"></i>
+                    <i
+                        onClick={toggleDreamModal}
+                        class="far fa-times-circle"
+                    ></i>
                 </div>
             </div>
         </div>
