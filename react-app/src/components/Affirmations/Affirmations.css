@@ -1,0 +1,77 @@
+.affirmation-container {
+    background: url('../../images/notebook.png') no-repeat center;
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-around; */
+    padding: 50px;
+    transition: 2000ms;
+    color: black;
+    border-radius: 50px;
+    width: 60%;
+    height: 50vh;
+    margin: 100px;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.7);
+}
+
+.aff-left,
+.aff-right {
+    width: 50%;
+}
+
+.aff-header {
+    margin-top: 10px;
+    margin-right: 35px;
+    font-size: 30px;
+}
+
+p {
+    margin: 8px;
+}
+
+.aff-left {
+    margin-top: -50px;
+}
+
+.aff-right {
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+}
+
+.aff {
+    text-align: right;
+}
+
+.aff-list-item {
+    text-align: right;
+    margin: 10px;
+}
+
+.aff-input {
+    height: 25px;
+}
+
+.aff-form-submit {
+    margin: 0px 10px 10px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.cancel-div.aff {
+    margin-left: -20px;
+}
+
+.dream-button.aff {
+    margin-left: 10px;
+}
+
+.fa-minus-circle {
+    background-color: white;
+    cursor: pointer;
+    color: rgba(193, 78, 78, 0.8);
+    font-size: 30px;
+    border-radius: 5em;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
+}

@@ -19,7 +19,7 @@ const Dream = ({ dreamModal, toggleDreamModal }) => {
         let type = 'dream';
         let x = new Date();
         let date = x.toLocaleDateString();
-        await dispatch(addEntry(userId, { prompt, data, type, date }));
+        await dispatch(addEntry({ prompt, data, type, date }));
         toggleDreamModal();
     };
 

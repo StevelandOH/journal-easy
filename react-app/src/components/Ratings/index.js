@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addRating } from '../../store/ratings';
 import './Ratings.css';
 
@@ -7,11 +7,6 @@ const Ratings = ({ toggleRating }) => {
     const dispatch = useDispatch();
     const [currRating, setCurrRating] = useState(0);
     const [rating, setRating] = useState(0);
-    const user = useSelector((state) => state.users.user);
-    let userId;
-    if (user) {
-        userId = user.id;
-    }
 
     const stars = document.getElementsByName('star');
 
@@ -44,7 +39,7 @@ const Ratings = ({ toggleRating }) => {
         console.log(rating);
         let x = new Date();
         let date = x.toLocaleDateString();
-        dispatch(addRating(userId, { rating, date }));
+        dispatch(addRating({ rating, date }));
     };
 
     let clear = () => {

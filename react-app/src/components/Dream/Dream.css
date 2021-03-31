@@ -87,6 +87,7 @@
 }
 
 .fa-check-circle {
+    border: none;
     cursor: pointer;
     color: #e2b888;
     font-size: 30px;
@@ -100,6 +101,7 @@
 }
 
 .dream-button {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: white;
     border: none;
+    border-radius: 5em;
 }

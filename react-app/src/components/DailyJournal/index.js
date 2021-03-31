@@ -6,11 +6,7 @@ import '../Dream/Dream.css';
 const Gratitude = ({ journalModal, toggleJournal }) => {
     const dispatch = useDispatch();
     const [data, setData] = useState('');
-    const user = useSelector((state) => state.users.user);
-    let userId;
-    if (user) {
-        userId = user.id;
-    }
+
     const prompt = 'Talk about one thing that made you happy today';
 
     const handleEntry = async (e) => {
@@ -18,7 +14,7 @@ const Gratitude = ({ journalModal, toggleJournal }) => {
         let type = 'journal';
         let x = new Date();
         let date = x.toLocaleDateString();
-        await dispatch(addEntry(userId, { prompt, data, type, date }));
+        await dispatch(addEntry({ prompt, data, type, date }));
         toggleJournal();
     };
 

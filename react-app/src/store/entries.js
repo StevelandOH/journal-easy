@@ -17,7 +17,7 @@ export const getEntries = () => async (dispatch) => {
     dispatch(setEntries(data));
 };
 
-export const addEntry = (entry) => async (dispatch) => {
+export const addEntry = (entry, userId) => async (dispatch) => {
     const { prompt, data, type, date } = entry;
     const res = await fetch(`/api/entry/`, {
         method: 'POST',
