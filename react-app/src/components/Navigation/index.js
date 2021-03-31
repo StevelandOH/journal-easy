@@ -31,13 +31,17 @@ const NavBar = ({
 
     if (sessionUser && !errors) {
         return (
-            <div className="navbar" onMouseLeave={toggleNav}>
-                <div className="menu-bars" onMouseEnter={toggleNav}>
+            <div className="navbar">
+                <div className="menu-bars" onClick={toggleNav}>
                     <i class="fas fa-bars"></i>h
                 </div>
 
                 <nav className={nav ? 'nav-menu active' : 'nav-menu'}>
-                    <ul onClick={toggleNav} className="nav-menu-items">
+                    <ul
+                        onClick={toggleNav}
+                        className="nav-menu-items"
+                        onMouseLeave={toggleNav}
+                    >
                         <li className="nav-text">
                             <NavLink
                                 to="/"
@@ -74,8 +78,8 @@ const NavBar = ({
         );
     } else {
         return (
-            <div className="navbar" onMouseLeave={toggleNav}>
-                <div className="menu-bars" onMouseEnter={toggleNav}>
+            <div className="navbar">
+                <div className="menu-bars" onClick={toggleNav}>
                     <i class="fas fa-bars"></i>
                 </div>
 

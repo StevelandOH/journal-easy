@@ -7,7 +7,6 @@ import NavBar from './components/Navigation';
 import Slash from './components/Slash';
 import Morning from './components/Morning';
 import Evening from './components/Evening';
-import Dream from './components/Dream';
 import { restoreUser, authenticate } from './store/users';
 
 function App() {
@@ -19,7 +18,7 @@ function App() {
     const [slideSignup, setSlideSignup] = useState(false);
     const [slideMorning, setSlideMorning] = useState(false);
     const [slideEvening, setSlideEvening] = useState(false);
-    const [dream, setDream] = useState(false);
+
     const toggleNav = () => {
         if (
             !nav &&
@@ -40,7 +39,6 @@ function App() {
     const toggleSignup = () => setSlideSignup(!slideSignup);
     const toggleMorning = () => setSlideMorning(!slideMorning);
     const toggleEvening = () => setSlideEvening(!slideEvening);
-    const toggleDream = () => setDream(!dream);
 
     useEffect(() => {
         const user = authenticate();
@@ -51,10 +49,6 @@ function App() {
         setLoaded(true);
     });
 
-    useEffect(() => {
-        setNav(true);
-    }, []);
-
     if (!loaded) return null;
 
     return (
@@ -62,62 +56,34 @@ function App() {
             <NavBar
                 toggleMorning={toggleMorning}
                 toggleEvening={toggleEvening}
-                slideMorning={slideMorning}
-                slideEvening={slideEvening}
-                setSlideMorning={setSlideMorning}
-                setSlideEvening={setSlideEvening}
                 toggleLogin={toggleLogin}
-                slideLogin={slideLogin}
-                setSlideLogin={setSlideLogin}
                 nav={nav}
                 setNav={setNav}
                 toggleNav={toggleNav}
                 setAuthenticated={setAuthenticated}
                 authenticated={authenticated}
                 toggleSignup={toggleSignup}
-                slideSignup={slideSignup}
-                setSlideSignup={setSlideSignup}
             />
-
             <LoginForm
-                nav={nav}
                 setNav={setNav}
-                toggleNav={toggleNav}
                 toggleLogin={toggleLogin}
                 slideLogin={slideLogin}
                 setSlideLogin={setSlideLogin}
             />
             <SignUpForm
-                nav={nav}
                 setNav={setNav}
-                toggleNav={toggleNav}
                 slideSignup={slideSignup}
-                setSlideSignup={setSlideSignup}
                 toggleSignup={toggleSignup}
             />
             <Morning
-                dream={dream}
-                setDream={setDream}
-                toggleDream={toggleDream}
                 toggleMorning={toggleMorning}
                 slideMorning={slideMorning}
-                setSlideMorning={setSlideMorning}
-                nav={nav}
-                setNav={setNav}
                 toggleNav={toggleNav}
             />
             <Evening
                 toggleEvening={toggleEvening}
                 slideEvening={slideEvening}
-                setSlideEvening={setSlideEvening}
-                nav={nav}
-                setNav={setNav}
                 toggleNav={toggleNav}
-            />
-            <Dream
-                dream={dream}
-                setDream={setDream}
-                toggleDream={toggleDream}
             />
             <Switch>
                 <Route path="/" exact={true}>

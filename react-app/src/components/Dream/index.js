@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addEntry } from '../../store/entries';
 
-const Dream = ({ dream, setDream, toggleDream }) => {
+const Dream = ({ dream, toggleDream }) => {
     const dispatch = useDispatch();
     const [data, setData] = useState('');
     const user = useSelector((state) => state.users.user);
@@ -12,13 +12,12 @@ const Dream = ({ dream, setDream, toggleDream }) => {
     }
     const prompt =
         'Talk a little about your dream, what emotions did they make you feel?';
-    let type;
-    let date;
+
     const handleEntry = async (e) => {
         e.preventDefault();
-        type = 'dream';
+        let type = 'dream';
         let x = new Date();
-        date = x.toLocaleDateString();
+        let date = x.toLocaleDateString();
         await dispatch(addEntry(userId, { prompt, data, type, date }));
     };
 

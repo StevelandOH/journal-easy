@@ -21,7 +21,7 @@
     position: fixed;
     top: 80px;
     left: -100%;
-    transition: 1000ms;
+    transition: 2000ms;
     border-radius: 0px 100px 100px 0px;
     padding: 25px;
 }

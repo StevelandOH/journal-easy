@@ -7,9 +7,17 @@ const Slash = () => {
         sessionUser ? sessionUser.errors : null
     );
     if (sessionUser && !errors) {
-        return <h1 style={{ color: 'white' }}>DASHBOARD</h1>;
+        return (
+            <div>
+                <h1 style={{ color: 'white' }}>DASHBOARD</h1>
+            </div>
+        );
     } else {
-        return <h1 style={{ color: 'white' }}>LANDING PAGE</h1>;
+        return (
+            <div>
+                <h1 style={{ color: 'white' }}>LANDINGPAGE</h1>
+            </div>
+        );
     }
 };
 

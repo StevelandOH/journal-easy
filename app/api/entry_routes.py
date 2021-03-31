@@ -18,7 +18,6 @@ def get_entries(id):
 @entry_routes.route('/', methods=['POST'])
 def add_entry():
     data = request.data
-    print('this is my data-------------------------', data)
     j = json.loads(data)
     entry = Entry(
         prompt=j['prompt'],

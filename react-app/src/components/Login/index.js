@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { login } from '../../store/users';
 import './Login.css';
 
-const LoginForm = ({ toggleLogin, slideLogin, setNav }) => {
+const LoginForm = ({ toggleLogin, slideLogin, setNav, setSlideLogin }) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const [errors, setErrors] = useState([]);
@@ -15,9 +15,10 @@ const LoginForm = ({ toggleLogin, slideLogin, setNav }) => {
         e.preventDefault();
         const user = await dispatch(login({ username, password }));
         if (!user.payload.errors) {
-            toggleLogin();
-            setNav(true);
+            setSlideLogin(false);
+
             history.push('/');
+            setNav(true);
         } else {
             setErrors(user.payload.errors);
         }
