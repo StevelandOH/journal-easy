@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import DailyJournal from '../DailyJournal';
+import Ratings from '../Ratings';
 import './Evening.css';
 
 const Evening = ({ toggleEvening, slideEvening, toggleNav }) => {
     const [journalModal, setJournalModal] = useState(false);
+    const [ratingModal, setRatingModal] = useState(false);
 
     const style = {
         overlay: {
@@ -15,6 +17,7 @@ const Evening = ({ toggleEvening, slideEvening, toggleNav }) => {
     };
 
     const toggleJournal = () => setJournalModal(!journalModal);
+    const toggleRating = () => setRatingModal(!ratingModal);
 
     return (
         <div
@@ -29,7 +32,9 @@ const Evening = ({ toggleEvening, slideEvening, toggleNav }) => {
                     </a>
                 </li>
                 <li className="evening-text">
-                    <a activeClassName="active">Rate Today </a>
+                    <a onClick={toggleRating} activeClassName="active">
+                        Rate Today{' '}
+                    </a>
                 </li>
                 <li className="evening-text">
                     <a activeClassName="active">Sleep Tips</a>
@@ -49,6 +54,16 @@ const Evening = ({ toggleEvening, slideEvening, toggleNav }) => {
                 >
                     <div>
                         <DailyJournal toggleJournal={toggleJournal} />
+                    </div>
+                </Modal>
+                <Modal
+                    appElement={document.getElementById('root')}
+                    className="rating-modal"
+                    style={style}
+                    isOpen={ratingModal}
+                >
+                    <div>
+                        <Ratings toggleRating={toggleRating} />
                     </div>
                 </Modal>
             </div>
