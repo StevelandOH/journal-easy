@@ -31,10 +31,12 @@ const Dream = ({ dreamModal, toggleModal }) => {
                 <form className="dream-form" onSubmit={handleEntry}>
                     <div className="dream-left">
                         <div className="dream-header-container">
-                            <h1 className="dream header">The Dream Journal</h1>
+                            <div className="dream header">
+                                The Dream Journal
+                            </div>
                         </div>
                         <div className="dream-prompt-container">
-                            <label className="dream">{prompt}</label>
+                            <label className="dream-prompt">{prompt}</label>
                         </div>
                     </div>
                     <div className="dream-right">

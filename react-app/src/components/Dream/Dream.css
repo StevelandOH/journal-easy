@@ -46,6 +46,7 @@
 .dream.header {
     font-size: 200%;
     padding: 10px;
+    cursor: inherit;
 }
 .dream-button-container {
     margin: 10px;
@@ -78,6 +79,7 @@
 }
 
 .fa-times-circle {
+    cursor: pointer;
     color: #e2b888;
     font-size: 30px;
     border-radius: 5em;
@@ -85,6 +87,7 @@
 }
 
 .fa-check-circle {
+    cursor: pointer;
     color: #e2b888;
     font-size: 30px;
     border-radius: 5em;
@@ -93,6 +96,7 @@
 
 .dream-prompt-container {
     width: 80%;
+    height: 20%;
 }
 
 .dream-button {
