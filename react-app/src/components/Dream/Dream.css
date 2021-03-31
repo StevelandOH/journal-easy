@@ -1,20 +1,36 @@
 .dream-container {
-    background-color: rgba(255, 255, 255, 0.9);
-    width: 300px;
     display: flex;
-    justify-content: left;
-    position: fixed;
-    top: 80px;
-    left: -100%;
-    transition: 1000ms;
-    border-radius: 0px 100px 100px 0px;
-}
-
-.dream-container.active {
-    left: 0;
-    transition: 350ms;
+    justify-content: center;
+    margin: 100px;
+    height: 70vh;
+    border-radius: 50px;
 }
 
 .dream-form-container {
-    margin: 30px;
+    background: url('../../images/lakeview.jpg') no-repeat center fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 1000ms;
+    color: white;
+    padding: 250px 200px 200px 200px;
+    border-radius: 50px;
+    width: 100%;
+}
+
+.dream {
+    margin: 10px;
+}
+
+.dream-input {
+    padding: 10px;
+    height: 100px;
+    width: 300px;
+    border-radius: 10px;
+    background-color: rgb(250, 235, 208);
+}
+
+.dream.header {
+    font-size: 30px;
 }

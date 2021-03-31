@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addEntry } from '../../store/entries';
+import './Dream.css';
 
-const Dream = ({ dream, toggleDream }) => {
+const Dream = ({ dreamModal, toggleModal }) => {
     const dispatch = useDispatch();
     const [data, setData] = useState('');
     const user = useSelector((state) => state.users.user);
@@ -25,29 +26,34 @@ const Dream = ({ dream, toggleDream }) => {
         setData(e.target.value);
     };
     return (
-        <div className={dream ? 'dream-container active' : 'dream-container'}>
-            <form onSubmit={handleEntry}>
-                <h1>The Dream Journal</h1>
-                <label>{prompt}</label>
-                <div className="dream-input-container">
-                    <textarea
-                        className="dream-input"
-                        name="entry"
-                        placeholder="..."
-                        value={data}
-                        onChange={updateEntry}
-                    />
-                </div>
-                <div className="dream-button-container">
-                    <button className="dream-button" type="submit">
-                        submit
+        <div className="dream-container">
+            <div className="dream-form-container">
+                <form className="dream-form" onSubmit={handleEntry}>
+                    <h1 className="dream header">The Dream Journal</h1>
+
+                    <div className="dream-input-container">
+                        <textarea
+                            className="dream dream-input"
+                            name="entry"
+                            value={data}
+                            onChange={updateEntry}
+                        />
+                    </div>
+                    <label className="dream">{prompt}</label>
+                    <div className="dream-button-container">
+                        <button className="cancel-button dream" type="submit">
+                            submit
+                        </button>
+                    </div>
+                </form>
+                <div>
+                    <button
+                        onClick={toggleModal}
+                        className="cancel-button dream"
+                    >
+                        cancel
                     </button>
                 </div>
-            </form>
-            <div>
-                <button onClick={toggleDream} className="cancel-button">
-                    ⬅
-                </button>
             </div>
         </div>
     );

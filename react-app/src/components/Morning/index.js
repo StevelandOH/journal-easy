@@ -9,8 +9,7 @@ const Morning = ({ toggleMorning, slideMorning, toggleNav }) => {
     const style = {
         overlay: {
             textAlign: 'center',
-            top: '45px',
-            backgroundColor: 'rgba(0,0, 0, 0.8)',
+            backgroundColor: 'rgba(0,0,0, 0.9)',
             zIndex: '1000',
         },
     };
@@ -42,19 +41,18 @@ const Morning = ({ toggleMorning, slideMorning, toggleNav }) => {
                     </button>
                 </div>
             </ul>
-            <Modal
-                appElement={document.getElementById('root')}
-                className="dream-modal"
-                style={style}
-                isOpen={modalIsOpen}
-            >
-                <div>
-                    <button className="xButton" onClick={toggleModal}>
-                        x
-                    </button>
-                    <Dream />
-                </div>
-            </Modal>
+            <div>
+                <Modal
+                    // appElement={document.getElementById('root')}
+                    className="dream-modal"
+                    style={style}
+                    isOpen={modalIsOpen}
+                >
+                    <div>
+                        <Dream toggleModal={toggleModal} />
+                    </div>
+                </Modal>
+            </div>
         </div>
     );
 };
