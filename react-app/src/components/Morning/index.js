@@ -9,7 +9,7 @@ const Morning = ({ toggleMorning, slideMorning, toggleNav }) => {
     const style = {
         overlay: {
             textAlign: 'center',
-            backgroundColor: 'rgba(0,0,0, 0.9)',
+            backgroundColor: 'rgba(118,118,118, 0.9)',
             zIndex: '1000',
         },
     };

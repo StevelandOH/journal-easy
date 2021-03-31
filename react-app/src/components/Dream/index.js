@@ -29,30 +29,34 @@ const Dream = ({ dreamModal, toggleModal }) => {
         <div className="dream-container">
             <div className="dream-form-container">
                 <form className="dream-form" onSubmit={handleEntry}>
-                    <h1 className="dream header">The Dream Journal</h1>
-
-                    <div className="dream-input-container">
-                        <textarea
-                            className="dream dream-input"
-                            name="entry"
-                            value={data}
-                            onChange={updateEntry}
-                        />
+                    <div className="dream-left">
+                        <div className="dream-header-container">
+                            <h1 className="dream header">The Dream Journal</h1>
+                        </div>
+                        <div className="dream-prompt-container">
+                            <label className="dream">{prompt}</label>
+                        </div>
                     </div>
-                    <label className="dream">{prompt}</label>
-                    <div className="dream-button-container">
-                        <button className="cancel-button dream" type="submit">
-                            submit
-                        </button>
+                    <div className="dream-right">
+                        <div className="dream-input-container">
+                            <textarea
+                                className="dream dream-input"
+                                name="entry"
+                                value={data}
+                                onChange={updateEntry}
+                                placeholder="... |"
+                            />
+                        </div>
+
+                        <div className="dream-button-container">
+                            <button type="submit" className="dream-button">
+                                <i class="fas fa-check-circle"></i>
+                            </button>
+                        </div>
                     </div>
                 </form>
-                <div>
-                    <button
-                        onClick={toggleModal}
-                        className="cancel-button dream"
-                    >
-                        cancel
-                    </button>
+                <div className="cancel-div">
+                    <i onClick={toggleModal} class="far fa-times-circle"></i>
                 </div>
             </div>
         </div>

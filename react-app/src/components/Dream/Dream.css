@@ -1,3 +1,16 @@
+.dream-form-container {
+    background: url('../../images/notebook.png') no-repeat center;
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 10px;
+    justify-content: center;
+    transition: 2000ms;
+    color: black;
+    border-radius: 50px;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.7);
+}
+
 .dream-container {
     display: flex;
     justify-content: center;
@@ -6,31 +19,83 @@
     border-radius: 50px;
 }
 
-.dream-form-container {
-    background: url('../../images/lakeview.jpg') no-repeat center fixed;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: 1000ms;
-    color: white;
-    padding: 250px 200px 200px 200px;
-    border-radius: 50px;
-    width: 100%;
-}
-
-.dream {
-    margin: 10px;
-}
-
 .dream-input {
+    text-decoration: none;
+    border: none;
+    position: relative;
     padding: 10px;
-    height: 100px;
-    width: 300px;
-    border-radius: 10px;
-    background-color: rgb(250, 235, 208);
+    height: 100%;
+    width: 85%;
+    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(118, 118, 118, 0);
+}
+
+.dream-input::placeholder {
+    color: rgb(189, 189, 189);
+}
+
+.dream-input-container {
+    margin: 10px;
+    height: 90%;
+}
+
+.dream-header-container {
+    width: 100px;
 }
 
 .dream.header {
+    font-size: 200%;
+    padding: 10px;
+}
+.dream-button-container {
+    margin: 10px;
+}
+
+.dream-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+}
+.dream-left,
+.dream-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 40%;
+    height: 80%;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+
+.cancel-div {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px;
+    margin: 10px;
+}
+
+.fa-times-circle {
+    color: #e2b888;
     font-size: 30px;
+    border-radius: 5em;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
+}
+
+.fa-check-circle {
+    color: #e2b888;
+    font-size: 30px;
+    border-radius: 5em;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
+}
+
+.dream-prompt-container {
+    width: 80%;
+}
+
+.dream-button {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
 }
