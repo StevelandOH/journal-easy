@@ -6,11 +6,7 @@ import '../Dream/Dream.css';
 const Gratitude = ({ gratModal, toggleGratModal }) => {
     const dispatch = useDispatch();
     const [data, setData] = useState('');
-    const user = useSelector((state) => state.users.user);
-    let userId;
-    if (user) {
-        userId = user.id;
-    }
+
     const prompt =
         'Try to remember back to your first job and think about what it was like when you were new there...';
 
@@ -19,7 +15,7 @@ const Gratitude = ({ gratModal, toggleGratModal }) => {
         let type = 'gratitude';
         let x = new Date();
         let date = x.toLocaleDateString();
-        await dispatch(addEntry(userId, { prompt, data, type, date }));
+        await dispatch(addEntry({ prompt, data, type, date }));
         toggleGratModal();
     };
 

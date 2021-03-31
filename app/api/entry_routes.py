@@ -1,14 +1,16 @@
 from flask import Blueprint, request, json
 from app.models import Entry, db, User
+from flask_login import current_user
 
 
 entry_routes = Blueprint('entries', __name__)
 
 
 @entry_routes.route('/')
-def get_entries(id):
+def get_entries():
+    user = current_user.to_dict()
     entries = Entry.query.filter(
-        Entry.user_id == id).order_by(Entry.date.desc()).all()
+        Entry.user_id == user['id']).all()
     response = {}
     for entry in entries:
         response[entry.id] = entry.to_dict()
@@ -17,6 +19,7 @@ def get_entries(id):
 
 @entry_routes.route('/', methods=['POST'])
 def add_entry():
+    user = current_user.to_dict()
     data = request.data
     j = json.loads(data)
     entry = Entry(
@@ -24,7 +27,7 @@ def add_entry():
         response=j['data'],
         type=j['type'],
         date=j['date'],
-        user_id=j['userId']
+        user_id=user['id']
     )
     db.session.add(entry)
     db.session.commit()

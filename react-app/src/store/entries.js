@@ -1,11 +1,23 @@
 const SET_ENTRY = 'entry/setEntry';
+const GET_ENTRIES = 'entry/setEntries';
 
 export const setEntry = (entry) => ({
     type: SET_ENTRY,
     payload: entry,
 });
 
-export const addEntry = (userId, entry) => async (dispatch) => {
+export const setEntries = (entries) => ({
+    type: GET_ENTRIES,
+    payload: entries,
+});
+
+export const getEntries = () => async (dispatch) => {
+    const res = await fetch('/api/entry/');
+    const data = await res.json();
+    dispatch(setEntries(data));
+};
+
+export const addEntry = (entry) => async (dispatch) => {
     const { prompt, data, type, date } = entry;
     const res = await fetch(`/api/entry/`, {
         method: 'POST',
@@ -16,7 +28,6 @@ export const addEntry = (userId, entry) => async (dispatch) => {
             prompt,
             data,
             type,
-            userId,
             date,
         }),
     });
@@ -30,8 +41,14 @@ const entryReducer = (state = {}, action) => {
         case SET_ENTRY:
             newState[action.payload.id] = action.payload;
             return newState;
+        case GET_ENTRIES:
+            for (let entry in action.payload) {
+                newState[action.payload[entry].id] = action.payload[entry];
+            }
+            return newState;
         default:
             return state;
     }
 };
+
 export default entryReducer;

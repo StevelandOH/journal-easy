@@ -9,6 +9,8 @@ import Morning from './components/Morning';
 import Evening from './components/Evening';
 import { restoreUser, authenticate } from './store/users';
 import { getAffirmations } from './store/affirmations';
+import { getEntries } from './store/entries';
+import { getRatings } from './store/ratings';
 
 function App() {
     const dispatch = useDispatch();
@@ -47,6 +49,8 @@ function App() {
             dispatch(restoreUser());
             setAuthenticated(true);
             dispatch(getAffirmations());
+            dispatch(getEntries());
+            dispatch(getRatings());
         }
         setLoaded(true);
     });
