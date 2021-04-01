@@ -21,6 +21,7 @@ function App() {
     const [slideSignup, setSlideSignup] = useState(false);
     const [slideMorning, setSlideMorning] = useState(false);
     const [slideEvening, setSlideEvening] = useState(false);
+    const [date, setDate] = useState(new Date());
 
     const toggleNav = () => setNav(!nav);
     const toggleLogin = () => setSlideLogin(!slideLogin);
@@ -84,7 +85,7 @@ function App() {
             />
             <Switch>
                 <Route path="/" exact={true}>
-                    <Slash />
+                    <Slash date={date} />
                 </Route>
             </Switch>
         </>
