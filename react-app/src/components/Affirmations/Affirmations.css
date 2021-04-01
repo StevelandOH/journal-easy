@@ -5,12 +5,13 @@
     background-color: rgba(221, 244, 216, 0.4);
     align-items: center;
     transition: 1000ms;
-    margin-left: 32%;
+    margin-left: 30%;
     margin-top: 10%;
     padding: 30px 20px 0px 20px;
     color: black;
     border-radius: 8em;
-    width: 400px;
+    width: 500px;
+    height: 400px;
     box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.7);
 }
 
@@ -32,6 +33,11 @@
     width: 220px;
     margin-top: 10px;
     margin-bottom: 20px;
+}
+
+.aff-list {
+    height: 100px;
+    overflow: scroll;
 }
 
 .aff-form-submit {

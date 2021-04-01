@@ -40,6 +40,10 @@ function App() {
         setLoaded(true);
     });
 
+    useEffect(() => {
+        setNav(true);
+    }, []);
+
     if (!loaded) return null;
 
     return (
