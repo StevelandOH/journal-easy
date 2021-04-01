@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addEntry } from '../../store/entries';
 import '../Dream/Dream.css';
 
-const Gratitude = ({ gratModal, toggleGratModal }) => {
+const Gratitude = ({ gratModal, toggleGratModal, toggleNav }) => {
     const dispatch = useDispatch();
     const [data, setData] = useState('');
 
@@ -54,12 +54,13 @@ const Gratitude = ({ gratModal, toggleGratModal }) => {
                         </div>
                     </div>
                 </form>
-                <div className="cancel-div">
-                    <i
-                        onClick={toggleGratModal}
-                        class="far fa-times-circle"
-                    ></i>
-                </div>
+                <button
+                    className="cancel-button"
+                    onClick={toggleGratModal}
+                    onMouseUp={toggleNav}
+                >
+                    ⬅
+                </button>
             </div>
         </div>
     );

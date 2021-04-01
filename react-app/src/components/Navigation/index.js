@@ -28,7 +28,7 @@ const NavBar = ({
     const style = {
         overlay: {
             textAlign: 'center',
-            backgroundColor: 'rgba(118,118,118, 0.9)',
+            backgroundColor: 'rgba(255,255,255, 0.9)',
             zIndex: '1000',
         },
     };
@@ -39,7 +39,6 @@ const NavBar = ({
         e.preventDefault();
         await dispatch(logout());
         setAuthenticated(false);
-        setNav(true);
     };
 
     if (sessionUser && !errors) {
@@ -50,11 +49,7 @@ const NavBar = ({
                 </div>
 
                 <nav className={nav ? 'nav-menu active' : 'nav-menu'}>
-                    <ul
-                        onClick={toggleNav}
-                        className="nav-menu-items"
-                        onMouseLeave={toggleNav}
-                    >
+                    <ul onClick={toggleNav} className="nav-menu-items">
                         <li className="nav-text">
                             <NavLink
                                 to="/"
@@ -65,21 +60,30 @@ const NavBar = ({
                             </NavLink>
                         </li>
                         <li className="nav-text">
-                            <a onClick={toggleMorning} activeClassName="active">
+                            <a
+                                onClick={toggleNav}
+                                onClickCapture={toggleMorning}
+                                activeClassName="active"
+                            >
                                 Morning
                             </a>
                         </li>
                         <li className="nav-text">
-                            <a onClick={toggleEvening} activeClassName="active">
+                            <a
+                                onClick={toggleNav}
+                                onClickCapture={toggleEvening}
+                                activeClassName="active"
+                            >
                                 Evening
                             </a>
                         </li>
                         <li className="nav-text">
                             <a
-                                onClick={toggleAffirmation}
+                                onClick={toggleNav}
+                                onClickCapture={toggleAffirmation}
                                 activeClassName="active"
                             >
-                                add Affirmation
+                                Affirmation
                             </a>
                         </li>
                         <li className="nav-text">
@@ -102,6 +106,7 @@ const NavBar = ({
                     >
                         <div>
                             <Affirmations
+                                toggleNav={toggleNav}
                                 toggleAffirmation={toggleAffirmation}
                             />
                         </div>

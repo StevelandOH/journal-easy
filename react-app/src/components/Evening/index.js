@@ -39,8 +39,12 @@ const Evening = ({ toggleEvening, slideEvening, toggleNav }) => {
                 <li className="evening-text">
                     <a activeClassName="active">Sleep Tips</a>
                 </li>
-                <div onClick={toggleNav}>
-                    <button className="cancel-button" onClick={toggleEvening}>
+                <div>
+                    <button
+                        className="cancel-button"
+                        onClick={toggleEvening}
+                        onClickCapture={toggleNav}
+                    >
                         ⬅
                     </button>
                 </div>
@@ -53,7 +57,10 @@ const Evening = ({ toggleEvening, slideEvening, toggleNav }) => {
                     isOpen={journalModal}
                 >
                     <div>
-                        <DailyJournal toggleJournal={toggleJournal} />
+                        <DailyJournal
+                            toggleNav={toggleNav}
+                            toggleJournal={toggleJournal}
+                        />
                     </div>
                 </Modal>
                 <Modal
@@ -63,7 +70,10 @@ const Evening = ({ toggleEvening, slideEvening, toggleNav }) => {
                     isOpen={ratingModal}
                 >
                     <div>
-                        <Ratings toggleRating={toggleRating} />
+                        <Ratings
+                            toggleNav={toggleNav}
+                            toggleRating={toggleRating}
+                        />
                     </div>
                 </Modal>
             </div>

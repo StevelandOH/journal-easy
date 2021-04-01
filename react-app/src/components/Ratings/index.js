@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { addRating } from '../../store/ratings';
 import './Ratings.css';
 
-const Ratings = ({ toggleRating }) => {
+const Ratings = ({ toggleRating, toggleNav }) => {
     const dispatch = useDispatch();
     const [currRating, setCurrRating] = useState(0);
     const [rating, setRating] = useState(0);
@@ -71,9 +71,13 @@ const Ratings = ({ toggleRating }) => {
                     })}
                 </div>
             </div>
-            <div className="cancel-div">
-                <i onClick={toggleRating} class="far fa-times-circle"></i>
-            </div>
+            <button
+                className="cancel-button"
+                onClick={toggleRating}
+                onMouseUp={toggleNav}
+            >
+                ⬅
+            </button>
         </div>
     );
 };

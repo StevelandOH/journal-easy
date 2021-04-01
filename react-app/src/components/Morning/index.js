@@ -40,8 +40,12 @@ const Morning = ({ toggleMorning, slideMorning, toggleNav }) => {
                 <li className="morning-text">
                     <a activeClassName="active">Daily Health Tips</a>
                 </li>
-                <div onClick={toggleNav}>
-                    <button className="cancel-button" onClick={toggleMorning}>
+                <div>
+                    <button
+                        className="cancel-button"
+                        onClick={toggleMorning}
+                        onMouseUp={toggleNav}
+                    >
                         ⬅
                     </button>
                 </div>
@@ -54,7 +58,10 @@ const Morning = ({ toggleMorning, slideMorning, toggleNav }) => {
                     isOpen={dreamModal}
                 >
                     <div>
-                        <Dream toggleDreamModal={toggleDreamModal} />
+                        <Dream
+                            toggleNav={toggleNav}
+                            toggleDreamModal={toggleDreamModal}
+                        />
                     </div>
                 </Modal>
             </div>
@@ -66,7 +73,10 @@ const Morning = ({ toggleMorning, slideMorning, toggleNav }) => {
                     isOpen={gratModal}
                 >
                     <div>
-                        <Gratitude toggleGratModal={toggleGratModal} />
+                        <Gratitude
+                            toggleNav={toggleNav}
+                            toggleGratModal={toggleGratModal}
+                        />
                     </div>
                 </Modal>
             </div>

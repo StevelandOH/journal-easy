@@ -22,22 +22,7 @@ function App() {
     const [slideMorning, setSlideMorning] = useState(false);
     const [slideEvening, setSlideEvening] = useState(false);
 
-    const toggleNav = () => {
-        if (
-            !nav &&
-            !slideLogin &&
-            !nav &&
-            !slideSignup &&
-            !nav &&
-            !slideMorning &&
-            !nav &&
-            !slideEvening
-        ) {
-            setNav(true);
-        } else {
-            setNav(false);
-        }
-    };
+    const toggleNav = () => setNav(!nav);
     const toggleLogin = () => setSlideLogin(!slideLogin);
     const toggleSignup = () => setSlideSignup(!slideSignup);
     const toggleMorning = () => setSlideMorning(!slideMorning);

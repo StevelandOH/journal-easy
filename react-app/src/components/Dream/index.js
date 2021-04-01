@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addEntry } from '../../store/entries';
 import './Dream.css';
 
-const Dream = ({ dreamModal, toggleDreamModal }) => {
+const Dream = ({ dreamModal, toggleDreamModal, toggleNav }) => {
     const dispatch = useDispatch();
     const [data, setData] = useState('');
     const user = useSelector((state) => state.users.user);
@@ -27,44 +27,33 @@ const Dream = ({ dreamModal, toggleDreamModal }) => {
         setData(e.target.value);
     };
     return (
-        <div className="dream-container">
-            <div className="dream-form-container">
-                <form className="dream-form" onSubmit={handleEntry}>
-                    <div className="dream-left">
-                        <div className="dream-header-container">
-                            <div className="dream header">
-                                The Dream Journal
-                            </div>
-                        </div>
-                        <div className="dream-prompt-container">
-                            <label className="dream-prompt">{prompt}</label>
-                        </div>
-                    </div>
-                    <div className="dream-right">
-                        <div className="dream-input-container">
-                            <textarea
-                                className="dream dream-input"
-                                name="entry"
-                                value={data}
-                                onChange={updateEntry}
-                                placeholder="... |"
-                            />
-                        </div>
-
-                        <div className="dream-button-container">
-                            <button type="submit" className="dream-button">
-                                <i class="fas fa-check-circle"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-                <div className="cancel-div">
-                    <i
-                        onClick={toggleDreamModal}
-                        class="far fa-times-circle"
-                    ></i>
+        <div className="dream-form-container">
+            <form className="dream-form" onSubmit={handleEntry}>
+                <div className="dream-prompt-container">
+                    <label className="dream-prompt">{prompt}</label>
                 </div>
-            </div>
+                <div className="dream-input-container">
+                    <textarea
+                        className="dream dream-input"
+                        name="entry"
+                        value={data}
+                        onChange={updateEntry}
+                        placeholder="... |"
+                    />
+                </div>
+                <div className="dream-button-container">
+                    <button type="submit" className="dream-button">
+                        <i class="fas fa-check-circle"></i>
+                    </button>
+                </div>
+            </form>
+            <button
+                className="cancel-button"
+                onClick={toggleDreamModal}
+                onMouseUp={toggleNav}
+            >
+                ⬅
+            </button>
         </div>
     );
 };

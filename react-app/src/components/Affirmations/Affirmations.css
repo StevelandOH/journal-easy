@@ -1,42 +1,17 @@
 .affirmation-container {
-    background: url('../../images/notebook.png') no-repeat center;
-    background-size: 100% 100%;
-    display: flex;
-    flex-direction: row;
-    /* justify-content: space-around; */
-    padding: 50px;
-    transition: 2000ms;
-    color: black;
-    border-radius: 50px;
-    width: 60%;
-    height: 50vh;
-    margin: 100px;
-    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.7);
-}
-
-.aff-left,
-.aff-right {
-    width: 50%;
-}
-
-.aff-header {
-    margin-top: 10px;
-    margin-right: 35px;
-    font-size: 30px;
-}
-
-p {
-    margin: 8px;
-}
-
-.aff-left {
-    margin-top: -50px;
-}
-
-.aff-right {
     display: flex;
     flex-direction: column;
-    overflow: scroll;
+    justify-content: center;
+    background-color: rgba(221, 244, 216, 0.4);
+    align-items: center;
+    transition: 1000ms;
+    margin-left: 32%;
+    margin-top: 10%;
+    padding: 30px 20px 0px 20px;
+    color: black;
+    border-radius: 8em;
+    width: 400px;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.7);
 }
 
 .aff {
@@ -45,11 +20,18 @@ p {
 
 .aff-list-item {
     text-align: right;
-    margin: 10px;
+    margin: 20px 10px 10px 10px;
 }
 
 .aff-input {
     height: 25px;
+    border-radius: 2em;
+    border: none;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    width: 220px;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .aff-form-submit {
@@ -57,21 +39,42 @@ p {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-}
-
-.cancel-div.aff {
-    margin-left: -20px;
+    border-bottom: 1px solid rgba(126, 125, 125, 0.4);
 }
 
 .dream-button.aff {
     margin-left: 10px;
+    font-size: 20px;
+    margin-top: 12px;
+}
+
+.fa-check-circle.aff {
+    font-size: 20px;
+}
+
+.fa-times-circle.aff {
+    font-size: 20px;
+    color: rgb(191, 191, 191);
+    margin-top: -20px;
+}
+
+.aff-header {
+    color: rgb(135, 135, 135);
+    font-size: 24pt;
+
+    padding: 15px;
+    border-bottom: 1px solid rgba(126, 125, 125, 0.2);
 }
 
 .fa-minus-circle {
     background-color: white;
     cursor: pointer;
     color: rgba(193, 78, 78, 0.8);
-    font-size: 30px;
+    font-size: 20px;
     border-radius: 5em;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
+}
+
+.cancel-button.aff {
+    margin: 15px;
 }

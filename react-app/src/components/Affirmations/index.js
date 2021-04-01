@@ -8,7 +8,11 @@ import {
 
 import './Affirmations.css';
 
-const Affirmations = ({ setAffirmationModal, toggleAffirmation }) => {
+const Affirmations = ({
+    setAffirmationModal,
+    toggleAffirmation,
+    toggleNav,
+}) => {
     const dispatch = useDispatch();
     const [affirmation, setAffirmation] = useState('');
 
@@ -29,61 +33,54 @@ const Affirmations = ({ setAffirmationModal, toggleAffirmation }) => {
 
     return (
         <div className="affirmation-container">
-            <div className="aff-left">
-                <div className="cancel-div aff">
-                    <i
-                        onClick={toggleAffirmation}
-                        class="far fa-times-circle aff"
-                    ></i>
-                </div>
-                <div className="aff-header">Affirmations</div>
-                <p>are positive in nature</p>
-                <p>and help you overcome</p>
-                <p>negativity. Think of </p>
-                <p>something you'd like to</p>
-                <p>change in your life or</p>
-                <p>your career...</p>
-            </div>
-            <div className="aff-right">
-                <div>
-                    <div className="aff-list">
-                        {Object.entries(
-                            useSelector((state) => state.affirmations)
-                        ).map(([k, v]) => {
-                            return (
-                                <div>
-                                    <div
-                                        className="aff-list-item"
-                                        key={k}
-                                        value={v}
-                                    >
-                                        {v.affirmations}{' '}
-                                        <i
-                                            onClick={(e) => deleteAff(e, v)}
-                                            class="fas fa-minus-circle"
-                                        ></i>
-                                    </div>
+            <div className="aff-header">affirmations</div>
+
+            <div>
+                <div className="aff-list">
+                    {Object.entries(
+                        useSelector((state) => state.affirmations)
+                    ).map(([k, v]) => {
+                        return (
+                            <div>
+                                <div
+                                    className="aff-list-item"
+                                    key={k}
+                                    value={v}
+                                >
+                                    {v.affirmations}{' '}
+                                    <i
+                                        onClick={(e) => deleteAff(e, v)}
+                                        class="fas fa-minus-circle"
+                                    ></i>
                                 </div>
-                            );
-                        })}
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+            <form onSubmit={handleAffirmation}>
+                <div className="aff-form-submit">
+                    <input
+                        className="aff-input"
+                        type="text"
+                        onChange={updateAffirmation}
+                    ></input>
+                    <div>
+                        <button type="submit" className="dream-button aff">
+                            <i class="fas fa-check-circle aff"></i>
+                        </button>
                     </div>
                 </div>
-                <form onSubmit={handleAffirmation}>
-                    <div className="aff-form-submit">
-                        <input
-                            className="aff-input"
-                            type="text"
-                            onChange={updateAffirmation}
-                        ></input>
-                        <div>
-                            <button type="submit" className="dream-button aff">
-                                <i class="fas fa-check-circle"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+            </form>
+            <button
+                className="cancel-button aff"
+                onClick={toggleAffirmation}
+                onMouseUp={toggleNav}
+            >
+                ⬅
+            </button>
         </div>
+        // </div>
     );
 };
 
