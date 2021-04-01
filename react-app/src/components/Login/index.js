@@ -4,7 +4,13 @@ import { useDispatch } from 'react-redux';
 import { login } from '../../store/users';
 import './Login.css';
 
-const LoginForm = ({ toggleLogin, slideLogin, setNav, setSlideLogin }) => {
+const LoginForm = ({
+    toggleLogin,
+    slideLogin,
+    setNav,
+    setSlideLogin,
+    toggleNav,
+}) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const [errors, setErrors] = useState([]);
@@ -76,7 +82,11 @@ const LoginForm = ({ toggleLogin, slideLogin, setNav, setSlideLogin }) => {
                     </div>
                 </form>
                 <div>
-                    <button className="cancel-button" onClick={toggleLogin}>
+                    <button
+                        className="cancel-button"
+                        onClickCapture={toggleNav}
+                        onClick={toggleLogin}
+                    >
                         ⬅
                     </button>
                 </div>

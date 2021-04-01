@@ -38,7 +38,7 @@ const NavBar = ({
     const onLogout = async (e) => {
         e.preventDefault();
         await dispatch(logout());
-        setAuthenticated(false);
+        await window.location.reload(true);
     };
 
     if (sessionUser && !errors) {

@@ -17,7 +17,7 @@ export const getRatings = () => async (dispatch) => {
     dispatch(setRatings(data));
 };
 
-export const addRating = (userId, data) => async (dispatch) => {
+export const addRating = (data) => async (dispatch) => {
     const { rating, date } = data;
     const res = await fetch(`/api/rating/`, {
         method: 'POST',
@@ -27,7 +27,6 @@ export const addRating = (userId, data) => async (dispatch) => {
         body: JSON.stringify({
             rating,
             date,
-            userId,
         }),
     });
     const x = await res.json();

@@ -40,6 +40,7 @@ const Ratings = ({ toggleRating, toggleNav }) => {
         let x = new Date();
         let date = x.toLocaleDateString();
         dispatch(addRating({ rating, date }));
+        toggleRating();
     };
 
     let clear = () => {
@@ -51,9 +52,6 @@ const Ratings = ({ toggleRating, toggleNav }) => {
 
     return (
         <div className="ratings-container">
-            <div>
-                <p>How was today?</p>
-            </div>
             <div onMouseLeave={handleRating} className="star-container">
                 <div>
                     {[...Array(10).keys()].map((n) => {
@@ -64,20 +62,28 @@ const Ratings = ({ toggleRating, toggleNav }) => {
                                 key={n + 1}
                                 onMouseOver={hoverRating}
                                 onMouseLeave={clear}
-                                onClick={clickHandler}
                                 class="fas fa-star"
                             ></i>
                         );
                     })}
                 </div>
             </div>
-            <button
-                className="cancel-button"
-                onClick={toggleRating}
-                onMouseUp={toggleNav}
-            >
-                ⬅
-            </button>
+            <div className="button-container">
+                <button
+                    className="submit-button rating"
+                    onClick={clickHandler}
+                    onClickCapture={toggleNav}
+                >
+                    ✓
+                </button>
+                <button
+                    className="cancel-button rating"
+                    onClick={toggleRating}
+                    onClickCapture={toggleNav}
+                >
+                    ⬅
+                </button>
+            </div>
         </div>
     );
 };

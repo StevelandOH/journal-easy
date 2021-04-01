@@ -13,7 +13,7 @@
 
 .morning-container.active {
     left: 0;
-    transition: 350ms;
+    transition: 1000ms;
 }
 
 .morning-text {

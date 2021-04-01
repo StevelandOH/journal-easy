@@ -60,12 +60,14 @@ function App() {
                 toggleSignup={toggleSignup}
             />
             <LoginForm
+                toggleNav={toggleNav}
                 setNav={setNav}
                 toggleLogin={toggleLogin}
                 slideLogin={slideLogin}
                 setSlideLogin={setSlideLogin}
             />
             <SignUpForm
+                toggleNav={toggleNav}
                 setNav={setNav}
                 slideSignup={slideSignup}
                 toggleSignup={toggleSignup}

@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { signUp } from '../../store/users';
 import './Signup.css';
 
-const SignUpForm = ({ slideSignup, toggleSignup, setNav }) => {
+const SignUpForm = ({ slideSignup, toggleSignup, setNav, toggleNav }) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const [username, setUsername] = useState('');
@@ -82,7 +82,11 @@ const SignUpForm = ({ slideSignup, toggleSignup, setNav }) => {
                     </div>
                 </form>
                 <div>
-                    <button className="cancel-button" onClick={toggleSignup}>
+                    <button
+                        className="cancel-button"
+                        onClickCapture={toggleNav}
+                        onClick={toggleSignup}
+                    >
                         ⬅
                     </button>
                 </div>

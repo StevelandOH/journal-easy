@@ -8,15 +8,9 @@ import {
 
 import './Affirmations.css';
 
-const Affirmations = ({
-    setAffirmationModal,
-    toggleAffirmation,
-    toggleNav,
-}) => {
+const Affirmations = ({ toggleAffirmation, toggleNav }) => {
     const dispatch = useDispatch();
     const [affirmation, setAffirmation] = useState('');
-
-    const affirmations = useSelector((state) => state.affirmations);
 
     const updateAffirmation = (e) => setAffirmation(e.target.value);
 
