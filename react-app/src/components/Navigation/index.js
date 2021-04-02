@@ -12,9 +12,7 @@ const NavBar = ({
     toggleMorning,
     toggleLogin,
     nav,
-    setNav,
     toggleNav,
-    setAuthenticated,
     toggleSignup,
 }) => {
     const dispatch = useDispatch();

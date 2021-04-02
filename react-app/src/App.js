@@ -22,15 +22,15 @@ function App() {
     const [slideMorning, setSlideMorning] = useState(false);
     const [slideEvening, setSlideEvening] = useState(false);
     const [date, setDate] = useState(new Date());
-    const [rateGraph, setRateGraph] = useState(true);
-    const [one, setOne] = useState(true);
-    const [two, setTwo] = useState(true);
-    const [three, setThree] = useState(true);
-    const [four, setFour] = useState(true);
-    const [five, setFive] = useState(true);
-    const [six, setSix] = useState(true);
-    const [seven, setSeven] = useState(true);
-    const [eight, setEight] = useState(true);
+    const [rateGraph, setRateGraph] = useState(false);
+    const [one, setOne] = useState(false);
+    const [two, setTwo] = useState(false);
+    const [three, setThree] = useState(false);
+    const [four, setFour] = useState(false);
+    const [five, setFive] = useState(false);
+    const [six, setSix] = useState(false);
+    const [seven, setSeven] = useState(false);
+    const [eight, setEight] = useState(false);
 
     const toggleNav = () => setNav(!nav);
     const toggleLogin = () => setSlideLogin(!slideLogin);
@@ -94,7 +94,6 @@ function App() {
                 toggleSignup={toggleSignup}
             />
             <Morning
-                // setEntryDate={setEntryDate}
                 toggleDates={toggleDates}
                 setRateGraph={setRateGraph}
                 toggleGraph={toggleGraph}
@@ -103,7 +102,6 @@ function App() {
                 toggleNav={toggleNav}
             />
             <Evening
-                // setEntryDate={setEntryDate}
                 toggleDates={toggleDates}
                 setRateGraph={setRateGraph}
                 toggleGraph={toggleGraph}
@@ -122,8 +120,14 @@ function App() {
                         six={six}
                         seven={seven}
                         eight={eight}
-                        // entryDate={entryDate}
-                        // setEntryDate={setEntryDate}
+                        setOne={setOne}
+                        setTwo={setTwo}
+                        setThree={setThree}
+                        setFour={setFour}
+                        setFive={setFive}
+                        setSix={setSix}
+                        setSeven={setSeven}
+                        setEight={setEight}
                         toggleDates={toggleDates}
                         rateGraph={rateGraph}
                         setRateGraph={setRateGraph}

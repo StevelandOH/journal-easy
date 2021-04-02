@@ -3,13 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addEntry } from '../../store/entries';
 import './Dream.css';
 
-const Dream = ({
-    toggleDates,
-    toggleGraph,
-    dreamModal,
-    toggleDreamModal,
-    toggleNav,
-}) => {
+const Dream = ({ toggleDates, toggleGraph, toggleDreamModal, toggleNav }) => {
     const dispatch = useDispatch();
     const [data, setData] = useState('');
     const user = useSelector((state) => state.users.user);

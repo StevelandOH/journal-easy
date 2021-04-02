@@ -1,10 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-    addAffirmation,
-    deleteAffirmation,
-    getAffirmations,
-} from '../../store/affirmations';
+import { addAffirmation, deleteAffirmation } from '../../store/affirmations';
 
 import './Affirmations.css';
 

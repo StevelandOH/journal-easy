@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addEntry } from '../../store/entries';
 import '../Dream/Dream.css';
 import './Gratitude.css';
@@ -7,7 +7,6 @@ import './Gratitude.css';
 const Gratitude = ({
     toggleDates,
     toggleGraph,
-    gratModal,
     toggleGratModal,
     toggleNav,
 }) => {

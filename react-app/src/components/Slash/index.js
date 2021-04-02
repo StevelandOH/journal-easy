@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { LineChart } from 'react-chartkick';
 import 'chart.js';
@@ -13,13 +13,17 @@ const Slash = ({
     six,
     seven,
     eight,
-    toggleDates,
-    setEntryDate,
-    entryDate,
+    setOne,
+    setTwo,
+    setThree,
+    setFour,
+    setFive,
+    setSix,
+    setSeven,
+    setEight,
     date,
     rateGraph,
     setRateGraph,
-    toggleGraph,
 }) => {
     const sessionUser = useSelector((state) => state.users.user);
     const ratings = useSelector((state) => state.ratings);
@@ -86,6 +90,18 @@ const Slash = ({
     };
 
     const graphData = thirtyRatings();
+
+    useEffect(() => {
+        setRateGraph(true);
+        setOne(true);
+        setTwo(true);
+        setThree(true);
+        setFour(true);
+        setFive(true);
+        setSix(true);
+        setSeven(true);
+        setEight(true);
+    }, []);
 
     if (sessionUser && !errors) {
         return (

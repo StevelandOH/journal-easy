@@ -1,16 +1,10 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addEntry } from '../../store/entries';
 import '../Dream/Dream.css';
 import './Journal.css';
 
-const Gratitude = ({
-    toggleGraph,
-    toggleDates,
-    journalModal,
-    toggleJournal,
-    toggleNav,
-}) => {
+const Gratitude = ({ toggleGraph, toggleDates, toggleJournal, toggleNav }) => {
     const dispatch = useDispatch();
     const [data, setData] = useState('');
 
