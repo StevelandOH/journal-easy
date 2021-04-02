@@ -4,7 +4,13 @@ import { addEntry } from '../../store/entries';
 import '../Dream/Dream.css';
 import './Gratitude.css';
 
-const Gratitude = ({ gratModal, toggleGratModal, toggleNav }) => {
+const Gratitude = ({
+    toggleDates,
+    toggleGraph,
+    gratModal,
+    toggleGratModal,
+    toggleNav,
+}) => {
     const dispatch = useDispatch();
     const [data, setData] = useState('');
 
@@ -18,6 +24,9 @@ const Gratitude = ({ gratModal, toggleGratModal, toggleNav }) => {
         let date = x.toLocaleDateString();
         await dispatch(addEntry({ prompt, data, type, date }));
         toggleGratModal();
+        toggleNav();
+        toggleGraph();
+        toggleDates();
     };
 
     const updateEntry = (e) => {
@@ -50,6 +59,8 @@ const Gratitude = ({ gratModal, toggleGratModal, toggleNav }) => {
                 className="cancel-button"
                 onClick={toggleGratModal}
                 onMouseUp={toggleNav}
+                onClickCapture={toggleDates}
+                onMouseUpCapture={toggleGraph}
             >
                 ⬅
             </button>

@@ -4,7 +4,13 @@ import DailyJournal from '../DailyJournal';
 import Ratings from '../Ratings';
 import './Evening.css';
 
-const Evening = ({ toggleEvening, slideEvening, toggleNav }) => {
+const Evening = ({
+    toggleDates,
+    toggleGraph,
+    toggleEvening,
+    slideEvening,
+    toggleNav,
+}) => {
     const [journalModal, setJournalModal] = useState(false);
     const [ratingModal, setRatingModal] = useState(false);
 
@@ -35,12 +41,22 @@ const Evening = ({ toggleEvening, slideEvening, toggleNav }) => {
         >
             <ul onClick={toggleEvening} className="evening-menu-items">
                 <li className="evening-text">
-                    <a onClick={toggleJournal} activeClassName="active">
+                    <a
+                        onClick={toggleJournal}
+                        onClickCapture={toggleGraph}
+                        onMouseUp={toggleDates}
+                        activeClassName="active"
+                    >
                         Daily Journal
                     </a>
                 </li>
                 <li className="evening-text">
-                    <a onClick={toggleRating} activeClassName="active">
+                    <a
+                        onClick={toggleRating}
+                        onClickCapture={toggleGraph}
+                        onMouseUp={toggleDates}
+                        activeClassName="active"
+                    >
                         Rate Today{' '}
                     </a>
                 </li>
@@ -66,6 +82,8 @@ const Evening = ({ toggleEvening, slideEvening, toggleNav }) => {
                 >
                     <div>
                         <DailyJournal
+                            toggleGraph={toggleGraph}
+                            toggleDate={toggleDates}
                             toggleNav={toggleNav}
                             toggleJournal={toggleJournal}
                         />
@@ -79,6 +97,8 @@ const Evening = ({ toggleEvening, slideEvening, toggleNav }) => {
                 >
                     <div>
                         <Ratings
+                            toggleGraph={toggleGraph}
+                            toggleDate={toggleDates}
                             toggleNav={toggleNav}
                             toggleRating={toggleRating}
                         />

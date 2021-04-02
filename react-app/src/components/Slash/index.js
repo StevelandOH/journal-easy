@@ -4,7 +4,23 @@ import { LineChart } from 'react-chartkick';
 import 'chart.js';
 import './Slash.css';
 
-const Slash = ({ date }) => {
+const Slash = ({
+    one,
+    two,
+    three,
+    four,
+    five,
+    six,
+    seven,
+    eight,
+    toggleDates,
+    setEntryDate,
+    entryDate,
+    date,
+    rateGraph,
+    setRateGraph,
+    toggleGraph,
+}) => {
     const sessionUser = useSelector((state) => state.users.user);
     const ratings = useSelector((state) => state.ratings);
 
@@ -74,7 +90,9 @@ const Slash = ({ date }) => {
     if (sessionUser && !errors) {
         return (
             <div className="page-container">
-                <div className="line-chart">
+                <div
+                    className={rateGraph ? 'line-chart' : 'line-chart inactive'}
+                >
                     <LineChart
                         label="RATING"
                         legend={true}
@@ -89,58 +107,86 @@ const Slash = ({ date }) => {
                     <div>
                         <input
                             placeholder="d"
-                            className="number one"
+                            className={
+                                one ? 'number one' : 'number one inactive'
+                            }
                             type="text"
                         ></input>
                     </div>
                     <div>
                         <input
                             placeholder="d"
-                            className="number two"
+                            className={
+                                two ? 'number two' : 'number two inactive'
+                            }
                             type="text"
                         ></input>
                     </div>
-                    <div className="number-slash">/</div>
+                    <div
+                        className={
+                            three ? 'number-slash' : 'number-slash inactive'
+                        }
+                    >
+                        /
+                    </div>
                     <div>
                         <input
                             placeholder="m"
-                            className="number three"
+                            className={
+                                three ? 'number three' : 'number three inactive'
+                            }
                             type="text"
                         ></input>
                     </div>
                     <div>
                         <input
                             placeholder="m"
-                            className="number four"
+                            className={
+                                four ? 'number four' : 'number four inactive'
+                            }
                             type="text"
                         ></input>
                     </div>
-                    <div className="number-slash">/</div>
-                    <div>
-                        <input
-                            placeholder="y"
-                            className="number five"
-                            type="text"
-                        ></input>
-                    </div>
-                    <div>
-                        <input
-                            placeholder="y"
-                            className="number six"
-                            type="text"
-                        ></input>
+                    <div
+                        className={
+                            three ? 'number-slash' : 'number-slash inactive'
+                        }
+                    >
+                        /
                     </div>
                     <div>
                         <input
                             placeholder="y"
-                            className="number seven"
+                            className={
+                                five ? 'number five' : 'number five inactive'
+                            }
                             type="text"
                         ></input>
                     </div>
                     <div>
                         <input
                             placeholder="y"
-                            className="number eight"
+                            className={
+                                six ? 'number six' : 'number six inactive'
+                            }
+                            type="text"
+                        ></input>
+                    </div>
+                    <div>
+                        <input
+                            placeholder="y"
+                            className={
+                                seven ? 'number seven' : 'number seven inactive'
+                            }
+                            type="text"
+                        ></input>
+                    </div>
+                    <div>
+                        <input
+                            placeholder="y"
+                            className={
+                                eight ? 'number eight' : 'number eight inactive'
+                            }
                             type="text"
                         ></input>
                     </div>

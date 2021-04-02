@@ -4,7 +4,13 @@ import Dream from '../Dream';
 import Gratitude from '../Gratitude';
 import './Morning.css';
 
-const Morning = ({ toggleMorning, slideMorning, toggleNav }) => {
+const Morning = ({
+    toggleDates,
+    toggleGraph,
+    toggleMorning,
+    slideMorning,
+    toggleNav,
+}) => {
     const [dreamModal, setDreamModal] = useState(false);
     const [gratModal, setGratModal] = useState(false);
 
@@ -27,13 +33,24 @@ const Morning = ({ toggleMorning, slideMorning, toggleNav }) => {
         >
             <ul onClick={toggleMorning} className="morning-menu-items">
                 <li className="morning-text">
-                    <a onClick={toggleDreamModal}>Dream Journal</a>
+                    <a
+                        onClick={toggleDreamModal}
+                        onClickCapture={toggleGraph}
+                        onMouseUp={toggleDates}
+                    >
+                        Dream Journal
+                    </a>
                 </li>
                 <li className="morning-text">
                     <a activeClassName="active">Brain Boosters</a>
                 </li>
                 <li className="morning-text">
-                    <a onClick={toggleGratModal} activeClassName="active">
+                    <a
+                        onClick={toggleGratModal}
+                        onClickCapture={toggleGraph}
+                        onMouseUp={toggleDates}
+                        activeClassName="active"
+                    >
                         Gratitude
                     </a>
                 </li>
@@ -59,6 +76,8 @@ const Morning = ({ toggleMorning, slideMorning, toggleNav }) => {
                 >
                     <div>
                         <Dream
+                            toggleGraph={toggleGraph}
+                            toggleDates={toggleDates}
                             toggleNav={toggleNav}
                             toggleDreamModal={toggleDreamModal}
                         />
@@ -74,6 +93,8 @@ const Morning = ({ toggleMorning, slideMorning, toggleNav }) => {
                 >
                     <div>
                         <Gratitude
+                            toggleGraph={toggleGraph}
+                            toggleDate={toggleDates}
                             toggleNav={toggleNav}
                             toggleGratModal={toggleGratModal}
                         />

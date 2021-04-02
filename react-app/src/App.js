@@ -22,12 +22,32 @@ function App() {
     const [slideMorning, setSlideMorning] = useState(false);
     const [slideEvening, setSlideEvening] = useState(false);
     const [date, setDate] = useState(new Date());
+    const [rateGraph, setRateGraph] = useState(true);
+    const [one, setOne] = useState(true);
+    const [two, setTwo] = useState(true);
+    const [three, setThree] = useState(true);
+    const [four, setFour] = useState(true);
+    const [five, setFive] = useState(true);
+    const [six, setSix] = useState(true);
+    const [seven, setSeven] = useState(true);
+    const [eight, setEight] = useState(true);
 
     const toggleNav = () => setNav(!nav);
     const toggleLogin = () => setSlideLogin(!slideLogin);
     const toggleSignup = () => setSlideSignup(!slideSignup);
     const toggleMorning = () => setSlideMorning(!slideMorning);
     const toggleEvening = () => setSlideEvening(!slideEvening);
+    const toggleGraph = () => setRateGraph(!rateGraph);
+    const toggleDates = () => {
+        setOne(!one);
+        setTwo(!two);
+        setThree(!three);
+        setFour(!four);
+        setFive(!five);
+        setSix(!six);
+        setSeven(!seven);
+        setEight(!eight);
+    };
 
     useEffect(() => {
         const user = authenticate();
@@ -74,18 +94,42 @@ function App() {
                 toggleSignup={toggleSignup}
             />
             <Morning
+                // setEntryDate={setEntryDate}
+                toggleDates={toggleDates}
+                setRateGraph={setRateGraph}
+                toggleGraph={toggleGraph}
                 toggleMorning={toggleMorning}
                 slideMorning={slideMorning}
                 toggleNav={toggleNav}
             />
             <Evening
+                // setEntryDate={setEntryDate}
+                toggleDates={toggleDates}
+                setRateGraph={setRateGraph}
+                toggleGraph={toggleGraph}
                 toggleEvening={toggleEvening}
                 slideEvening={slideEvening}
                 toggleNav={toggleNav}
             />
             <Switch>
                 <Route path="/" exact={true}>
-                    <Slash date={date} />
+                    <Slash
+                        one={one}
+                        two={two}
+                        three={three}
+                        four={four}
+                        five={five}
+                        six={six}
+                        seven={seven}
+                        eight={eight}
+                        // entryDate={entryDate}
+                        // setEntryDate={setEntryDate}
+                        toggleDates={toggleDates}
+                        rateGraph={rateGraph}
+                        setRateGraph={setRateGraph}
+                        toggleGraph={toggleGraph}
+                        date={date}
+                    />
                 </Route>
             </Switch>
         </>

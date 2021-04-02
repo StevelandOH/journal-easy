@@ -4,7 +4,13 @@ import { addEntry } from '../../store/entries';
 import '../Dream/Dream.css';
 import './Journal.css';
 
-const Gratitude = ({ journalModal, toggleJournal, toggleNav }) => {
+const Gratitude = ({
+    toggleGraph,
+    toggleDates,
+    journalModal,
+    toggleJournal,
+    toggleNav,
+}) => {
     const dispatch = useDispatch();
     const [data, setData] = useState('');
 
@@ -17,6 +23,9 @@ const Gratitude = ({ journalModal, toggleJournal, toggleNav }) => {
         let date = x.toLocaleDateString();
         await dispatch(addEntry({ prompt, data, type, date }));
         toggleJournal();
+        toggleNav();
+        toggleGraph();
+        toggleDates();
     };
 
     const updateEntry = (e) => {
@@ -49,6 +58,8 @@ const Gratitude = ({ journalModal, toggleJournal, toggleNav }) => {
                 className="cancel-button"
                 onClick={toggleJournal}
                 onMouseUp={toggleNav}
+                onClickCapture={toggleDates}
+                onMouseUpCapture={toggleGraph}
             >
                 ⬅
             </button>

@@ -3,7 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addEntry } from '../../store/entries';
 import './Dream.css';
 
-const Dream = ({ dreamModal, toggleDreamModal, toggleNav }) => {
+const Dream = ({
+    toggleDates,
+    toggleGraph,
+    dreamModal,
+    toggleDreamModal,
+    toggleNav,
+}) => {
     const dispatch = useDispatch();
     const [data, setData] = useState('');
     const user = useSelector((state) => state.users.user);
@@ -21,6 +27,9 @@ const Dream = ({ dreamModal, toggleDreamModal, toggleNav }) => {
         let date = x.toLocaleDateString();
         await dispatch(addEntry({ prompt, data, type, date }));
         toggleDreamModal();
+        toggleNav();
+        toggleGraph();
+        toggleDates();
     };
 
     const updateEntry = (e) => {
@@ -51,6 +60,8 @@ const Dream = ({ dreamModal, toggleDreamModal, toggleNav }) => {
                 className="cancel-button"
                 onClick={toggleDreamModal}
                 onMouseUp={toggleNav}
+                onClickCapture={toggleDates}
+                onMouseUpCapture={toggleGraph}
             >
                 ⬅
             </button>

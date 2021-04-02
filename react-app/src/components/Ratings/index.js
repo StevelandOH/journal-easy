@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { addRating } from '../../store/ratings';
 import './Ratings.css';
 
-const Ratings = ({ toggleRating, toggleNav }) => {
+const Ratings = ({ toggleGraph, toggleDates, toggleRating, toggleNav }) => {
     const dispatch = useDispatch();
     const [currRating, setCurrRating] = useState(0);
     const [rating, setRating] = useState(0);
@@ -41,6 +41,9 @@ const Ratings = ({ toggleRating, toggleNav }) => {
         let date = x.toLocaleDateString();
         dispatch(addRating({ rating, date }));
         toggleRating();
+        toggleNav();
+        toggleGraph();
+        toggleDates();
     };
 
     let clear = () => {
@@ -69,17 +72,15 @@ const Ratings = ({ toggleRating, toggleNav }) => {
                 </div>
             </div>
             <div className="button-container">
-                <button
-                    className="submit-button rating"
-                    onClick={clickHandler}
-                    onClickCapture={toggleNav}
-                >
+                <button className="submit-button rating" onClick={clickHandler}>
                     ✓
                 </button>
                 <button
                     className="cancel-button rating"
                     onClick={toggleRating}
                     onClickCapture={toggleNav}
+                    onMouseUp={toggleDates}
+                    onMouseUpCapture={toggleGraph}
                 >
                     ⬅
                 </button>

@@ -14,7 +14,7 @@
 }
 
 .nav-menu {
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(0, 0, 0, 0.85);
     width: 200px;
     display: flex;
     align-items: left;
@@ -23,8 +23,8 @@
     left: -100%;
     transition: 2000ms;
     border-radius: 0px 100px 100px 0px;
-    padding: 25px;
-    box-shadow: 5px 15px 30px rgba(252, 252, 193, 0.7);
+    padding: 50px;
+    box-shadow: 10px 45px 50px rgba(0, 0, 0, 0.7);
 }
 
 .nav-menu.active {
@@ -40,7 +40,7 @@
 .nav-text a {
     cursor: pointer;
     text-decoration: none;
-    color: black;
+    color: white;
     font-size: 18px;
     width: 95%;
     height: 100%;
