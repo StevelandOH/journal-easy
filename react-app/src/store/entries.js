@@ -11,7 +11,7 @@ export const setEntries = (entries) => ({
     payload: entries,
 });
 
-export const getEntries = () => async (dispatch) => {
+export const getEntries = (userID) => async (dispatch) => {
     const res = await fetch('/api/entry/');
     const data = await res.json();
     dispatch(setEntries(data));

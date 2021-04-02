@@ -5,11 +5,10 @@
     background-color: rgba(255, 128, 128, 0.4);
     align-items: center;
     transition: 1000ms;
-    margin-left: 32%;
+    margin: 50px;
     margin-top: 10%;
     padding: 70px 100px 20px 100px;
     color: black;
     border-radius: 10em;
-    width: 400px;
     box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.7);
 }

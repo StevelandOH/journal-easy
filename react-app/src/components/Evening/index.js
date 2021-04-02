@@ -83,7 +83,7 @@ const Evening = ({
                     <div>
                         <DailyJournal
                             toggleGraph={toggleGraph}
-                            toggleDate={toggleDates}
+                            toggleDates={toggleDates}
                             toggleNav={toggleNav}
                             toggleJournal={toggleJournal}
                         />
@@ -98,7 +98,7 @@ const Evening = ({
                     <div>
                         <Ratings
                             toggleGraph={toggleGraph}
-                            toggleDate={toggleDates}
+                            toggleDates={toggleDates}
                             toggleNav={toggleNav}
                             toggleRating={toggleRating}
                         />

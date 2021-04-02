@@ -78,8 +78,8 @@ const Ratings = ({ toggleGraph, toggleDates, toggleRating, toggleNav }) => {
                 <button
                     className="cancel-button rating"
                     onClick={toggleRating}
-                    onClickCapture={toggleNav}
-                    onMouseUp={toggleDates}
+                    onMouseUp={toggleNav}
+                    onClickCapture={toggleDates}
                     onMouseUpCapture={toggleGraph}
                 >
                     ⬅

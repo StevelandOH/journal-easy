@@ -21,6 +21,7 @@
     width: 50%;
     border-radius: 50px;
     color: black;
+    margin-top: -125px;
     box-shadow: 15px 15px 15px rgba(252, 252, 193, 0.5);
 }
 
@@ -41,7 +42,7 @@
 .number-slash {
     margin: 10px;
     color: white;
-    transition: 4000ms;
+    transition: 3000ms;
     font-size: 24pt;
 }
 
@@ -67,7 +68,7 @@
 
 .number.one.inactive {
     transition: 550ms;
-    margin-left: -2000%;
+    margin-left: -3000%;
 }
 
 .number.two {
@@ -86,7 +87,7 @@
 
 .number.two.inactive {
     transition: 900ms;
-    margin-left: -2000%;
+    margin-left: -3000%;
 }
 
 .number.three {
@@ -105,7 +106,7 @@
 
 .number.three.inactive {
     transition: 1250ms;
-    margin-left: -2000%;
+    margin-left: -3000%;
 }
 
 .number.four {
@@ -124,7 +125,7 @@
 
 .number.four.inactive {
     transition: 1600ms;
-    margin-left: -2000%;
+    margin-left: -3000%;
 }
 
 .number.five {
@@ -143,7 +144,7 @@
 
 .number.five.inactive {
     transition: 1950ms;
-    margin-left: -2000%;
+    margin-left: -3000%;
 }
 
 .number.six {
@@ -162,7 +163,7 @@
 
 .number.six.inactive {
     transition: 2300ms;
-    margin-left: -2000%;
+    margin-left: -3000%;
 }
 
 .number.seven {
@@ -181,7 +182,7 @@
 
 .number.seven.inactive {
     transition: 2650ms;
-    margin-left: -2000%;
+    margin-left: -3000%;
 }
 
 .number.eight {
@@ -200,7 +201,7 @@
 
 .number.eight.inactive {
     transition: 3000ms;
-    margin-left: -2000%;
+    margin-left: -3000%;
 }
 
 .number::placeholder {

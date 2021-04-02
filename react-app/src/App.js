@@ -133,6 +133,7 @@ function App() {
                         setRateGraph={setRateGraph}
                         toggleGraph={toggleGraph}
                         date={date}
+                        toggleNav={toggleNav}
                     />
                 </Route>
             </Switch>

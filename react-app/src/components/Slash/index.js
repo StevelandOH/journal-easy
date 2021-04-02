@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { LineChart } from 'react-chartkick';
+import Modal from 'react-modal';
+import Stats from '../Stats';
 import 'chart.js';
 import './Slash.css';
 
@@ -22,19 +24,44 @@ const Slash = ({
     setSeven,
     setEight,
     date,
+    toggleNav,
     rateGraph,
     setRateGraph,
+    toggleGraph,
 }) => {
+    const [dayOne, setDayOne] = useState('');
+    const [dayTwo, setDayTwo] = useState('');
+    const [monthOne, setMonthOne] = useState('');
+    const [monthTwo, setMonthTwo] = useState('');
+    const [yearOne, setYearOne] = useState('');
+    const [yearTwo, setYearTwo] = useState('');
+    const [yearThree, setYearThree] = useState('');
+    const [yearFour, setYearFour] = useState('');
+    const [e, setE] = useState([]);
+    const [modal, setModal] = useState(false);
+
     const sessionUser = useSelector((state) => state.users.user);
     const ratings = useSelector((state) => state.ratings);
+    const entries = useSelector((state) => state.entries);
 
     const errors = useSelector((state) =>
         sessionUser ? sessionUser.errors : null
     );
 
+    const toggleModal = () => setModal(!modal);
+
+    const style = {
+        overlay: {
+            textAlign: 'center',
+            backgroundColor: 'rgba(255,255,255, 0.7)',
+            zIndex: '1000',
+        },
+    };
+
     const thirtyDays = () => {
-        const data = [date.toLocaleDateString()];
+        const data = [];
         Array.from([
+            ,
             ,
             ,
             ,
@@ -102,6 +129,43 @@ const Slash = ({
         setSeven(true);
         setEight(true);
     }, []);
+    const entryData = [];
+    const handleDate = () => {
+        const input = [
+            dayOne,
+            dayTwo,
+            '/',
+            monthOne,
+            monthTwo,
+            '/',
+            yearOne,
+            yearTwo,
+            yearThree,
+            yearFour,
+        ].join('');
+        Object.values(entries).map((el) => {
+            if (el.date == input) {
+                console.log(el);
+                entryData.push({
+                    prompt: el.prompt,
+                    res: el.response,
+                    type: el.type,
+                });
+            }
+        });
+        setE(entryData);
+        toggleNav();
+        toggleGraph();
+        toggleModal();
+        setOne(false);
+        setTwo(false);
+        setThree(false);
+        setFour(false);
+        setFive(false);
+        setSix(false);
+        setSeven(false);
+        setEight(false);
+    };
 
     if (sessionUser && !errors) {
         return (
@@ -122,6 +186,8 @@ const Slash = ({
                 <div className="date-entry-container">
                     <div>
                         <input
+                            value={dayOne}
+                            onChange={(e) => setDayOne(e.target.value)}
                             placeholder="d"
                             className={
                                 one ? 'number one' : 'number one inactive'
@@ -131,6 +197,8 @@ const Slash = ({
                     </div>
                     <div>
                         <input
+                            value={dayTwo}
+                            onChange={(e) => setDayTwo(e.target.value)}
                             placeholder="d"
                             className={
                                 two ? 'number two' : 'number two inactive'
@@ -147,6 +215,8 @@ const Slash = ({
                     </div>
                     <div>
                         <input
+                            value={monthOne}
+                            onChange={(e) => setMonthOne(e.target.value)}
                             placeholder="m"
                             className={
                                 three ? 'number three' : 'number three inactive'
@@ -156,6 +226,8 @@ const Slash = ({
                     </div>
                     <div>
                         <input
+                            value={monthTwo}
+                            onChange={(e) => setMonthTwo(e.target.value)}
                             placeholder="m"
                             className={
                                 four ? 'number four' : 'number four inactive'
@@ -172,6 +244,8 @@ const Slash = ({
                     </div>
                     <div>
                         <input
+                            value={yearOne}
+                            onChange={(e) => setYearOne(e.target.value)}
                             placeholder="y"
                             className={
                                 five ? 'number five' : 'number five inactive'
@@ -181,6 +255,8 @@ const Slash = ({
                     </div>
                     <div>
                         <input
+                            value={yearTwo}
+                            onChange={(e) => setYearTwo(e.target.value)}
                             placeholder="y"
                             className={
                                 six ? 'number six' : 'number six inactive'
@@ -190,6 +266,8 @@ const Slash = ({
                     </div>
                     <div>
                         <input
+                            value={yearThree}
+                            onChange={(e) => setYearThree(e.target.value)}
                             placeholder="y"
                             className={
                                 seven ? 'number seven' : 'number seven inactive'
@@ -199,6 +277,8 @@ const Slash = ({
                     </div>
                     <div>
                         <input
+                            value={yearFour}
+                            onChange={(e) => setYearFour(e.target.value)}
                             placeholder="y"
                             className={
                                 eight ? 'number eight' : 'number eight inactive'
@@ -207,6 +287,28 @@ const Slash = ({
                         ></input>
                     </div>
                 </div>
+                <button onClick={handleDate}>date</button>
+                <Modal
+                    appElement={document.getElementById('root')}
+                    className="stat-modal"
+                    style={style}
+                    isOpen={modal}
+                >
+                    <Stats
+                        toggleNav={toggleNav}
+                        toggleModal={toggleModal}
+                        toggleGraph={toggleGraph}
+                        entries={e}
+                        setOne={setOne}
+                        setTwo={setTwo}
+                        setThree={setThree}
+                        setFour={setFour}
+                        setFive={setFive}
+                        setSix={setSix}
+                        setSeven={setSeven}
+                        setEight={setEight}
+                    />
+                </Modal>
             </div>
         );
     } else {

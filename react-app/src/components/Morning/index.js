@@ -94,7 +94,7 @@ const Morning = ({
                     <div>
                         <Gratitude
                             toggleGraph={toggleGraph}
-                            toggleDate={toggleDates}
+                            toggleDates={toggleDates}
                             toggleNav={toggleNav}
                             toggleGratModal={toggleGratModal}
                         />
