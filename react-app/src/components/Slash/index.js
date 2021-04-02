@@ -39,6 +39,7 @@ const Slash = ({
     const [yearFour, setYearFour] = useState('');
     const [e, setE] = useState([]);
     const [modal, setModal] = useState(false);
+    const [oneDone, setOneDone] = useState(false);
 
     const sessionUser = useSelector((state) => state.users.user);
     const ratings = useSelector((state) => state.ratings);
@@ -167,6 +168,11 @@ const Slash = ({
         setEight(false);
     };
 
+    const change = (e) => {
+        setDayOne(e.target.value);
+        setOneDone(true);
+    };
+
     if (sessionUser && !errors) {
         return (
             <div className="page-container">
@@ -186,6 +192,7 @@ const Slash = ({
                 <div className="date-entry-container">
                     <div>
                         <input
+                            id="one"
                             value={dayOne}
                             onChange={(e) => setDayOne(e.target.value)}
                             placeholder="d"

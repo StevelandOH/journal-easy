@@ -12,6 +12,7 @@ const Affirmations = ({ toggleAffirmation, toggleNav }) => {
 
     const handleAffirmation = async (e) => {
         e.preventDefault();
+        e.target.reset();
         await dispatch(addAffirmation(affirmation));
     };
 
