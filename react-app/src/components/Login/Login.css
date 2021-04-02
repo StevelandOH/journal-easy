@@ -7,6 +7,7 @@
     top: 80px;
     left: -100%;
     transition: 1000ms;
+    box-shadow: 5px 15px 30px rgba(252, 252, 193, 0.7);
     border-radius: 0px 100px 100px 0px;
 }
 

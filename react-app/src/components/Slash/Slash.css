@@ -1,0 +1,77 @@
+.page-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -30px;
+}
+
+.line-chart {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 30px;
+    width: 50%;
+    border-radius: 50px;
+    color: black;
+    box-shadow: 15px 15px 15px rgba(252, 252, 193, 0.5);
+}
+
+.date-entry-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    width: 500px;
+}
+
+.number {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: black;
+    height: 75px;
+    width: 75px;
+    margin: 5px;
+    padding: 10px;
+    font-size: 40pt;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 12px 12px 12px rgba(252, 252, 193, 0.6);
+}
+
+.number-slash {
+    margin: 10px;
+    color: white;
+}
+
+.number.one {
+    background-color: rgba(209, 249, 216, 0.8);
+}
+
+.number.two {
+    background-color: rgba(186, 234, 237, 0.8);
+}
+.number.three {
+    background-color: rgba(224, 235, 198, 0.8);
+}
+.number.four {
+    background-color: rgba(247, 223, 220, 0.8);
+}
+.number.five {
+    background-color: rgba(246, 214, 247, 0.8);
+}
+.number.six {
+    background-color: rgba(205, 196, 228, 0.8);
+}
+.number.seven {
+    background-color: rgba(209, 215, 249, 0.8);
+}
+.number.eight {
+    background-color: rgba(209, 248, 249, 0.8);
+}
+
+.number::placeholder {
+    color: rgba(104, 104, 104, 0.625);
+    font-size: 24pt;
+    font-style: italic;
+}

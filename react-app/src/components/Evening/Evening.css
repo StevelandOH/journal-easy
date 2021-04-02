@@ -9,6 +9,7 @@
     transition: 1000ms;
     border-radius: 0px 100px 100px 0px;
     padding: 25px;
+    box-shadow: 15px 15px 15px rgba(252, 252, 193, 0.5);
 }
 
 .evening-container.active {

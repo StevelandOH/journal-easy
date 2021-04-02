@@ -2,7 +2,7 @@
     height: 80px;
     display: flex;
     align-items: center;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .menu-bars {
@@ -14,7 +14,7 @@
 }
 
 .nav-menu {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.85);
     width: 200px;
     display: flex;
     align-items: left;
@@ -24,6 +24,7 @@
     transition: 2000ms;
     border-radius: 0px 100px 100px 0px;
     padding: 25px;
+    box-shadow: 5px 15px 30px rgba(252, 252, 193, 0.7);
 }
 
 .nav-menu.active {
