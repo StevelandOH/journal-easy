@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addEntry } from '../../store/entries';
+import gratitude from '../../promptData/gratitude';
 import '../Dream/Dream.css';
 import './Gratitude.css';
 
@@ -13,8 +14,7 @@ const Gratitude = ({
     const dispatch = useDispatch();
     const [data, setData] = useState('');
 
-    const prompt =
-        'Try to remember back to your first job and think about what it was like when you were new there...';
+    const prompt = gratitude[Math.floor(Math.random() * 14)];
 
     const handleEntry = async (e) => {
         e.preventDefault();

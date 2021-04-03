@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addEntry } from '../../store/entries';
+import daily from '../../promptData/daily';
 import '../Dream/Dream.css';
 import './Journal.css';
 
@@ -8,7 +9,7 @@ const Gratitude = ({ toggleGraph, toggleDates, toggleJournal, toggleNav }) => {
     const dispatch = useDispatch();
     const [data, setData] = useState('');
 
-    const prompt = 'Talk about one thing that made you happy today';
+    const prompt = daily[Math.floor(Math.random() * 15)];
 
     const handleEntry = async (e) => {
         e.preventDefault();

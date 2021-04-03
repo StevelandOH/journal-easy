@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addEntry } from '../../store/entries';
+import dreams from '../../promptData/dreams';
 import './Dream.css';
 
 const Dream = ({ toggleDates, toggleGraph, toggleDreamModal, toggleNav }) => {
@@ -11,8 +12,7 @@ const Dream = ({ toggleDates, toggleGraph, toggleDreamModal, toggleNav }) => {
     if (user) {
         userId = user.id;
     }
-    const prompt =
-        'Talk a little about your dream, what emotions did they make you feel?';
+    const prompt = dreams[Math.floor(Math.random() * 3)];
 
     const handleEntry = async (e) => {
         e.preventDefault();
