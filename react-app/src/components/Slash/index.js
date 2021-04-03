@@ -193,6 +193,7 @@ const Slash = ({
                     <div>
                         <input
                             id="one"
+                            maxLength="1"
                             value={dayOne}
                             onChange={(e) => setDayOne(e.target.value)}
                             placeholder="d"
@@ -204,6 +205,7 @@ const Slash = ({
                     </div>
                     <div>
                         <input
+                            maxLength="1"
                             value={dayTwo}
                             onChange={(e) => setDayTwo(e.target.value)}
                             placeholder="d"
@@ -222,6 +224,7 @@ const Slash = ({
                     </div>
                     <div>
                         <input
+                            maxLength="1"
                             value={monthOne}
                             onChange={(e) => setMonthOne(e.target.value)}
                             placeholder="m"
@@ -233,6 +236,7 @@ const Slash = ({
                     </div>
                     <div>
                         <input
+                            maxLength="1"
                             value={monthTwo}
                             onChange={(e) => setMonthTwo(e.target.value)}
                             placeholder="m"
@@ -251,6 +255,7 @@ const Slash = ({
                     </div>
                     <div>
                         <input
+                            maxLength="1"
                             value={yearOne}
                             onChange={(e) => setYearOne(e.target.value)}
                             placeholder="y"
@@ -262,6 +267,7 @@ const Slash = ({
                     </div>
                     <div>
                         <input
+                            maxLength="1"
                             value={yearTwo}
                             onChange={(e) => setYearTwo(e.target.value)}
                             placeholder="y"
@@ -273,6 +279,7 @@ const Slash = ({
                     </div>
                     <div>
                         <input
+                            maxLength="1"
                             value={yearThree}
                             onChange={(e) => setYearThree(e.target.value)}
                             placeholder="y"
@@ -284,6 +291,7 @@ const Slash = ({
                     </div>
                     <div>
                         <input
+                            maxLength="1"
                             value={yearFour}
                             onChange={(e) => setYearFour(e.target.value)}
                             placeholder="y"
