@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { LineChart } from 'react-chartkick';
 import Modal from 'react-modal';
@@ -39,7 +39,6 @@ const Slash = ({
     const [yearFour, setYearFour] = useState('');
     const [e, setE] = useState([]);
     const [modal, setModal] = useState(false);
-    const [oneDone, setOneDone] = useState(false);
 
     const sessionUser = useSelector((state) => state.users.user);
     const ratings = useSelector((state) => state.ratings);
@@ -130,6 +129,42 @@ const Slash = ({
         setSeven(true);
         setEight(true);
     }, []);
+
+    const inputOne = useRef(null);
+    const inputTwo = useRef(null);
+    const inputThree = useRef(null);
+    const inputFour = useRef(null);
+    const inputFive = useRef(null);
+    const inputSix = useRef(null);
+    const inputSeven = useRef(null);
+    const inputEight = useRef(null);
+
+    let numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+    const oneDone = (e) => {
+        if (numbers.includes(e) && e !== '0') {
+            inputTwo.current.focus();
+        }
+    };
+    const twoDone = (e) => {
+        inputThree.current.focus();
+    };
+    const threeDone = (e) => {
+        inputFour.current.focus();
+    };
+    const fourDone = (e) => {
+        inputFive.current.focus();
+    };
+    const fiveDone = (e) => {
+        inputSix.current.focus();
+    };
+    const sixDone = (e) => {
+        inputSeven.current.focus();
+    };
+    const sevenDone = (e) => {
+        inputEight.current.focus();
+    };
+
     const entryData = [];
     const handleDate = () => {
         const input = [
@@ -168,11 +203,6 @@ const Slash = ({
         setEight(false);
     };
 
-    const change = (e) => {
-        setDayOne(e.target.value);
-        setOneDone(true);
-    };
-
     if (sessionUser && !errors) {
         return (
             <div className="page-container">
@@ -192,10 +222,14 @@ const Slash = ({
                 <div className="date-entry-container">
                     <div>
                         <input
+                            ref={inputOne}
                             id="one"
                             maxLength="1"
                             value={dayOne}
-                            onChange={(e) => setDayOne(e.target.value)}
+                            onChange={(e) => {
+                                oneDone(e.target.value);
+                                setDayOne(e.target.value);
+                            }}
                             placeholder="d"
                             className={
                                 one ? 'number one' : 'number one inactive'
@@ -205,9 +239,13 @@ const Slash = ({
                     </div>
                     <div>
                         <input
+                            ref={inputTwo}
                             maxLength="1"
                             value={dayTwo}
-                            onChange={(e) => setDayTwo(e.target.value)}
+                            onChange={(e) => {
+                                twoDone(e.target.value);
+                                setDayTwo(e.target.value);
+                            }}
                             placeholder="d"
                             className={
                                 two ? 'number two' : 'number two inactive'
@@ -224,9 +262,13 @@ const Slash = ({
                     </div>
                     <div>
                         <input
+                            ref={inputThree}
                             maxLength="1"
                             value={monthOne}
-                            onChange={(e) => setMonthOne(e.target.value)}
+                            onChange={(e) => {
+                                threeDone(e.target.value);
+                                setMonthOne(e.target.value);
+                            }}
                             placeholder="m"
                             className={
                                 three ? 'number three' : 'number three inactive'
@@ -236,9 +278,13 @@ const Slash = ({
                     </div>
                     <div>
                         <input
+                            ref={inputFour}
                             maxLength="1"
                             value={monthTwo}
-                            onChange={(e) => setMonthTwo(e.target.value)}
+                            onChange={(e) => {
+                                fourDone(e.target.value);
+                                setMonthTwo(e.target.value);
+                            }}
                             placeholder="m"
                             className={
                                 four ? 'number four' : 'number four inactive'
@@ -255,9 +301,13 @@ const Slash = ({
                     </div>
                     <div>
                         <input
+                            ref={inputFive}
                             maxLength="1"
                             value={yearOne}
-                            onChange={(e) => setYearOne(e.target.value)}
+                            onChange={(e) => {
+                                fiveDone(e.target.value);
+                                setYearOne(e.target.value);
+                            }}
                             placeholder="y"
                             className={
                                 five ? 'number five' : 'number five inactive'
@@ -267,9 +317,13 @@ const Slash = ({
                     </div>
                     <div>
                         <input
+                            ref={inputSix}
                             maxLength="1"
                             value={yearTwo}
-                            onChange={(e) => setYearTwo(e.target.value)}
+                            onChange={(e) => {
+                                sixDone(e.target.value);
+                                setYearTwo(e.target.value);
+                            }}
                             placeholder="y"
                             className={
                                 six ? 'number six' : 'number six inactive'
@@ -279,9 +333,13 @@ const Slash = ({
                     </div>
                     <div>
                         <input
+                            ref={inputSeven}
                             maxLength="1"
                             value={yearThree}
-                            onChange={(e) => setYearThree(e.target.value)}
+                            onChange={(e) => {
+                                sevenDone(e.target.value);
+                                setYearThree(e.target.value);
+                            }}
                             placeholder="y"
                             className={
                                 seven ? 'number seven' : 'number seven inactive'
@@ -291,6 +349,7 @@ const Slash = ({
                     </div>
                     <div>
                         <input
+                            ref={inputEight}
                             maxLength="1"
                             value={yearFour}
                             onChange={(e) => setYearFour(e.target.value)}
