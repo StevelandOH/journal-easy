@@ -138,6 +138,7 @@ const Slash = ({
     const inputSix = useRef(null);
     const inputSeven = useRef(null);
     const inputEight = useRef(null);
+    const button = useRef(null);
 
     let numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
@@ -164,6 +165,9 @@ const Slash = ({
     const sevenDone = (e) => {
         inputEight.current.focus();
     };
+    const eightDone = (e) => {
+        button.current.focus();
+    };
 
     const entryData = [];
     const handleDate = () => {
@@ -189,6 +193,7 @@ const Slash = ({
                 });
             }
         });
+
         setE(entryData);
         toggleNav();
         toggleGraph();
@@ -201,6 +206,14 @@ const Slash = ({
         setSix(false);
         setSeven(false);
         setEight(false);
+        setDayOne('');
+        setDayTwo('');
+        setMonthOne('');
+        setMonthTwo('');
+        setYearOne('');
+        setYearTwo('');
+        setYearThree('');
+        setYearFour('');
     };
 
     if (sessionUser && !errors) {
@@ -239,6 +252,7 @@ const Slash = ({
                     </div>
                     <div>
                         <input
+                            id="two"
                             ref={inputTwo}
                             maxLength="1"
                             value={dayTwo}
@@ -352,7 +366,10 @@ const Slash = ({
                             ref={inputEight}
                             maxLength="1"
                             value={yearFour}
-                            onChange={(e) => setYearFour(e.target.value)}
+                            onChange={(e) => {
+                                eightDone(e.target.value);
+                                setYearFour(e.target.value);
+                            }}
                             placeholder="y"
                             className={
                                 eight ? 'number eight' : 'number eight inactive'
@@ -361,7 +378,9 @@ const Slash = ({
                         ></input>
                     </div>
                 </div>
-                <button onClick={handleDate}>date</button>
+                <button ref={button} onClick={handleDate}>
+                    date
+                </button>
                 <Modal
                     appElement={document.getElementById('root')}
                     className="stat-modal"

@@ -3,7 +3,6 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     margin-top: -30px;
 }
@@ -21,7 +20,6 @@
     width: 50%;
     border-radius: 50px;
     color: black;
-    margin-top: -125px;
     box-shadow: 15px 15px 15px rgba(252, 252, 193, 0.5);
 }
 
