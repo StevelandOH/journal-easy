@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { LineChart } from 'react-chartkick';
 import Modal from 'react-modal';
 import Stats from '../Stats';
+import j from '../../images/j.jpg';
 import 'chart.js';
 import './Slash.css';
 
@@ -407,7 +408,21 @@ const Slash = ({
     } else {
         return (
             <div>
-                <h1 style={{ color: 'white' }}>LANDINGPAGE</h1>
+                <div className="title-image">J</div>
+                <div className="landing-title">
+                    <div className="title j">j</div>
+                    <div className="title o">o</div>
+                    <div className="title u">u</div>
+                    <div className="title r">r</div>
+                    <div className="title n">n</div>
+                    <div className="title a">a</div>
+                    <div className="title l">l</div>
+                    <div className="title"> </div>
+                    <div className="title e">E</div>
+                    <div className="title a">a</div>
+                    <div className="title s">s</div>
+                    <div className="title y">y</div>
+                </div>
             </div>
         );
     }

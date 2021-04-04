@@ -1,12 +1,11 @@
-/* TODO Add site wide styles */
-@import url('https://fonts.googleapis.com/css27family-Lato&display-swap');
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=New+Tegomin&family=Varela+Round&display=swap');
 
 * {
     outline: none;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Cedarville Cursive', cursive;
 }
 
 html {

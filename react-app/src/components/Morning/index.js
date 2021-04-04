@@ -41,11 +41,11 @@ const Morning = ({
                         onClickCapture={toggleGraph}
                         onMouseUp={toggleDates}
                     >
-                        Dream Journal
+                        {'dream  notes'}
                     </a>
                 </li>
                 <li className="morning-text">
-                    <a activeClassName="active">Brain Boosters</a>
+                    <a activeClassName="active">{'brain  booster'}</a>
                 </li>
                 <li className="morning-text">
                     <a
@@ -54,11 +54,11 @@ const Morning = ({
                         onMouseUp={toggleDates}
                         activeClassName="active"
                     >
-                        Gratitude
+                        {'gratitude'}
                     </a>
                 </li>
                 <li className="morning-text">
-                    <a activeClassName="active">Daily Health Tips</a>
+                    <a activeClassName="active">{'health  tips'}</a>
                 </li>
                 <div>
                     <button

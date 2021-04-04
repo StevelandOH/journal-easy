@@ -207,3 +207,75 @@
     font-size: 24pt;
     font-style: italic;
 }
+
+.landing-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.title {
+    font-family: 'Cedarville Cursive', cursive;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 50pt;
+    margin: 5px;
+    font-weight: bold;
+}
+
+.title.j {
+    text-shadow: 5px 5px 5px rgba(209, 249, 216, 0.8);
+}
+
+.title.o {
+    text-shadow: 5px 5px 5px rgba(186, 234, 237, 0.8);
+}
+
+.title.u {
+    text-shadow: 5px 5px 5px rgba(224, 235, 198, 0.8);
+}
+
+.title.r {
+    text-shadow: 5px 5px 5px rgba(247, 223, 220, 0.8);
+}
+
+.title.n {
+    text-shadow: 5px 5px 5px rgba(246, 214, 247, 0.8);
+}
+
+.title.a {
+    text-shadow: 5px 5px 5px rgba(205, 196, 228, 0.8);
+}
+
+.title.l {
+    text-shadow: 5px 5px 5px rgba(209, 215, 249, 0.8);
+}
+
+.title.e {
+    text-shadow: 5px 5px 5px rgba(209, 248, 249, 0.8);
+}
+
+.title.s {
+    text-shadow: 5px 5px 5px rgba(209, 249, 216, 0.8);
+}
+
+.title.y {
+    text-shadow: 5px 5px 5px rgba(186, 234, 237, 0.8);
+}
+
+.title-image {
+    margin-top: -200px;
+    margin-bottom: -25px;
+    font-family: 'Cedarville Cursive', cursive;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 220pt;
+    padding: 10px;
+    font-weight: bolder;
+    text-shadow: 2px 2px 2px rgba(186, 234, 237, 0.4),
+        4px 4px 4px rgba(209, 249, 216, 0.4),
+        6px 6px 6px rgba(209, 248, 249, 0.4),
+        8px 8px 8px rgba(209, 215, 249, 0.4),
+        10px 10px 10px rgba(205, 196, 228, 0.4),
+        12px 12px 12px rgba(246, 214, 247, 0.4),
+        14px 14px 14px rgba(247, 223, 220, 0.4),
+        18px 18px 18px rgba(224, 235, 198, 0.4);
+}

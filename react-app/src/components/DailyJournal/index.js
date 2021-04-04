@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addEntry } from '../../store/entries';
-import '../Dream/Dream.css';
 import './Journal.css';
 
 const Gratitude = ({
@@ -50,7 +49,6 @@ const Gratitude = ({
                             name="entry"
                             value={data}
                             onChange={updateEntry}
-                            placeholder="...daily journal"
                         />
                     </div>
                     <div className="jour-b-container">

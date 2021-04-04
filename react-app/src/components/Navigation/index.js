@@ -81,7 +81,7 @@ const NavBar = ({
                                 onClickCapture={toggleAffirmation}
                                 activeClassName="active"
                             >
-                                Affirmation
+                                Affirmations
                             </a>
                         </li>
                         <li className="nav-text">

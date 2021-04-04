@@ -41,7 +41,8 @@
     cursor: pointer;
     text-decoration: none;
     color: white;
-    font-size: 18px;
+    font-weight: lighter;
+    font-size: 22px;
     width: 95%;
     height: 100%;
     display: flex;

@@ -55,7 +55,6 @@ const Dream = ({
                             name="entry"
                             value={data}
                             onChange={updateEntry}
-                            placeholder="...dream journal"
                         />
                     </div>
                     <div className="dream-b-container">
