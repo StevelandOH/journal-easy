@@ -1,8 +1,8 @@
-"""full schema
+"""whole schema and seeders
 
-Revision ID: 367f656e9308
+Revision ID: 9bef9975f4a9
 Revises: 
-Create Date: 2021-03-30 16:25:30.168668
+Create Date: 2021-04-04 14:47:49.113841
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '367f656e9308'
+revision = '9bef9975f4a9'
 down_revision = None
 branch_labels = None
 depends_on = None
