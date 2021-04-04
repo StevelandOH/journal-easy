@@ -20,7 +20,7 @@ const Morning = ({
     const style = {
         overlay: {
             textAlign: 'center',
-            backgroundColor: 'rgba(255,255,255, 0.7)',
+            backgroundColor: 'rgba(255,255,255, 0.9)',
             zIndex: '1000',
         },
     };

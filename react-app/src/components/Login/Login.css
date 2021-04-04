@@ -1,15 +1,18 @@
 .login-container {
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: rgba(82, 82, 82, 0.85);
     width: 300px;
     display: flex;
-    justify-content: left;
     position: fixed;
     top: 80px;
     left: -100%;
     transition: 1000ms;
-    padding: 50px 100px 50px 25px;
-    box-shadow: 10px 45px 50px rgba(0, 0, 0, 0.7);
+    border-top: 3px solid rgba(255, 255, 255, 0.2);
+    border-right: 3px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 0px 0px 10px;
     border-radius: 0px 100px 100px 0px;
+    box-shadow: 50px 50px 50px rgba(0, 0, 0, 1),
+        -50px 50px 50px rgba(0, 0, 0, 1);
 }
 
 .login-container.active {

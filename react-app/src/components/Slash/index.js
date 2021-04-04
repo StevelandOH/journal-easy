@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { LineChart } from 'react-chartkick';
 import Modal from 'react-modal';
 import Stats from '../Stats';
-import j from '../../images/j.jpg';
 import 'chart.js';
 import './Slash.css';
 
@@ -221,19 +220,33 @@ const Slash = ({
         return (
             <div className="page-container">
                 <div
-                    className={rateGraph ? 'line-chart' : 'line-chart inactive'}
+                    className={
+                        rateGraph
+                            ? 'chart-container'
+                            : 'chart-container inactive'
+                    }
                 >
-                    <LineChart
-                        label="RATING"
-                        legend={true}
-                        legend="bottom"
-                        colors={['#a872b8cc', '#000000']}
-                        download={true}
-                        data={graphData}
-                    />
+                    <div className="container">
+                        <LineChart
+                            colors={['#a872b8cc', '#000000']}
+                            download={true}
+                            data={graphData}
+                        />
+                        . . . ratings
+                    </div>
                 </div>
-
-                <div className="date-entry-container">
+                <div
+                    className={rateGraph ? 'date-title' : 'date-title inactive'}
+                >
+                    enter date to view entries . . .
+                </div>
+                <div
+                    className={
+                        rateGraph
+                            ? 'date-entry-container'
+                            : 'data-entry-container inactive'
+                    }
+                >
                     <div>
                         <input
                             ref={inputOne}
@@ -379,8 +392,12 @@ const Slash = ({
                         ></input>
                     </div>
                 </div>
-                <button ref={button} onClick={handleDate}>
-                    date
+                <button
+                    className={rateGraph ? 'date-b' : 'date-b inactive'}
+                    ref={button}
+                    onClick={handleDate}
+                >
+                    . . . search
                 </button>
                 <Modal
                     appElement={document.getElementById('root')}

@@ -18,7 +18,7 @@ const Evening = ({
     const style = {
         overlay: {
             textAlign: 'center',
-            backgroundColor: 'rgba(118,118,118, 0.9)',
+            backgroundColor: 'rgba(0,0,0, 0.8)',
             zIndex: '1000',
         },
     };
@@ -26,7 +26,7 @@ const Evening = ({
     const ratingStyle = {
         overlay: {
             textAlign: 'center',
-            backgroundColor: 'rgba(255,255,255,0.7)',
+            backgroundColor: 'rgba(255,255,255,0.9)',
             zIndex: '1000',
         },
     };

@@ -84,18 +84,11 @@ const NavBar = ({
                                 Affirmations
                             </a>
                         </li>
-                        <li className="nav-text">
-                            <NavLink
-                                to="/"
-                                onClick={onLogout}
-                                activeClassName="active"
-                            >
-                                <button className="login-signup-button">
-                                    Logout
-                                </button>
-                            </NavLink>
-                        </li>
                     </ul>
+                    <NavLink to="/" onClick={onLogout} activeClassName="active">
+                        <button className="logout-b">Logout</button>
+                    </NavLink>
+
                     <Modal
                         appElement={document.getElementById('root')}
                         className="affirmation-modal"
@@ -119,7 +112,9 @@ const NavBar = ({
                     <i class="fas fa-bars"></i>
                 </div>
 
-                <nav className={nav ? 'nav-menu active' : 'nav-menu'}>
+                <nav
+                    className={nav ? 'nav-menu active login' : 'nav-menu login'}
+                >
                     <ul onClick={toggleNav} className="nav-menu-items">
                         <li className="nav-text">
                             <a onClick={toggleLogin} activeClassName="active">

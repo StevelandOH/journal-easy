@@ -43,6 +43,15 @@ const SignUpForm = ({ slideSignup, toggleSignup, setNav, toggleNav }) => {
             }
         >
             <div className="signup-form-container">
+                <div className="cancel-button-container">
+                    <button
+                        className="cancel-button"
+                        onClickCapture={toggleNav}
+                        onClick={toggleSignup}
+                    >
+                        ⬅
+                    </button>
+                </div>
                 <form onSubmit={onSignUp}>
                     <div className="name-container">
                         <input
@@ -75,21 +84,12 @@ const SignUpForm = ({ slideSignup, toggleSignup, setNav, toggleNav }) => {
                         ></input>
                     </div>
 
-                    <div className="button-container">
-                        <button className="login-signup-button" type="submit">
+                    <div className="signup-b-container">
+                        <button className="signup-b" type="submit">
                             Signup
                         </button>
                     </div>
                 </form>
-                <div>
-                    <button
-                        className="cancel-button"
-                        onClickCapture={toggleNav}
-                        onClick={toggleSignup}
-                    >
-                        ⬅
-                    </button>
-                </div>
             </div>
         </div>
     );

@@ -46,6 +46,15 @@ const LoginForm = ({
             }
         >
             <div className="login-form-container">
+                <div className="cancel-button-container">
+                    <button
+                        className="cancel-button"
+                        onClickCapture={toggleNav}
+                        onClick={toggleLogin}
+                    >
+                        ⬅
+                    </button>
+                </div>
                 <form onSubmit={onLogin}>
                     <div className="errors-container">
                         {errors &&
@@ -75,21 +84,12 @@ const LoginForm = ({
                             onChange={updatePassword}
                         />
                     </div>
-                    <div className="button-container">
-                        <button className="login-signup-button" type="submit">
+                    <div className="signup-b-container">
+                        <button className="signup-b" type="submit">
                             Login
                         </button>
                     </div>
                 </form>
-                <div>
-                    <button
-                        className="cancel-button"
-                        onClickCapture={toggleNav}
-                        onClick={toggleLogin}
-                    >
-                        ⬅
-                    </button>
-                </div>
             </div>
         </div>
     );
