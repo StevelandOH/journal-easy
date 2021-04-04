@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import Dream from '../Dream';
 import Gratitude from '../Gratitude';
+import dreams from '../../promptData/dreams';
+import gratitude from '../../promptData/gratitude';
 import './Morning.css';
 
 const Morning = ({
@@ -13,7 +15,8 @@ const Morning = ({
 }) => {
     const [dreamModal, setDreamModal] = useState(false);
     const [gratModal, setGratModal] = useState(false);
-
+    const gratPrompt = gratitude[Math.floor(Math.random() * 14)];
+    const dreamPrompt = dreams[Math.floor(Math.random() * 3)];
     const style = {
         overlay: {
             textAlign: 'center',
@@ -76,6 +79,7 @@ const Morning = ({
                 >
                     <div>
                         <Dream
+                            prompt={dreamPrompt}
                             toggleGraph={toggleGraph}
                             toggleDates={toggleDates}
                             toggleNav={toggleNav}
@@ -93,6 +97,7 @@ const Morning = ({
                 >
                     <div>
                         <Gratitude
+                            prompt={gratPrompt}
                             toggleGraph={toggleGraph}
                             toggleDates={toggleDates}
                             toggleNav={toggleNav}

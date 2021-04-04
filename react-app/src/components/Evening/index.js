@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import DailyJournal from '../DailyJournal';
 import Ratings from '../Ratings';
+import daily from '../../promptData/daily';
 import './Evening.css';
 
 const Evening = ({
@@ -13,7 +14,7 @@ const Evening = ({
 }) => {
     const [journalModal, setJournalModal] = useState(false);
     const [ratingModal, setRatingModal] = useState(false);
-
+    const dailyPrompt = daily[Math.floor(Math.random() * 15)];
     const style = {
         overlay: {
             textAlign: 'center',
@@ -82,6 +83,7 @@ const Evening = ({
                 >
                     <div>
                         <DailyJournal
+                            prompt={dailyPrompt}
                             toggleGraph={toggleGraph}
                             toggleDates={toggleDates}
                             toggleNav={toggleNav}

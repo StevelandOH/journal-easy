@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addEntry } from '../../store/entries';
-import dreams from '../../promptData/dreams';
+
 import './Dream.css';
 
-const Dream = ({ toggleDates, toggleGraph, toggleDreamModal, toggleNav }) => {
+const Dream = ({
+    prompt,
+    toggleDates,
+    toggleGraph,
+    toggleDreamModal,
+    toggleNav,
+}) => {
     const dispatch = useDispatch();
     const [data, setData] = useState('');
     const user = useSelector((state) => state.users.user);
@@ -12,7 +18,6 @@ const Dream = ({ toggleDates, toggleGraph, toggleDreamModal, toggleNav }) => {
     if (user) {
         userId = user.id;
     }
-    const prompt = dreams[Math.floor(Math.random() * 3)];
 
     const handleEntry = async (e) => {
         e.preventDefault();
@@ -31,34 +36,38 @@ const Dream = ({ toggleDates, toggleGraph, toggleDreamModal, toggleNav }) => {
     };
     return (
         <div className="dream-form-container">
-            <form className="dream-form" onSubmit={handleEntry}>
-                <div className="dream-prompt-container">
-                    <label className="dream-prompt">{prompt}</label>
-                </div>
-                <div className="dream-input-container">
-                    <textarea
-                        className="dream dream-input"
-                        name="entry"
-                        value={data}
-                        onChange={updateEntry}
-                        placeholder="... |"
-                    />
-                </div>
-                <div className="dream-button-container">
-                    <button type="submit" className="dream-button">
-                        <i class="fas fa-check-circle"></i>
+            <div className="dream-top">
+                <div>
+                    <button
+                        className="dream-cancel-b"
+                        onClick={toggleDreamModal}
+                        onMouseUp={toggleNav}
+                        onClickCapture={toggleDates}
+                        onMouseUpCapture={toggleGraph}
+                    >
+                        <i class="fas fa-arrow-left "></i>
                     </button>
                 </div>
-            </form>
-            <button
-                className="cancel-button"
-                onClick={toggleDreamModal}
-                onMouseUp={toggleNav}
-                onClickCapture={toggleDates}
-                onMouseUpCapture={toggleGraph}
-            >
-                ⬅
-            </button>
+                <form className="dream-form" onSubmit={handleEntry}>
+                    <div className="dream-input-container">
+                        <textarea
+                            className="dream dream-input"
+                            name="entry"
+                            value={data}
+                            onChange={updateEntry}
+                            placeholder="...dream journal"
+                        />
+                    </div>
+                    <div className="dream-b-container">
+                        <button type="submit" className="dream-b">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div className="dream-prompt-container">
+                <label className="dream-prompt">{prompt}</label>
+            </div>
         </div>
     );
 };

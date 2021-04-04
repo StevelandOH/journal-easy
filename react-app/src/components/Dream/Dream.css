@@ -2,81 +2,104 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: rgba(184, 232, 238, 0.4);
+    background-color: rgba(250, 255, 181, 0.4);
     align-items: center;
     transition: 1000ms;
-    margin: 50px;
+    margin: 100px;
     margin-top: 10%;
-    padding: 70px 100px 20px 100px;
+    padding: 75px 25px 75px 25px;
+    border: 2px solid white;
     color: black;
     border-radius: 10em;
-
-    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.7);
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.5),
+        -20px 20px 20px rgba(0, 0, 0, 0.5);
+}
+.dream-prompt-container {
+    margin: 40px 20px 20px 20px;
+    padding: 5px;
+}
+.dream-prompt {
+    font-size: 150%;
+    color: rgb(120, 120, 120);
+    box-shadow: 15px 15px 15px rgba(72, 72, 72, 0.7),
+        -15px 15px 15px rgba(72, 72, 72, 0.7);
+    border-radius: 10em;
+    padding: 10px;
+    border: 2px solid white;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
-.dream-input::placeholder {
-    color: rgb(189, 189, 189);
+.dream-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
-.dream-input-container {
-    margin: 10px;
-    height: 90%;
+.dream-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .dream-input {
-    overflow: scroll;
-    height: 150px;
-    border-radius: 2em;
-    border: none;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    width: 250px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    background-color: rgba(255, 255, 255, 0.6);
-}
-
-.dream-header-container {
-    width: 100px;
-}
-
-.dream.header {
-    font-size: 200%;
-    padding: 10px;
-    cursor: inherit;
-}
-.dream-button-container {
-    margin: 10px;
-}
-
-.cancel-div {
-    display: flex;
-    align-items: flex-start;
+    background-color: rgba(255, 246, 233, 0.7);
+    height: 200px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 2px 6px 6px rgba(0, 0, 0, 0.3), -2px 6px 6px rgba(0, 0, 0, 0.3);
     padding: 15px;
-    margin: 10px;
+    border: 2px solid white;
 }
 
-.fa-times-circle {
-    background-color: rgba(255, 255, 255, 0.7);
+.dream-input:focus {
+    border: 2px solid white;
+    background-color: rgba(252, 236, 212, 0.7);
+    box-shadow: 5px 10px 10px rgba(255, 255, 255, 0.3),
+        -5px 10px 10px rgba(255, 255, 255, 0.3);
+}
+
+.dream-cancel-b {
     cursor: pointer;
-    color: #e2b888;
-    font-size: 30px;
-    border-radius: 5em;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
+    margin: 20px;
+    height: 100px;
+    width: 50px;
+    background-color: rgba(255, 214, 214, 0.7);
+    border: 2px solid white;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
 }
 
-.fa-check-circle {
-    background-color: rgba(255, 255, 255, 0.7);
-    border: none;
+.dream-b {
+    border: 2px solid white;
+}
+
+.fas.jour,
+.dream-b {
     cursor: pointer;
-    color: #e2b888;
-    font-size: 30px;
-    border-radius: 5em;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 50px;
+    background-color: rgb(177, 210, 177);
+
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.6);
 }
 
-.dream-button {
-    background-color: white;
-    border: none;
-    border-radius: 5em;
+.dream-cancel-b:hover {
+    margin-top: 25px;
+}
+
+.dream-b:hover {
+    margin-top: 25px;
+    box-shadow: -8px 8px 8px rgba(0, 0, 0, 0.6);
+}
+
+.dream-cancel-b:hover {
+    margin-top: 25px;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
 }

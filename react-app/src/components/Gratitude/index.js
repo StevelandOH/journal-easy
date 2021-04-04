@@ -6,6 +6,7 @@ import '../Dream/Dream.css';
 import './Gratitude.css';
 
 const Gratitude = ({
+    prompt,
     toggleDates,
     toggleGraph,
     toggleGratModal,
@@ -13,8 +14,6 @@ const Gratitude = ({
 }) => {
     const dispatch = useDispatch();
     const [data, setData] = useState('');
-
-    const prompt = gratitude[Math.floor(Math.random() * 14)];
 
     const handleEntry = async (e) => {
         e.preventDefault();
@@ -32,37 +31,40 @@ const Gratitude = ({
         setData(e.target.value);
     };
     return (
-        <div className="gratitude-form-container">
-            <form className="dream-form" onSubmit={handleEntry}>
-                <div className="dream-prompt-container">
-                    <label className="dream-prompt">{prompt}</label>
-                </div>
-
-                <div className="dream-input-container">
-                    <textarea
-                        className="dream dream-input"
-                        name="entry"
-                        value={data}
-                        onChange={updateEntry}
-                        placeholder="... |"
-                    />
-                </div>
-
-                <div className="dream-button-container">
-                    <button type="submit" className="dream-button">
-                        <i class="fas fa-check-circle"></i>
+        <div className="grat-form-container">
+            <div className="grat-top">
+                <div>
+                    <button
+                        className="grat-cancel-b"
+                        onClick={toggleGratModal}
+                        onMouseUp={toggleNav}
+                        onClickCapture={toggleDates}
+                        onMouseUpCapture={toggleGraph}
+                    >
+                        <i class="fas fa-arrow-left "></i>
                     </button>
                 </div>
-            </form>
-            <button
-                className="cancel-button"
-                onClick={toggleGratModal}
-                onMouseUp={toggleNav}
-                onClickCapture={toggleDates}
-                onMouseUpCapture={toggleGraph}
-            >
-                ⬅
-            </button>
+                <form className="grat-form" onSubmit={handleEntry}>
+                    <div className="grat-input-container">
+                        <textarea
+                            className="grat grat-input"
+                            name="entry"
+                            value={data}
+                            onChange={updateEntry}
+                            placeholder="...gratitude"
+                        />
+                    </div>
+
+                    <div className="grat-b-container">
+                        <button type="submit" className="grat-b">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div className="grat-prompt-container">
+                <label className="grat-prompt">{prompt}</label>
+            </div>
         </div>
     );
 };

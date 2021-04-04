@@ -10,6 +10,7 @@
 }
 
 html {
+    box-sizing: border-box;
     background: url('../src/images/birds-eye.jpg') no-repeat center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;

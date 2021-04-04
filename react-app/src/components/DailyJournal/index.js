@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addEntry } from '../../store/entries';
-import daily from '../../promptData/daily';
 import '../Dream/Dream.css';
 import './Journal.css';
 
-const Gratitude = ({ toggleGraph, toggleDates, toggleJournal, toggleNav }) => {
+const Gratitude = ({
+    prompt,
+    toggleGraph,
+    toggleDates,
+    toggleJournal,
+    toggleNav,
+}) => {
     const dispatch = useDispatch();
     const [data, setData] = useState('');
-
-    const prompt = daily[Math.floor(Math.random() * 15)];
 
     const handleEntry = async (e) => {
         e.preventDefault();
@@ -28,36 +31,38 @@ const Gratitude = ({ toggleGraph, toggleDates, toggleJournal, toggleNav }) => {
     };
     return (
         <div className="journal-form-container">
-            <form className="dream-form" onSubmit={handleEntry}>
-                <div className="dream-prompt-container">
-                    <label className="dream-prompt">{prompt}</label>
-                </div>
-
-                <div className="dream-input-container">
-                    <textarea
-                        className="dream dream-input"
-                        name="entry"
-                        value={data}
-                        onChange={updateEntry}
-                        placeholder="... |"
-                    />
-                </div>
-
-                <div className="dream-button-container">
-                    <button type="submit" className="dream-button">
-                        <i class="fas fa-check-circle"></i>
+            <div className="journal-top">
+                <div>
+                    <button
+                        className="jour-cancel-b"
+                        onClick={toggleJournal}
+                        onMouseUp={toggleNav}
+                        onClickCapture={toggleDates}
+                        onMouseUpCapture={toggleGraph}
+                    >
+                        <i class="fas fa-arrow-left "></i>
                     </button>
                 </div>
-            </form>
-            <button
-                className="cancel-button"
-                onClick={toggleJournal}
-                onMouseUp={toggleNav}
-                onClickCapture={toggleDates}
-                onMouseUpCapture={toggleGraph}
-            >
-                ⬅
-            </button>
+                <form className="jour-form" onSubmit={handleEntry}>
+                    <div className="jour-input-container">
+                        <textarea
+                            className="jour jour-input"
+                            name="entry"
+                            value={data}
+                            onChange={updateEntry}
+                            placeholder="...daily journal"
+                        />
+                    </div>
+                    <div className="jour-b-container">
+                        <button type="submit" className="jour-b">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div className="jour-prompt-container">
+                <label className="jour-prompt">{prompt}</label>
+            </div>
         </div>
     );
 };
