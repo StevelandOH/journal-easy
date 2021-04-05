@@ -7,6 +7,7 @@ import NavBar from './components/Navigation';
 import Slash from './components/Slash';
 import Morning from './components/Morning';
 import Evening from './components/Evening';
+import healthTips from '../src/healthTipsData/healthTips';
 import { restoreUser, authenticate } from './store/users';
 import { getAffirmations } from './store/affirmations';
 import { getEntries } from './store/entries';
@@ -32,6 +33,8 @@ function App() {
     const [seven, setSeven] = useState(false);
     const [eight, setEight] = useState(false);
 
+    const healthTip =
+        healthTips[Math.floor(Math.random() * healthTips.length - 1)];
     const toggleNav = () => setNav(!nav);
     const toggleLogin = () => setSlideLogin(!slideLogin);
     const toggleSignup = () => setSlideSignup(!slideSignup);
@@ -94,6 +97,7 @@ function App() {
                 toggleSignup={toggleSignup}
             />
             <Morning
+                healthTip={healthTip}
                 toggleDates={toggleDates}
                 setRateGraph={setRateGraph}
                 toggleGraph={toggleGraph}
@@ -112,6 +116,7 @@ function App() {
             <Switch>
                 <Route path="/" exact={true}>
                     <Slash
+                        loaded={loaded}
                         one={one}
                         two={two}
                         three={three}

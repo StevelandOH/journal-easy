@@ -5,8 +5,10 @@ import Gratitude from '../Gratitude';
 import dreams from '../../promptData/dreams';
 import gratitude from '../../promptData/gratitude';
 import './Morning.css';
+import healthTips from '../../healthTipsData/healthTips';
 
 const Morning = ({
+    healthTip,
     toggleDates,
     toggleGraph,
     toggleMorning,
@@ -14,6 +16,7 @@ const Morning = ({
     toggleNav,
 }) => {
     const [dreamModal, setDreamModal] = useState(false);
+    const [healthModal, setHealthModal] = useState(false);
     const [gratModal, setGratModal] = useState(false);
     const gratPrompt = gratitude[Math.floor(Math.random() * 14)];
     const dreamPrompt = dreams[Math.floor(Math.random() * 3)];
@@ -25,6 +28,7 @@ const Morning = ({
         },
     };
 
+    const toggleHealth = () => setHealthModal(!healthModal);
     const toggleDreamModal = () => setDreamModal(!dreamModal);
     const toggleGratModal = () => setGratModal(!gratModal);
 
@@ -58,7 +62,14 @@ const Morning = ({
                     </a>
                 </li>
                 <li className="morning-text">
-                    <a activeClassName="active">{'health  tips'}</a>
+                    <a
+                        onClick={toggleHealth}
+                        onClickCapture={toggleGraph}
+                        onMouseUp={toggleDates}
+                        activeClassName="active"
+                    >
+                        {'health  tips'}
+                    </a>
                 </li>
                 <div>
                     <button
@@ -71,6 +82,27 @@ const Morning = ({
                 </div>
             </ul>
             <div>
+                <Modal
+                    appElement={document.getElementById('root')}
+                    className="health-modal"
+                    style={style}
+                    isOpen={healthModal}
+                >
+                    <div className="health-container">
+                        <div>
+                            <button
+                                className="health-cancel-b"
+                                onClick={toggleHealth}
+                                onMouseUp={toggleNav}
+                                onClickCapture={toggleDates}
+                                onMouseUpCapture={toggleGraph}
+                            >
+                                <i class="fas fa-arrow-left "></i>
+                            </button>
+                        </div>
+                        <div>{healthTip}</div>
+                    </div>
+                </Modal>
                 <Modal
                     appElement={document.getElementById('root')}
                     className="dream-modal"

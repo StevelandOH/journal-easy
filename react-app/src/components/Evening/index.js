@@ -23,14 +23,6 @@ const Evening = ({
         },
     };
 
-    const ratingStyle = {
-        overlay: {
-            textAlign: 'center',
-            backgroundColor: 'rgba(255,255,255,0.9)',
-            zIndex: '1000',
-        },
-    };
-
     const toggleJournal = () => setJournalModal(!journalModal);
     const toggleRating = () => setRatingModal(!ratingModal);
 
@@ -94,7 +86,7 @@ const Evening = ({
                 <Modal
                     appElement={document.getElementById('root')}
                     className="rating-modal"
-                    style={ratingStyle}
+                    style={style}
                     isOpen={ratingModal}
                 >
                     <div>

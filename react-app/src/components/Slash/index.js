@@ -7,6 +7,7 @@ import 'chart.js';
 import './Slash.css';
 
 const Slash = ({
+    loaded,
     one,
     two,
     three,
@@ -43,7 +44,14 @@ const Slash = ({
     const sessionUser = useSelector((state) => state.users.user);
     const ratings = useSelector((state) => state.ratings);
     const entries = useSelector((state) => state.entries);
+    const affirmations = useSelector((state) => state.affirmations);
+    const a = Object.values(affirmations)[
+        Math.floor(Math.random() * Object.values(affirmations).length - 1)
+    ];
 
+    if (a) {
+        console.log(a.affirmations);
+    }
     const errors = useSelector((state) =>
         sessionUser ? sessionUser.errors : null
     );
@@ -143,9 +151,7 @@ const Slash = ({
     let numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
     const oneDone = (e) => {
-        if (numbers.includes(e) && e !== '0') {
-            inputTwo.current.focus();
-        }
+        inputTwo.current.focus();
     };
     const twoDone = (e) => {
         inputThree.current.focus();
@@ -216,9 +222,37 @@ const Slash = ({
         setYearFour('');
     };
 
+    const dayOneChange = (e) => {
+        oneDone(e.target.value);
+        if (e.target.value !== '0') {
+            setDayOne(e.target.value);
+        } else {
+            setDayOne(null);
+        }
+    };
+
+    if (!loaded) return null;
+
+    const dashTitle = () => {
+        if (a) {
+            return a.affirmations;
+        } else {
+            return `Hope you're having a good day, ${sessionUser.name}!`;
+        }
+    };
+
     if (sessionUser && !errors) {
         return (
             <div className="page-container">
+                <div
+                    className={
+                        rateGraph
+                            ? 'affirmations-container'
+                            : 'affirmations-container inactive'
+                    }
+                >
+                    <div className="dash-title">{dashTitle()}</div>
+                </div>
                 <div
                     className={
                         rateGraph
@@ -232,14 +266,10 @@ const Slash = ({
                             download={true}
                             data={graphData}
                         />
-                        . . . ratings
                     </div>
+                    ratings history
                 </div>
-                <div
-                    className={rateGraph ? 'date-title' : 'date-title inactive'}
-                >
-                    enter date to view entries . . .
-                </div>
+
                 <div
                     className={
                         rateGraph
@@ -253,10 +283,7 @@ const Slash = ({
                             id="one"
                             maxLength="1"
                             value={dayOne}
-                            onChange={(e) => {
-                                oneDone(e.target.value);
-                                setDayOne(e.target.value);
-                            }}
+                            onChange={dayOneChange}
                             placeholder="d"
                             className={
                                 one ? 'number one' : 'number one inactive'
@@ -392,13 +419,20 @@ const Slash = ({
                         ></input>
                     </div>
                 </div>
-                <button
-                    className={rateGraph ? 'date-b' : 'date-b inactive'}
-                    ref={button}
-                    onClick={handleDate}
+                <div
+                    className={rateGraph ? 'date-title' : 'date-title inactive'}
                 >
-                    . . . search
-                </button>
+                    enter a date to view entries
+                </div>
+                <div className="b-container">
+                    <button
+                        className={rateGraph ? 'date-b' : 'date-b inactive'}
+                        ref={button}
+                        onClick={handleDate}
+                    >
+                        <i class="fas fa-check"></i>
+                    </button>
+                </div>
                 <Modal
                     appElement={document.getElementById('root')}
                     className="stat-modal"

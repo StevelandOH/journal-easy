@@ -32,16 +32,11 @@
     color: white;
     font-weight: lighter;
     font-size: 22px;
-    width: 95%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-
-    border-radius: 4px;
 }
 
 .evening-text a:hover {
-    font-size: 20px;
+    font-size: 24px;
     margin-left: 2px;
     margin-top: 2px;
+    color: rgb(254, 254, 217);
 }

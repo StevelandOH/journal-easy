@@ -11,12 +11,16 @@
 .chart-container.inactive {
     border: none;
     border-radius: 50px;
-    transition: 1000ms;
+    transition: 200ms;
     margin-right: -200%;
     background-color: rgba(255, 255, 255, 0);
 }
 
 .container {
+    transition: 200ms;
+    box-shadow: 10px 10px 10px black;
+    margin: 20px;
+
     padding: 20px;
     border: 1px solid rgba(194, 194, 194, 0.7);
     border-radius: 15px;
@@ -24,29 +28,43 @@
 }
 
 .chart-container {
+    transition: 200ms;
+
     padding: 20px;
     border: 2px solid rgba(255, 255, 255, 0.6);
     width: 60%;
     margin: 10px;
-    font-size: 20pt;
+    text-align: center;
     padding: 25px;
+    color: white;
     box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.8);
-    border-radius: 15px;
+    border-radius: 15px 15px 0px 0px;
     background-color: rgba(143, 132, 82, 0.4);
 }
 
 .date-title {
-    margin: 100px 0px 0px 0px;
+    width: 837px;
+    text-align: center;
     padding: 10px 20px 10px 20px;
     color: white;
     font-size: 24pt;
-    border-radius: 10px;
-    border-top: 2px solid rgba(255, 255, 255, 0.6);
+
     border-right: 2px solid rgba(255, 255, 255, 0.6);
     border-left: 2px solid rgba(255, 255, 255, 0.6);
     color: rgba(255, 255, 255, 0.9);
     background-color: rgba(143, 132, 82, 0.4);
     transition: 500ms;
+}
+
+.b-container {
+    padding: 20px;
+    text-align: center;
+    width: 837px;
+    background-color: rgba(143, 132, 82, 0.4);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+    border-right: 2px solid rgba(255, 255, 255, 0.6);
+    border-left: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 0px 0px 15px 15px;
 }
 
 .date-title.inactive,
@@ -59,12 +77,11 @@
 }
 
 .date-entry-container {
-    border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+    margin-top: 30px;
+    border-top: 2px solid rgba(255, 255, 255, 0.6);
     border-right: 2px solid rgba(255, 255, 255, 0.6);
     border-left: 2px solid rgba(255, 255, 255, 0.6);
     padding: 30px 40px 20px 40px;
-
-    border-radius: 15px;
     background-color: rgba(143, 132, 82, 0.4);
     display: flex;
     flex-direction: row;
@@ -243,7 +260,7 @@
 }
 
 .number {
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);
+    box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.8);
 }
 
 .landing-title {
@@ -300,7 +317,7 @@
 }
 
 .title-image {
-    margin-top: -200px;
+    margin-top: -100px;
     margin-bottom: -25px;
     font-family: 'Cedarville Cursive', cursive;
     text-align: center;
@@ -320,19 +337,19 @@
 
 .date-b {
     cursor: pointer;
-    border-radius: 2em;
+    border-radius: 10px;
     border: 2px solid rgba(255, 255, 255, 0.6);
-    color: white;
-    background-color: rgba(82, 82, 82, 0.85);
+    color: rgb(108, 108, 108);
+    background-color: rgb(177, 210, 177);
     font-size: 14pt;
-
+    font-family: 'Lexend', sans-serif;
     margin: 20px;
     width: 200px;
     height: 40px;
+    box-shadow: 15px 15px 15px black;
 }
 
 .date-b:hover {
-    margin-top: 22px;
     margin-left: 22px;
     color: rgb(254, 254, 217);
     border: 2px solid rgb(254, 254, 217);
@@ -395,4 +412,20 @@
     font-size: 10pt;
     margin: 5px;
     font-family: 'Lexend', sans-serif;
+}
+
+.affirmations-container {
+    transition: 0ms;
+
+    color: rgb(255, 255, 255);
+    font-size: 28pt;
+    margin: -50px 0px 20px 0px;
+    text-shadow: 5px 5px 5px black;
+}
+.affirmations-container.inactive {
+    text-shadow: 5px 5px 5px black;
+    transition: 0ms;
+    margin-top: -500%;
+    background-color: black;
+    color: rgb(255, 0, 0);
 }

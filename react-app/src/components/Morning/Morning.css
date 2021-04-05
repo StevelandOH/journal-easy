@@ -40,3 +40,26 @@
     margin-top: 2px;
     color: rgb(254, 254, 217);
 }
+
+.health-modal {
+    margin: 10%;
+    font-size: 40pt;
+}
+
+.health-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.health-cancel-b {
+    margin: 10px;
+    cursor: pointer;
+    height: 100px;
+    width: 50px;
+    border-radius: 1em;
+    color: white;
+    box-shadow: 5px 5px 5px black;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    background-color: rgba(212, 134, 142, 0.7);
+}
