@@ -440,6 +440,20 @@ const Slash = ({
                     <div className="title s">s</div>
                     <div className="title y">y</div>
                 </div>
+                <div className="bottom-landing">
+                    <div className="bottom-top">
+                        <div className="land">affirmations</div>
+                        <div className="land-right">nightly journal</div>
+                    </div>
+                    <div className="bottom-mid">
+                        <div className="land">dream journal</div>
+                        <div className="land-right">brain booster</div>
+                    </div>
+                    <div className="bottom-low">
+                        <div className="land">gratitude</div>
+                        <div className="land-right">daily ratings</div>
+                    </div>
+                </div>
             </div>
         );
     }

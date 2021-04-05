@@ -337,3 +337,35 @@
     color: rgb(254, 254, 217);
     border: 2px solid rgb(254, 254, 217);
 }
+
+.bottom-landing {
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 40px 20px 20px 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    color: black;
+}
+
+.bottom-top,
+.bottom-mid,
+.bottom-low {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.land {
+    height: 200px;
+    text-align: center;
+    width: 50%;
+    border-bottom: 2px solid black;
+}
+
+.land-right {
+    height: 200px;
+    text-align: center;
+    width: 50%;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+}
