@@ -424,7 +424,7 @@ const Slash = ({
         );
     } else {
         return (
-            <div>
+            <div className="page-container">
                 <div className="title-image">J</div>
                 <div className="landing-title">
                     <div className="title j">j</div>
@@ -441,17 +441,48 @@ const Slash = ({
                     <div className="title y">y</div>
                 </div>
                 <div className="bottom-landing">
+                    Create an account today and get practice with . . .
                     <div className="bottom-top">
-                        <div className="land">affirmations</div>
-                        <div className="land-right">nightly journal</div>
+                        <div className="land">
+                            <div className="land-title">affirmations</div>
+                            <div className="explination">
+                                <p>Create and store</p>
+                                <p>your own custom </p>
+                                <p>affirmations for</p>
+                                <p>daily reminders...</p>
+                            </div>
+                        </div>
+                        <div className="land-right">
+                            <div className="land-title">journaling</div>
+                            <div className="explination">
+                                <p>Respond to daily</p>
+                                <p>gratitude, dream</p>
+                                <p>and 'one thing from</p>
+                                <p>the day' prompts...</p>
+                            </div>
+                        </div>
                     </div>
                     <div className="bottom-mid">
-                        <div className="land">dream journal</div>
-                        <div className="land-right">brain booster</div>
-                    </div>
-                    <div className="bottom-low">
-                        <div className="land">gratitude</div>
-                        <div className="land-right">daily ratings</div>
+                        <div className="land">
+                            <div className="land-title">daily ratings</div>
+                            <div className="explination">
+                                <p>Rate each day </p>
+                                <p>and keep up on </p>
+                                <p>your last 30 days</p>
+                                <p>with a downloadable </p>
+                                <p>dashboard line graph...</p>
+                            </div>
+                        </div>
+                        <div className="land-right">
+                            <div className="land-title">brain boosters</div>
+                            <div className="explination">
+                                <p>Wake up and get</p>
+                                <p>your mind going</p>
+                                <p>in the morning with</p>
+                                <p>our vast catalog</p>
+                                <p> of word problems...</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
