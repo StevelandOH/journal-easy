@@ -108,7 +108,7 @@
 }
 
 .number.one {
-    background-color: rgba(209, 249, 216, 0.8);
+    background-color: rgba(186, 234, 237, 0.8);
     border: 2px solid rgba(255, 255, 255, 0.5);
     height: 75px;
     width: 75px;
@@ -144,7 +144,7 @@
 }
 
 .number.three {
-    background-color: rgba(224, 235, 198, 0.8);
+    background-color: rgba(186, 234, 237, 0.8);
     border: 2px solid rgba(255, 255, 255, 0.5);
     height: 75px;
     width: 75px;
@@ -162,7 +162,7 @@
 }
 
 .number.four {
-    background-color: rgba(247, 223, 220, 0.8);
+    background-color: rgba(186, 234, 237, 0.8);
     border: 2px solid rgba(255, 255, 255, 0.5);
     height: 75px;
     width: 75px;
@@ -180,7 +180,7 @@
 }
 
 .number.five {
-    background-color: rgba(246, 214, 247, 0.8);
+    background-color: rgba(186, 234, 237, 0.8);
     border: 2px solid rgba(255, 255, 255, 0.5);
     height: 75px;
     width: 75px;
@@ -198,7 +198,7 @@
 }
 
 .number.six {
-    background-color: rgba(205, 196, 228, 0.8);
+    background-color: rgba(186, 234, 237, 0.8);
     border: 2px solid rgba(255, 255, 255, 0.5);
     height: 75px;
     width: 75px;
@@ -216,7 +216,7 @@
 }
 
 .number.seven {
-    background-color: rgba(209, 215, 249, 0.8);
+    background-color: rgba(186, 234, 237, 0.8);
     border: 2px solid rgba(255, 255, 255, 0.5);
     height: 75px;
     width: 75px;
@@ -235,7 +235,7 @@
 }
 
 .number.eight {
-    background-color: rgba(209, 248, 249, 0.8);
+    background-color: rgba(186, 234, 237, 0.8);
     border: 2px solid rgba(255, 255, 255, 0.5);
     height: 75px;
     width: 75px;
@@ -356,17 +356,17 @@
 }
 
 .bottom-landing {
-    text-decoration: underline;
     border: 2px solid rgba(255, 255, 255, 0.7);
     text-align: center;
     font-size: 22pt;
     width: 80%;
-    background-color: rgba(143, 132, 82, 0.4);
+    background-color: rgba(255, 255, 255, 0.5);
     margin: 90px 20px 20px 20px;
     padding: 60px 40px 60px 40px;
     display: flex;
     flex-direction: column;
-    color: rgb(220, 220, 220);
+    color: black;
+
     border-radius: 15px;
 }
 
@@ -385,7 +385,7 @@
     text-align: center;
     width: 50%;
     border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(186, 234, 237, 0.8);
     margin: 20px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.7);
 }
@@ -394,7 +394,7 @@
     color: rgb(97, 97, 97);
     padding: 40px 30px 60px 30px;
     border: 2px solid rgba(255, 255, 255, 0.7);
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(186, 234, 237, 0.8);
     margin: 20px;
 
     text-align: center;
@@ -404,8 +404,23 @@
 }
 
 .land-title {
-    text-decoration: underline;
+    text-shadow: 2px 2px 2px white;
     font-size: 26pt;
+    color: rgb(102, 102, 116);
+}
+
+.explination.left {
+    box-shadow: 10px 10px 10px rgba(55, 55, 55, 0.8);
+}
+
+.explination {
+    box-shadow: -10px 10px 10px rgba(55, 55, 55, 0.8);
+    background-color: rgba(48, 48, 48, 0.605);
+    padding: 25px;
+    color: white;
+    border-radius: 15px;
+    margin-top: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
 }
 
 .explination > p {

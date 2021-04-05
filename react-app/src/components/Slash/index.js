@@ -479,7 +479,7 @@ const Slash = ({
                     <div className="bottom-top">
                         <div className="land">
                             <div className="land-title">affirmations</div>
-                            <div className="explination">
+                            <div className="explination left">
                                 <p>Create and store</p>
                                 <p>your own custom </p>
                                 <p>affirmations for</p>
@@ -499,7 +499,7 @@ const Slash = ({
                     <div className="bottom-mid">
                         <div className="land">
                             <div className="land-title">daily ratings</div>
-                            <div className="explination">
+                            <div className="explination left">
                                 <p>Rate each day </p>
                                 <p>and keep up on </p>
                                 <p>your last 30 days</p>
