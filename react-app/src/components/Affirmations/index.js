@@ -4,7 +4,7 @@ import { addAffirmation, deleteAffirmation } from '../../store/affirmations';
 
 import './Affirmations.css';
 
-const Affirmations = ({ toggleAffirmation, toggleNav }) => {
+const Affirmations = ({ toggle }) => {
     const dispatch = useDispatch();
     const [affirmation, setAffirmation] = useState('');
 
@@ -24,8 +24,6 @@ const Affirmations = ({ toggleAffirmation, toggleNav }) => {
 
     return (
         <div className="affirmation-container">
-            <div className="aff-header">affirmations</div>
-
             <div>
                 <div className="aff-list">
                     {Object.entries(
@@ -49,25 +47,23 @@ const Affirmations = ({ toggleAffirmation, toggleNav }) => {
                     })}
                 </div>
             </div>
-            <form onSubmit={handleAffirmation}>
-                <div className="aff-form-submit">
-                    <input
-                        className="aff-input"
-                        type="text"
-                        onChange={updateAffirmation}
-                    ></input>
-                    <div>
-                        <button type="submit" className="dream-button aff">
-                            <i class="fas fa-check-circle aff"></i>
-                        </button>
+            <div className="aff-cont">
+                <form onSubmit={handleAffirmation}>
+                    <div className="aff-form-submit">
+                        <input
+                            className="aff-input"
+                            type="text"
+                            onChange={updateAffirmation}
+                        ></input>
+                        <div>
+                            <button type="submit" className="dream-button aff">
+                                <i class="fas fa-check-circle aff"></i>
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </form>
-            <button
-                className="cancel-button aff"
-                onClick={toggleAffirmation}
-                onMouseUp={toggleNav}
-            >
+                </form>
+            </div>
+            <button className="cancel-button aff" onClick={toggle}>
                 ⬅
             </button>
         </div>

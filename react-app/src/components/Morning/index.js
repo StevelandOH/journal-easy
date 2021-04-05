@@ -5,9 +5,9 @@ import Gratitude from '../Gratitude';
 import dreams from '../../promptData/dreams';
 import gratitude from '../../promptData/gratitude';
 import './Morning.css';
-import healthTips from '../../healthTipsData/healthTips';
 
 const Morning = ({
+    booster,
     healthTip,
     toggleDates,
     toggleGraph,
@@ -15,9 +15,11 @@ const Morning = ({
     slideMorning,
     toggleNav,
 }) => {
+    const [showAnswer, setShowAnswer] = useState(false);
     const [dreamModal, setDreamModal] = useState(false);
     const [healthModal, setHealthModal] = useState(false);
     const [gratModal, setGratModal] = useState(false);
+    const [boosterModal, setBoosterModal] = useState(false);
     const gratPrompt = gratitude[Math.floor(Math.random() * 14)];
     const dreamPrompt = dreams[Math.floor(Math.random() * 3)];
     const style = {
@@ -27,10 +29,11 @@ const Morning = ({
             zIndex: '1000',
         },
     };
-
+    const toggleAnswer = () => setShowAnswer(!showAnswer);
     const toggleHealth = () => setHealthModal(!healthModal);
     const toggleDreamModal = () => setDreamModal(!dreamModal);
     const toggleGratModal = () => setGratModal(!gratModal);
+    const toggleBooster = () => setBoosterModal(!boosterModal);
 
     return (
         <div
@@ -49,7 +52,14 @@ const Morning = ({
                     </a>
                 </li>
                 <li className="morning-text">
-                    <a activeClassName="active">{'brain  booster'}</a>
+                    <a
+                        activeClassName="active"
+                        onClick={toggleBooster}
+                        onClickCapture={toggleGraph}
+                        onMouseUp={toggleDates}
+                    >
+                        {'brain  booster'}
+                    </a>
                 </li>
                 <li className="morning-text">
                     <a
@@ -82,6 +92,41 @@ const Morning = ({
                 </div>
             </ul>
             <div>
+                <Modal
+                    appElement={document.getElementById('root')}
+                    className="booster-modal"
+                    style={style}
+                    isOpen={boosterModal}
+                >
+                    <div className="booster-container">
+                        <div>
+                            <button
+                                className="booster-cancel-b"
+                                onClick={toggleBooster}
+                                onMouseUp={toggleNav}
+                                onClickCapture={toggleDates}
+                                onMouseUpCapture={toggleGraph}
+                            >
+                                <i class="fas fa-arrow-left booster"></i>
+                            </button>
+                        </div>
+                        <div>
+                            <div>{booster ? booster.question : null}</div>
+                            <div>
+                                <button onClick={toggleAnswer}>
+                                    show answer
+                                </button>
+                            </div>
+                            <div
+                                className={
+                                    showAnswer ? 'answer' : 'answer inactive'
+                                }
+                            >
+                                {booster ? booster.answer : null}
+                            </div>
+                        </div>
+                    </div>
+                </Modal>
                 <Modal
                     appElement={document.getElementById('root')}
                     className="health-modal"

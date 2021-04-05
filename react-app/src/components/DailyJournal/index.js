@@ -25,6 +25,13 @@ const Gratitude = ({
         toggleDates();
     };
 
+    const toggle = () => {
+        toggleJournal();
+        toggleNav();
+        toggleDates();
+        toggleGraph();
+    };
+
     const updateEntry = (e) => {
         setData(e.target.value);
     };
@@ -32,13 +39,7 @@ const Gratitude = ({
         <div className="journal-form-container">
             <div className="journal-top">
                 <div>
-                    <button
-                        className="jour-cancel-b"
-                        onClick={toggleJournal}
-                        onMouseUp={toggleNav}
-                        onClickCapture={toggleDates}
-                        onMouseUpCapture={toggleGraph}
-                    >
+                    <button className="jour-cancel-b" onClick={toggle}>
                         <i class="fas fa-arrow-left "></i>
                     </button>
                 </div>

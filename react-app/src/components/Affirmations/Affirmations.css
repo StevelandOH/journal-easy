@@ -2,17 +2,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: rgba(221, 244, 216, 0.4);
+
     align-items: center;
     transition: 1000ms;
-    margin-left: 30%;
+
     margin-top: 10%;
     padding: 30px 20px 0px 20px;
     color: black;
-    border-radius: 8em;
-    width: 500px;
-    height: 400px;
-    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.7);
 }
 
 .aff {
@@ -20,23 +16,31 @@
 }
 
 .aff-list-item {
+    font-size: 20pt;
     text-align: right;
     margin: 20px 10px 10px 10px;
 }
 
 .aff-input {
+    text-align: right;
+    font-family: 'Lexend', sans-serif;
+    font-size: 16pt;
+    border-radius: 10px;
+    width: 457px;
+    overflow: scroll;
     height: 25px;
-    border-radius: 2em;
     border: none;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 246, 233, 0);
+    padding: 5px;
+}
+
+.aff-cont {
+    margin: 10px 0px 0px 55px;
     padding: 10px;
-    width: 220px;
-    margin-top: 10px;
-    margin-bottom: 20px;
 }
 
 .aff-list {
-    height: 100px;
+    height: 160px;
     overflow: scroll;
 }
 
@@ -45,17 +49,19 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    border-bottom: 1px solid rgba(126, 125, 125, 0.4);
 }
 
 .dream-button.aff {
     margin-left: 10px;
-    font-size: 20px;
-    margin-top: 12px;
+    border: none;
 }
 
 .fa-check-circle.aff {
     font-size: 20px;
+    color: rgb(80, 171, 80);
+    background-color: white;
+    border-radius: 5em;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
 }
 
 .fa-times-circle.aff {
@@ -83,4 +89,12 @@
 
 .cancel-button.aff {
     margin: 15px;
+    width: 30px;
+    padding: 10px 22px 10px 10px;
+}
+
+.cancel-button.aff:hover {
+    box-shadow: 8px 8px 8px black;
+    margin-top: 17px;
+    color: rgb(242, 242, 107);
 }

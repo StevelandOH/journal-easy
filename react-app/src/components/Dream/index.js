@@ -34,17 +34,19 @@ const Dream = ({
     const updateEntry = (e) => {
         setData(e.target.value);
     };
+
+    const toggle = () => {
+        toggleDreamModal();
+        toggleNav();
+        toggleDates();
+        toggleGraph();
+    };
+
     return (
         <div className="dream-form-container">
             <div className="dream-top">
                 <div>
-                    <button
-                        className="dream-cancel-b"
-                        onClick={toggleDreamModal}
-                        onMouseUp={toggleNav}
-                        onClickCapture={toggleDates}
-                        onMouseUpCapture={toggleGraph}
-                    >
+                    <button className="dream-cancel-b" onClick={toggle}>
                         <i class="fas fa-arrow-left "></i>
                     </button>
                 </div>

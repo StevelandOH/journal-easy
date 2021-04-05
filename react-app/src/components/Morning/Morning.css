@@ -63,3 +63,35 @@
     border: 2px solid rgba(255, 255, 255, 0.8);
     background-color: rgba(212, 134, 142, 0.7);
 }
+
+.answer.inactive {
+    margin-top: -200%;
+}
+
+.booster-modal {
+    margin: 10%;
+    font-size: 25pt;
+    padding: 20px;
+}
+
+.booster-cancel-b {
+    margin: 10px;
+    box-shadow: 5px 5px 5px black;
+    color: white;
+    border-radius: 1em;
+    padding: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    background-color: rgba(212, 134, 142, 0.7);
+}
+
+.booster-cancel-b:hover {
+    color: rgb(247, 247, 172);
+    border: 2px solid rgb(247, 247, 172);
+}
+
+.booster-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

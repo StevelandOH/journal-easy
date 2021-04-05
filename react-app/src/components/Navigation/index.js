@@ -14,6 +14,8 @@ const NavBar = ({
     nav,
     toggleNav,
     toggleSignup,
+    toggleGraph,
+    toggleDates,
 }) => {
     const dispatch = useDispatch();
     const [affirmationModal, setAffirmationModal] = useState(false);
@@ -22,6 +24,13 @@ const NavBar = ({
     const errors = useSelector((state) =>
         sessionUser ? sessionUser.errors : null
     );
+
+    const toggle = () => {
+        toggleGraph();
+        toggleDates();
+        toggleAffirmation();
+        toggleNav();
+    };
 
     const style = {
         overlay: {
@@ -76,11 +85,7 @@ const NavBar = ({
                             </a>
                         </li>
                         <li className="nav-text">
-                            <a
-                                onClick={toggleNav}
-                                onClickCapture={toggleAffirmation}
-                                activeClassName="active"
-                            >
+                            <a onClick={toggle} activeClassName="active">
                                 Affirmations
                             </a>
                         </li>
@@ -96,10 +101,7 @@ const NavBar = ({
                         isOpen={affirmationModal}
                     >
                         <div>
-                            <Affirmations
-                                toggleNav={toggleNav}
-                                toggleAffirmation={toggleAffirmation}
-                            />
+                            <Affirmations toggle={toggle} />
                         </div>
                     </Modal>
                 </nav>
