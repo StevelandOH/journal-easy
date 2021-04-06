@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addRating } from '../../store/ratings';
+import { restoreUser } from '../../store/users';
 import './Ratings.css';
 
 const Ratings = ({ toggleGraph, toggleDates, toggleRating, toggleNav }) => {
@@ -40,22 +41,16 @@ const Ratings = ({ toggleGraph, toggleDates, toggleRating, toggleNav }) => {
         let x = new Date();
         let date = x.toLocaleDateString();
         dispatch(addRating({ rating, date }));
+        dispatch(restoreUser());
         toggleRating();
         toggleNav();
         toggleGraph();
         toggleDates();
     };
 
-    let clear = () => {
-        setCurrRating(0);
-        Array.from(stars).forEach((star) => {
-            star.className = 'fas fa-star';
-        });
-    };
-
     return (
         <div className="ratings-container">
-            <div onMouseLeave={handleRating} className="star-container">
+            <div className="star-container">
                 <div>
                     {[...Array(10).keys()].map((n) => {
                         return (
@@ -63,8 +58,8 @@ const Ratings = ({ toggleGraph, toggleDates, toggleRating, toggleNav }) => {
                                 data-value={n + 1}
                                 name="star"
                                 key={n + 1}
+                                onClick={handleRating}
                                 onMouseOver={hoverRating}
-                                onMouseLeave={clear}
                                 class="fas fa-star"
                             ></i>
                         );
