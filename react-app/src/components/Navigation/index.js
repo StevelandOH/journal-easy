@@ -21,13 +21,24 @@ const NavBar = ({
     const dispatch = useDispatch();
     const [name, setName] = useState('');
     const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const [nameModal, setNameModal] = useState(false);
+    const [usernameModal, setUsernameModal] = useState(false);
     const [affirmationModal, setAffirmationModal] = useState(false);
     const [settings, setSettings] = useState(false);
     const sessionUser = useSelector((state) => state.users.user);
     const errors = useSelector((state) =>
         sessionUser ? sessionUser.errors : null
     );
+
+    const toggleNameModal = () => {
+        setSettings(false);
+        setNameModal(!nameModal);
+    };
+
+    const toggleUsernameModal = () => {
+        setSettings(false);
+        setUsernameModal(!usernameModal);
+    };
 
     const toggleSettings = () => {
         setSettings(!settings);
@@ -40,6 +51,24 @@ const NavBar = ({
         toggleDates();
         toggleAffirmation();
         toggleNav();
+    };
+
+    const closeName = () => {
+        toggleGraph();
+        toggleDates();
+        toggleNameModal();
+        toggleNav();
+        setName('');
+        setUsername('');
+    };
+
+    const closeUsername = () => {
+        toggleGraph();
+        toggleDates();
+        toggleUsernameModal();
+        toggleNav();
+        setName('');
+        setUsername('');
     };
 
     const style = {
@@ -61,11 +90,13 @@ const NavBar = ({
     const updateName = (e) => {
         e.preventDefault();
         dispatch(updateUser(['name', name]));
+        toggleNameModal();
     };
 
     const updateUsername = (e) => {
         e.preventDefault();
         dispatch(updateUser(['username', username]));
+        toggleUsernameModal();
     };
 
     if (sessionUser && !errors) {
@@ -119,9 +150,6 @@ const NavBar = ({
                         isOpen={settings}
                     >
                         <div>
-                            <div className="delete-account">
-                                <button>delete account</button>
-                            </div>
                             <div className="update-name">
                                 <input
                                     type="text"
@@ -154,6 +182,24 @@ const NavBar = ({
                                 </button>
                             </div>
                         </div>
+                    </Modal>
+                    <Modal
+                        appElement={document.getElementById('root')}
+                        className="name-modal"
+                        style={style}
+                        isOpen={nameModal}
+                    >
+                        <div>{`Name successfully changed to ${name}`}</div>
+                        <button onClick={closeName}>x</button>
+                    </Modal>
+                    <Modal
+                        appElement={document.getElementById('root')}
+                        className="username-modal"
+                        style={style}
+                        isOpen={usernameModal}
+                    >
+                        <div>{`Username successfully changed to ${username}`}</div>
+                        <button onClick={closeUsername}>x</button>
                     </Modal>
                     <Modal
                         appElement={document.getElementById('root')}

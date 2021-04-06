@@ -67,7 +67,6 @@ export const restoreUser = () => async (dispatch) => {
 };
 
 export const updateUser = (data) => async (dispatch) => {
-    console.log(data[0]);
     const res = await fetch(`/api/edit/${data[0]}`, {
         method: 'PUT',
         headers: {
