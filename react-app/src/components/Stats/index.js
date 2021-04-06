@@ -31,18 +31,22 @@ const Stats = ({
 
     return (
         <div className="stat-container">
-            <ul>
+            <ul className="list">
                 {Object.entries(entries).map(([k, v]) => {
                     return (
-                        <div key={k}>
+                        <div key={k} className="stat-list">
+                            {v.type === 'dream'}
                             <li key={`${k}a`} className="stat-list-item">
-                                {v.prompt}
+                                {`${v.prompt} (prompt)`}
+                            </li>
+                            <li key={`${k}d`} className="stat-list-item">
+                                -
                             </li>
                             <li key={`${k}b`} className="stat-list-item">
-                                {v.res}
+                                {`${v.res} (your entry)`}
                             </li>
-                            <li key={`${k}c`} className="stat-list-item">
-                                {v.type}
+                            <li key={`${k}c`} className="stat-list-item entry">
+                                {`- ${v.type} entry`}
                             </li>
                         </div>
                     );
