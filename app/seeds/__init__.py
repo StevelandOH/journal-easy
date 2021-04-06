@@ -3,7 +3,7 @@ from .users import seed_users, undo_users
 from .affirmations import seed_affirmations, undo_affirmations
 from .entries import seed_entries, undo_entries
 from .ratings import seed_ratings, undo_ratings
-from app.models.db import db
+
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -14,8 +14,7 @@ seed_commands = AppGroup('seed')
 
 @seed_commands.command('all')
 def seed():
-    db.drop_all()
-    db.create_all()
+
     seed_users()
     seed_affirmations()
     seed_entries()
