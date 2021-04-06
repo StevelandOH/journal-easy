@@ -39,7 +39,6 @@ app.register_blueprint(rating_routes, url_prefix='/api/rating/')
 app.register_blueprint(affirmation_routes, url_prefix='/api/affirmation/')
 db.init_app(app)
 Migrate(app, db)
-
 # Application Security
 CORS(app)
 
