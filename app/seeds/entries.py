@@ -73,5 +73,5 @@ def seed_entries():
 
 
 def undo_entries():
-    db.session.execute('TRUNCATE entries;')
+    db.session.execute('TRUNCATE entries CASCADE;')
     db.session.commit()

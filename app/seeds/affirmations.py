@@ -22,5 +22,5 @@ def seed_affirmations():
 
 
 def undo_affirmations():
-    db.session.execute('TRUNCATE affirmations;')
+    db.session.execute('TRUNCATE affirmations CASCADE;')
     db.session.commit()

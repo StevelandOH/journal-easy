@@ -42,5 +42,5 @@ def seed_ratings():
 
 
 def undo_ratings():
-    db.session.execute('TRUNCATE ratings;')
+    db.session.execute('TRUNCATE ratings CASCADE;')
     db.session.commit()
