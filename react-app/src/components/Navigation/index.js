@@ -4,6 +4,7 @@ import Affirmations from '../Affirmations';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../store/users';
+import { updateUser } from '../../store/users';
 
 import './Navigation.css';
 
@@ -18,13 +19,22 @@ const NavBar = ({
     toggleDates,
 }) => {
     const dispatch = useDispatch();
+    const [name, setName] = useState('');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
     const [affirmationModal, setAffirmationModal] = useState(false);
-
+    const [settings, setSettings] = useState(false);
     const sessionUser = useSelector((state) => state.users.user);
     const errors = useSelector((state) =>
         sessionUser ? sessionUser.errors : null
     );
 
+    const toggleSettings = () => {
+        setSettings(!settings);
+        toggleGraph();
+        toggleDates();
+        toggleNav();
+    };
     const toggle = () => {
         toggleGraph();
         toggleDates();
@@ -48,6 +58,16 @@ const NavBar = ({
         await window.location.reload(true);
     };
 
+    const updateName = (e) => {
+        e.preventDefault();
+        dispatch(updateUser(['name', name]));
+    };
+
+    const updateUsername = (e) => {
+        e.preventDefault();
+        dispatch(updateUser(['username', username]));
+    };
+
     if (sessionUser && !errors) {
         return (
             <div className="navbar">
@@ -58,13 +78,12 @@ const NavBar = ({
                 <nav className={nav ? 'nav-menu active' : 'nav-menu'}>
                     <ul onClick={toggleNav} className="nav-menu-items">
                         <li className="nav-text">
-                            <NavLink
-                                to="/"
-                                exact={true}
+                            <a
+                                onClick={toggleSettings}
                                 activeClassName="active"
                             >
-                                Home
-                            </NavLink>
+                                Settings
+                            </a>
                         </li>
                         <li className="nav-text">
                             <a
@@ -93,7 +112,49 @@ const NavBar = ({
                     <NavLink to="/" onClick={onLogout} activeClassName="active">
                         <button className="logout-b">Logout</button>
                     </NavLink>
+                    <Modal
+                        appElement={document.getElementById('root')}
+                        className="settings-modal"
+                        style={style}
+                        isOpen={settings}
+                    >
+                        <div>
+                            <div className="delete-account">
+                                <button>delete account</button>
+                            </div>
+                            <div className="update-name">
+                                <input
+                                    type="text"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                ></input>
+                                <button onClick={updateName}>
+                                    update name
+                                </button>
+                            </div>
+                            <div className="update-username">
+                                <input
+                                    type="text"
+                                    value={username}
+                                    onChange={(e) =>
+                                        setUsername(e.target.value)
+                                    }
+                                ></input>
+                                <button onClick={updateUsername}>
+                                    update username
+                                </button>
+                            </div>
 
+                            <div>
+                                <button
+                                    className="cancel-button rating"
+                                    onClick={toggleSettings}
+                                >
+                                    ⬅
+                                </button>
+                            </div>
+                        </div>
+                    </Modal>
                     <Modal
                         appElement={document.getElementById('root')}
                         className="affirmation-modal"

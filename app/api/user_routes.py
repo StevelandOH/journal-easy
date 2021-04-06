@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request, json
 from flask_login import login_required
 from app.models import User
 
@@ -17,3 +17,25 @@ def users():
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
+
+
+# @user_routes.route('/name', methods='PUT')
+# @login_required
+# def update():
+#     user = current_user.to_dict()
+#     user_model = User.query.filter(User.id == user['id']).first()
+#     data = request.data
+#     j = json.loads(data)
+#     print('hey---------------', j)
+
+
+# @user_routes.route('/username', methods='PUT')
+# @login_required
+# def update():
+#     pass
+
+
+# @user_routes.route('/password', methods='PUT')
+# @login_required
+# def update():
+#     pass

@@ -66,6 +66,19 @@ export const restoreUser = () => async (dispatch) => {
     return response;
 };
 
+export const updateUser = (data) => async (dispatch) => {
+    console.log(data[0]);
+    const res = await fetch(`/api/edit/${data[0]}`, {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application/json',
+        },
+        body: JSON.stringify(data[1]),
+    });
+    const user = await res.json();
+    return dispatch(setUser(user));
+};
+
 const initialState = { user: null };
 
 const userReducer = (state = initialState, action) => {
