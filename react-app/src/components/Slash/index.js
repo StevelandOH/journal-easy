@@ -260,6 +260,7 @@ const Slash = ({
                             : 'chart-container inactive'
                     }
                 >
+                    ratings history
                     <div className="container">
                         <LineChart
                             colors={['#a872b8cc', '#000000']}
@@ -267,7 +268,6 @@ const Slash = ({
                             data={graphData}
                         />
                     </div>
-                    ratings history
                 </div>
 
                 <div
@@ -496,10 +496,10 @@ const Slash = ({
                             </div>
                         </div>
                     </div>
-                    <div className="bottom-mid">
-                        <div className="land">
+                    <div className="bottom-mid ">
+                        <div className="land rat">
                             <div className="land-title">daily ratings</div>
-                            <div className="explination left">
+                            <div className="explination left rat ">
                                 <p>Rate each day </p>
                                 <p>and keep up on </p>
                                 <p>your last 30 days</p>
@@ -507,9 +507,9 @@ const Slash = ({
                                 <p>dashboard line graph...</p>
                             </div>
                         </div>
-                        <div className="land-right">
+                        <div className="land-right brain">
                             <div className="land-title">brain boosters</div>
-                            <div className="explination">
+                            <div className="explination brain">
                                 <p>Wake up and get</p>
                                 <p>your mind going</p>
                                 <p>in the morning with</p>
