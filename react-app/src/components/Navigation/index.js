@@ -149,57 +149,82 @@ const NavBar = ({
                         style={style}
                         isOpen={settings}
                     >
-                        <div>
-                            <div className="update-name">
-                                <input
-                                    type="text"
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                ></input>
-                                <button onClick={updateName}>
-                                    update name
-                                </button>
-                            </div>
-                            <div className="update-username">
-                                <input
-                                    type="text"
-                                    value={username}
-                                    onChange={(e) =>
-                                        setUsername(e.target.value)
-                                    }
-                                ></input>
-                                <button onClick={updateUsername}>
-                                    update username
-                                </button>
-                            </div>
-
+                        <div className="settings-container">
                             <div>
                                 <button
-                                    className="cancel-button rating"
+                                    className="settings-button"
                                     onClick={toggleSettings}
                                 >
                                     ⬅
                                 </button>
                             </div>
+                            <div className="update-modal">
+                                <div className="update-name">
+                                    <input
+                                        className="settings-input"
+                                        type="text"
+                                        value={name}
+                                        onChange={(e) =>
+                                            setName(e.target.value)
+                                        }
+                                    ></input>
+                                    <button
+                                        className="name-button"
+                                        onClick={updateName}
+                                    >
+                                        update name
+                                    </button>
+                                </div>
+                                <div className="update-username">
+                                    <input
+                                        className="settings-input"
+                                        type="text"
+                                        value={username}
+                                        onChange={(e) =>
+                                            setUsername(e.target.value)
+                                        }
+                                    ></input>
+                                    <button
+                                        className="name-button"
+                                        onClick={updateUsername}
+                                    >
+                                        update username
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </Modal>
                     <Modal
                         appElement={document.getElementById('root')}
-                        className="name-modal"
+                        className="n-modal"
                         style={style}
                         isOpen={nameModal}
                     >
-                        <div>{`Name successfully changed to ${name}`}</div>
-                        <button onClick={closeName}>x</button>
+                        <div className="username-modal">
+                            <div className="sentence">{`Name successfully changed to ${name}`}</div>
+                            <button
+                                className="name-ok-button"
+                                onClick={closeName}
+                            >
+                                ⬅
+                            </button>
+                        </div>
                     </Modal>
                     <Modal
                         appElement={document.getElementById('root')}
-                        className="username-modal"
+                        className="u-modal"
                         style={style}
                         isOpen={usernameModal}
                     >
-                        <div>{`Username successfully changed to ${username}`}</div>
-                        <button onClick={closeUsername}>x</button>
+                        <div className="username-modal">
+                            <div className="sentence">{`Username successfully changed to ${username}`}</div>
+                            <button
+                                className="name-ok-button"
+                                onClick={closeUsername}
+                            >
+                                ⬅
+                            </button>
+                        </div>
                     </Modal>
                     <Modal
                         appElement={document.getElementById('root')}

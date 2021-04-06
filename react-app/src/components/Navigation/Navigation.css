@@ -111,3 +111,118 @@
     color: rgb(254, 254, 217);
     border: 2px solid rgb(254, 254, 217);
 }
+
+.settings-modal {
+    display: flex;
+    justify-content: center;
+}
+
+.settings-input {
+    box-shadow: 4px 4px 4px black;
+    margin: 10px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    padding: 15px;
+    font-family: 'Lexend', sans-serif;
+}
+.update-modal {
+    text-align: right;
+}
+
+.name-button {
+    color: white;
+    width: 150px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    font-family: 'Lexend', sans-serif;
+    box-shadow: 10px 10px 10px black;
+    background-color: rgba(179, 230, 164, 0.7);
+}
+
+.name-button:hover {
+    height: 29px;
+    color: rgb(254, 254, 217);
+    border: 1px solid rgb(254, 254, 217);
+    box-shadow: 5px 5px 5px black;
+}
+
+.settings-button:hover {
+    height: 99px;
+    color: rgb(254, 254, 217);
+    border: 1px solid rgb(254, 254, 217);
+    box-shadow: 7px 7px 7px black;
+}
+
+.settings-button {
+    color: white;
+    margin: 10px;
+    height: 100px;
+    width: 30px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    background-color: rgba(212, 134, 142, 0.7);
+    box-shadow: 10px 10px 10px black;
+}
+
+.settings-container {
+    margin-top: 200px;
+    border-radius: 25px;
+    padding: 50px;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+.n-modal,
+.u-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20%;
+}
+
+.name-modal,
+.username-modal {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    padding: 50px;
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.6);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    text-align: center;
+}
+
+.sentence {
+    font-family: 'Lexend', sans-serif;
+}
+
+.name-ok-button {
+    margin: 20px 10px 0px 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 5px 5px 5px black;
+    background-color: rgba(179, 230, 164, 0.7);
+    color: white;
+}
+
+.name-ok-button:hover {
+    cursor: pointer;
+    box-shadow: 3px 3px 3px black;
+    padding: 10px 9px 10px 9px;
+    color: rgb(237, 233, 172);
+    border: 1px solid rgb(237, 233, 172);
+}
