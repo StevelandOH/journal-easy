@@ -13,6 +13,7 @@ import { restoreUser, authenticate } from './store/users';
 import { getAffirmations } from './store/affirmations';
 import { getEntries } from './store/entries';
 import { getRatings } from './store/ratings';
+import { Modal } from 'react-modal';
 
 function App() {
     const dispatch = useDispatch();
@@ -33,6 +34,7 @@ function App() {
     const [six, setSix] = useState(false);
     const [seven, setSeven] = useState(false);
     const [eight, setEight] = useState(false);
+
     const booster = boosters[Math.floor(Math.random() * boosters.length - 1)];
     const healthTip =
         healthTips[Math.floor(Math.random() * healthTips.length - 1)];

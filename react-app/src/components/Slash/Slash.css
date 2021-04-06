@@ -29,30 +29,32 @@
 
 .chart-container {
     transition: 200ms;
-
+    font-weight: bold;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    font-size: 18pt;
     padding: 20px;
     border: 2px solid rgba(255, 255, 255, 0.6);
     width: 60%;
     margin: 10px;
     text-align: center;
     padding: 25px;
-    color: white;
+    color: rgb(0, 0, 0);
     box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.8);
     border-radius: 15px 15px 0px 0px;
-    background-color: rgba(143, 132, 82, 0.4);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .date-title {
     width: 837px;
     text-align: center;
     padding: 10px 20px 10px 20px;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 24pt;
-
+    font-weight: bolder;
     border-right: 2px solid rgba(255, 255, 255, 0.6);
     border-left: 2px solid rgba(255, 255, 255, 0.6);
-    color: rgba(255, 255, 255, 0.9);
-    background-color: rgba(143, 132, 82, 0.4);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.5);
     transition: 500ms;
 }
 
@@ -60,7 +62,7 @@
     padding: 20px;
     text-align: center;
     width: 837px;
-    background-color: rgba(143, 132, 82, 0.4);
+    background-color: rgba(255, 255, 255, 0.5);
     border-bottom: 2px solid rgba(255, 255, 255, 0.6);
     border-right: 2px solid rgba(255, 255, 255, 0.6);
     border-left: 2px solid rgba(255, 255, 255, 0.6);
@@ -82,7 +84,7 @@
     border-right: 2px solid rgba(255, 255, 255, 0.6);
     border-left: 2px solid rgba(255, 255, 255, 0.6);
     padding: 30px 40px 20px 40px;
-    background-color: rgba(143, 132, 82, 0.4);
+    background-color: rgba(255, 255, 255, 0.5);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -430,11 +432,12 @@
 }
 
 .affirmations-container {
+    width: 100%;
     transition: 0ms;
-
+    text-align: right;
     color: rgb(255, 255, 255);
     font-size: 28pt;
-    margin: -50px 0px 20px 0px;
+    margin: -50px 20px 20px 0px;
     text-shadow: 5px 5px 5px black;
 }
 .affirmations-container.inactive {
