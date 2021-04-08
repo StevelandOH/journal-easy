@@ -1,6 +1,6 @@
 .evening-container {
     background-color: rgba(82, 82, 82, 0.85);
-    width: 220px;
+    width: 240px;
     display: flex;
     align-items: left;
     position: fixed;
@@ -14,6 +14,30 @@
     padding: 50px;
     box-shadow: 50px 50px 50px rgba(0, 0, 0, 1),
         -50px 50px 50px rgba(0, 0, 0, 1);
+}
+
+.sleep-modal {
+    margin: 10%;
+    font-size: 32pt;
+    color: white;
+}
+
+.sleep-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.sleep-cancel-b {
+    margin: 20px;
+    cursor: pointer;
+    height: 100px;
+    width: 50px;
+    border-radius: 1em;
+    color: white;
+    box-shadow: 5px 5px 5px black;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    background-color: rgba(212, 134, 142, 0.7);
 }
 
 .evening-container.active {
@@ -39,4 +63,11 @@
     margin-left: 2px;
     margin-top: 2px;
     color: rgb(254, 254, 217);
+}
+
+.evening-text.tip {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 9pt;
 }

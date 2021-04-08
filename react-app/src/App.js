@@ -7,13 +7,13 @@ import NavBar from './components/Navigation';
 import Slash from './components/Slash';
 import Morning from './components/Morning';
 import Evening from './components/Evening';
+import sleepTips from '../src/sleepTipsData/sleepTips';
 import healthTips from '../src/healthTipsData/healthTips';
 import boosters from '../src/boosterData/booster';
 import { restoreUser, authenticate } from './store/users';
 import { getAffirmations } from './store/affirmations';
 import { getEntries } from './store/entries';
 import { getRatings } from './store/ratings';
-import { Modal } from 'react-modal';
 
 function App() {
     const dispatch = useDispatch();
@@ -36,6 +36,8 @@ function App() {
     const [eight, setEight] = useState(false);
 
     const booster = boosters[Math.floor(Math.random() * boosters.length - 1)];
+    const sleepTip =
+        sleepTips[Math.floor(Math.random() * sleepTips.length - 1)];
     const healthTip =
         healthTips[Math.floor(Math.random() * healthTips.length - 1)];
     const toggleNav = () => setNav(!nav);
@@ -112,6 +114,7 @@ function App() {
                 toggleNav={toggleNav}
             />
             <Evening
+                sleepTip={sleepTip}
                 date={date}
                 toggleDates={toggleDates}
                 setRateGraph={setRateGraph}

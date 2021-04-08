@@ -13,10 +13,11 @@ const Evening = ({
     slideEvening,
     toggleNav,
     date,
+    sleepTip,
 }) => {
     const [journalModal, setJournalModal] = useState(false);
     const [ratingModal, setRatingModal] = useState(false);
-
+    const [sleepModal, setSleepModal] = useState(false);
     const dailyPrompt = daily[Math.floor(Math.random() * 15)];
     const ratings = useSelector((state) => state.ratings);
     let validRating = true;
@@ -27,11 +28,11 @@ const Evening = ({
     const style = {
         overlay: {
             textAlign: 'center',
-            backgroundColor: 'rgba(0,0,0, 0.8)',
+            backgroundColor: 'rgba(0,0,0, 0.7)',
             zIndex: '1000',
         },
     };
-
+    const toggleSleep = () => setSleepModal(!sleepModal);
     const toggleJournal = () => setJournalModal(!journalModal);
     const toggleRating = () => setRatingModal(!ratingModal);
 
@@ -62,12 +63,20 @@ const Evening = ({
                         Rate Today
                     </a>
                 </li>
-                <li className="evening-text">
-                    <a activeClassName="active">Sleep Tips</a>
+                <li className="evening-text tip">
+                    <a
+                        onClick={toggleSleep}
+                        onClickCapture={toggleGraph}
+                        onMouseUp={toggleDates}
+                        activeClassName="active"
+                    >
+                        {'Sleep Tips'}
+                    </a>
+                    from Shawn Stevenson
                 </li>
                 <div>
                     <button
-                        className="cancel-button"
+                        className="cancel-button morning"
                         onClick={toggleEvening}
                         onClickCapture={toggleNav}
                     >
@@ -106,6 +115,27 @@ const Evening = ({
                             toggleNav={toggleNav}
                             toggleRating={toggleRating}
                         />
+                    </div>
+                </Modal>
+                <Modal
+                    appElement={document.getElementById('root')}
+                    className="sleep-modal"
+                    style={style}
+                    isOpen={sleepModal}
+                >
+                    <div className="sleep-container">
+                        <div>
+                            <button
+                                className="sleep-cancel-b"
+                                onClick={toggleSleep}
+                                onMouseUp={toggleNav}
+                                onClickCapture={toggleDates}
+                                onMouseUpCapture={toggleGraph}
+                            >
+                                <i class="fas fa-arrow-left "></i>
+                            </button>
+                        </div>
+                        <div>{sleepTip}</div>
                     </div>
                 </Modal>
             </div>
