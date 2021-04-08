@@ -24,6 +24,15 @@ const SignUpForm = ({ slideSignup, toggleSignup, setNav, toggleNav }) => {
         }
     };
 
+    const createDemo = async (e) => {
+        e.preventDefault();
+        const num = Math.floor(Math.random() * 1000000);
+        const num2 = Math.floor(Math.random() * 1000000);
+        setName('demo');
+        setUsername(`demo${num}`);
+        setPassword(`${num}${num2}`);
+    };
+
     const updateUsername = (e) => {
         setUsername(e.target.value);
     };
@@ -87,6 +96,11 @@ const SignUpForm = ({ slideSignup, toggleSignup, setNav, toggleNav }) => {
                     <div className="signup-b-container">
                         <button className="signup-b" type="submit">
                             Signup
+                        </button>
+                    </div>
+                    <div className="signup-b-container demo">
+                        <button className="signup-b demo" onClick={createDemo}>
+                            Create Demo User
                         </button>
                     </div>
                 </form>

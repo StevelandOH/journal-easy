@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import Modal from 'react-modal';
 import DailyJournal from '../DailyJournal';
 import Ratings from '../Ratings';
@@ -11,10 +12,18 @@ const Evening = ({
     toggleEvening,
     slideEvening,
     toggleNav,
+    date,
 }) => {
     const [journalModal, setJournalModal] = useState(false);
     const [ratingModal, setRatingModal] = useState(false);
+
     const dailyPrompt = daily[Math.floor(Math.random() * 15)];
+    const ratings = useSelector((state) => state.ratings);
+    let validRating = true;
+    Object.values(ratings).map((el) => {
+        if (el.date === date.toLocaleDateString()) validRating = false;
+    });
+    console.log(validRating);
     const style = {
         overlay: {
             textAlign: 'center',
@@ -50,7 +59,7 @@ const Evening = ({
                         onMouseUp={toggleDates}
                         activeClassName="active"
                     >
-                        Rate Today{' '}
+                        Rate Today
                     </a>
                 </li>
                 <li className="evening-text">
@@ -91,6 +100,7 @@ const Evening = ({
                 >
                     <div>
                         <Ratings
+                            validRating={validRating}
                             toggleGraph={toggleGraph}
                             toggleDates={toggleDates}
                             toggleNav={toggleNav}

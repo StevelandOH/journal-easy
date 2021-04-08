@@ -56,3 +56,7 @@
     border: 2px solid rgb(254, 254, 217);
     color: rgb(254, 254, 217);
 }
+
+.star-container.no-rating {
+    color: white;
+}

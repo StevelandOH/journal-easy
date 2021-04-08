@@ -4,7 +4,13 @@ import { addRating } from '../../store/ratings';
 import { restoreUser } from '../../store/users';
 import './Ratings.css';
 
-const Ratings = ({ toggleGraph, toggleDates, toggleRating, toggleNav }) => {
+const Ratings = ({
+    validRating,
+    toggleGraph,
+    toggleDates,
+    toggleRating,
+    toggleNav,
+}) => {
     const dispatch = useDispatch();
     const [currRating, setCurrRating] = useState(0);
     const [rating, setRating] = useState(0);
@@ -37,34 +43,49 @@ const Ratings = ({ toggleGraph, toggleDates, toggleRating, toggleNav }) => {
     };
 
     const clickHandler = (e) => {
-        console.log(rating);
-        let x = new Date();
-        let date = x.toLocaleDateString();
-        dispatch(addRating({ rating, date }));
-        dispatch(restoreUser());
-        toggleRating();
-        toggleNav();
-        toggleGraph();
-        toggleDates();
+        if (validRating) {
+            let x = new Date();
+            let date = x.toLocaleDateString();
+            dispatch(addRating({ rating, date }));
+            dispatch(restoreUser());
+            toggleRating();
+            toggleNav();
+            toggleGraph();
+            toggleDates();
+        } else {
+            toggleRating();
+            toggleNav();
+            toggleGraph();
+            toggleDates();
+        }
     };
 
     return (
         <div className="ratings-container">
-            <div className="star-container">
-                <div>
-                    {[...Array(10).keys()].map((n) => {
-                        return (
-                            <i
-                                data-value={n + 1}
-                                name="star"
-                                key={n + 1}
-                                onClick={handleRating}
-                                onMouseOver={hoverRating}
-                                class="fas fa-star"
-                            ></i>
-                        );
-                    })}
+            {validRating && (
+                <div className="star-container">
+                    <div>
+                        {[...Array(10).keys()].map((n) => {
+                            return (
+                                <i
+                                    data-value={n + 1}
+                                    name="star"
+                                    key={n + 1}
+                                    onClick={handleRating}
+                                    onMouseOver={hoverRating}
+                                    class="fas fa-star"
+                                ></i>
+                            );
+                        })}
+                    </div>
                 </div>
+            )}
+            <div>
+                {!validRating && (
+                    <div className="star-container no-rating">
+                        rating already submitted today...
+                    </div>
+                )}
             </div>
             <div className="button-container">
                 <button className="submit-button rating" onClick={clickHandler}>

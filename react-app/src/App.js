@@ -112,6 +112,7 @@ function App() {
                 toggleNav={toggleNav}
             />
             <Evening
+                date={date}
                 toggleDates={toggleDates}
                 setRateGraph={setRateGraph}
                 toggleGraph={toggleGraph}
