@@ -45,7 +45,7 @@
 }
 
 .date-title {
-    width: 837px;
+    width: 800px;
     text-align: center;
     padding: 10px 20px 10px 20px;
     color: rgb(0, 0, 0);
@@ -61,7 +61,7 @@
 .b-container {
     padding: 20px;
     text-align: center;
-    width: 837px;
+    width: 800px;
     margin-bottom: 25px;
     background-color: rgba(255, 255, 255, 0.5);
     border-bottom: 2px solid rgba(255, 255, 255, 0.6);
@@ -73,13 +73,14 @@
 .date-title.inactive,
 .date-entry-container.inactive,
 .date-b.inactive {
-    transition: 500ms;
+    transition: 200ms;
     color: rgba(0, 0, 0, 0);
     background-color: rgba(0, 0, 0, 0);
     border: none;
 }
 
 .date-entry-container {
+    width: 800px;
     margin-top: 30px;
     border-top: 2px solid rgba(255, 255, 255, 0.6);
     border-right: 2px solid rgba(255, 255, 255, 0.6);
@@ -90,11 +91,12 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    transition: 200ms;
 }
 
 .date-entry-container.inactive {
     margin-left: -200%;
-    transition: 2000ms;
+    transition: 200ms;
 }
 
 .number-slash {

@@ -74,7 +74,7 @@ const NavBar = ({
     const style = {
         overlay: {
             textAlign: 'center',
-            backgroundColor: 'rgba(255,255,255, 0.9)',
+            backgroundColor: 'rgba(255,255,255, 0.7)',
             zIndex: '1000',
         },
     };
