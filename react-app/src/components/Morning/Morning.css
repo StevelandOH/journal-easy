@@ -89,17 +89,19 @@
 
 .booster-cancel-b {
     margin: 10px;
-    box-shadow: 5px 5px 5px black;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
     color: white;
     border-radius: 1em;
-    padding: 10px;
-    border: 2px solid rgba(255, 255, 255, 0.9);
+    padding: 12px;
+    border: 2px solid white;
     background-color: rgba(212, 134, 142, 0.7);
 }
 
 .booster-cancel-b:hover {
+    cursor: pointer;
     color: rgb(247, 247, 172);
     border: 2px solid rgb(247, 247, 172);
+    box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.4);
 }
 
 .booster-container {
@@ -121,4 +123,27 @@
     flex-direction: column;
     color: white;
     font-size: 9pt;
+}
+
+.booster-q,
+.booster-b-container {
+    margin: 25px;
+}
+
+.booster-b {
+    padding: 10px 20px 10px 20px;
+    background-color: rgba(179, 230, 164, 0.7);
+    border: 2px solid white;
+    border-radius: 10px;
+    color: rgb(82, 82, 82);
+    font-size: 14pt;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
+}
+
+.booster-b:hover {
+    box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.4);
+    border: 2px solid rgb(247, 247, 172);
+    color: rgb(247, 247, 172);
+    padding: 9px 19px 9px 19px;
+    cursor: pointer;
 }

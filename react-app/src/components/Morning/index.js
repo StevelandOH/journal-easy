@@ -112,9 +112,14 @@ const Morning = ({
                             </button>
                         </div>
                         <div>
-                            <div>{booster ? booster.question : null}</div>
-                            <div>
-                                <button onClick={toggleAnswer}>
+                            <div className="booster-q">
+                                {booster ? booster.question : null}
+                            </div>
+                            <div className="booster-b-container">
+                                <button
+                                    className="booster-b"
+                                    onClick={toggleAnswer}
+                                >
                                     show answer
                                 </button>
                             </div>
