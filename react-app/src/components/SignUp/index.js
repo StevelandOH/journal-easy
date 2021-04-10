@@ -24,7 +24,7 @@ const SignUpForm = ({ slideSignup, toggleSignup, setNav, toggleNav }) => {
         }
     };
 
-    const createDemo = async (e) => {
+    const createDemo = (e) => {
         e.preventDefault();
         const num = Math.floor(Math.random() * 1000000);
         const num2 = Math.floor(Math.random() * 1000000);
@@ -52,16 +52,12 @@ const SignUpForm = ({ slideSignup, toggleSignup, setNav, toggleNav }) => {
             }
         >
             <div className="signup-form-container">
-                <div className="cancel-button-container">
-                    <button
-                        className="cancel-button"
-                        onClickCapture={toggleNav}
-                        onClick={toggleSignup}
-                    >
-                        ⬅
-                    </button>
-                </div>
                 <form onSubmit={onSignUp}>
+                    <div className="signup-b-container demo">
+                        <button className="signup-b demo" onClick={createDemo}>
+                            Autofill Demo
+                        </button>
+                    </div>
                     <div className="name-container">
                         <input
                             className="name"
@@ -92,16 +88,21 @@ const SignUpForm = ({ slideSignup, toggleSignup, setNav, toggleNav }) => {
                             value={password}
                         ></input>
                     </div>
-
-                    <div className="signup-b-container">
-                        <button className="signup-b" type="submit">
-                            Signup
-                        </button>
-                    </div>
-                    <div className="signup-b-container demo">
-                        <button className="signup-b demo" onClick={createDemo}>
-                            Create Demo User
-                        </button>
+                    <div className="signup-b-container signup">
+                        <div className="cancel-button-container">
+                            <button
+                                className="cancel-button"
+                                onClickCapture={toggleNav}
+                                onClick={toggleSignup}
+                            >
+                                ⬅
+                            </button>
+                        </div>
+                        <div className="signup-b-container">
+                            <button className="signup-b" type="submit">
+                                Begin
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>

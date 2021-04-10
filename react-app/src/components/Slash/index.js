@@ -254,22 +254,8 @@ const Slash = ({
                     <div className="dash-title">{dashTitle()}</div>
                 </div>
                 <div
-                    className={
-                        rateGraph
-                            ? 'chart-container'
-                            : 'chart-container inactive'
-                    }
-                >
-                    ratings history
-                    <div className="container">
-                        <LineChart
-                            colors={['#a872b8cc', '#000000']}
-                            download={true}
-                            data={graphData}
-                        />
-                    </div>
-                </div>
-
+                    className={rateGraph ? 'freeform' : 'freeform inactive'}
+                ></div>
                 <div
                     className={
                         rateGraph
@@ -432,6 +418,21 @@ const Slash = ({
                     >
                         <i class="fas fa-check"></i>
                     </button>
+                </div>
+                <div
+                    className={
+                        rateGraph
+                            ? 'chart-container'
+                            : 'chart-container inactive'
+                    }
+                >
+                    <div className="container">
+                        <LineChart
+                            colors={['#a872b8cc', '#000000']}
+                            download={true}
+                            data={graphData}
+                        />
+                    </div>
                 </div>
                 <Modal
                     appElement={document.getElementById('root')}

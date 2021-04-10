@@ -32,15 +32,17 @@
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
     font-size: 18pt;
     padding: 20px 50px 20px 50px;
-    border: 2px solid rgba(255, 255, 255, 0.6);
-    width: 550px;
-    height: 450px;
-    margin: 10px;
-    text-align: center;
 
+    width: 800px;
+    height: 450px;
+    margin: -25px;
+    text-align: center;
+    border-right: 2px solid rgba(255, 255, 255, 0.6);
+    border-left: 2px solid rgba(255, 255, 255, 0.6);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.6);
     color: rgb(0, 0, 0);
     box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.8);
-    border-radius: 100px 100px 0px 0px;
+
     background-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -64,10 +66,8 @@
     width: 800px;
     margin-bottom: 25px;
     background-color: rgba(255, 255, 255, 0.5);
-    border-bottom: 2px solid rgba(255, 255, 255, 0.6);
     border-right: 2px solid rgba(255, 255, 255, 0.6);
     border-left: 2px solid rgba(255, 255, 255, 0.6);
-    border-radius: 0px 0px 300px 300px;
 }
 
 .date-title.inactive,
@@ -440,7 +440,7 @@
 }
 
 .explination > p {
-    font-size: 10pt;
+    font-size: 16pt;
     margin: 5px;
 }
 
@@ -459,4 +459,11 @@
     margin-top: -500%;
     background-color: black;
     color: rgb(255, 0, 0);
+}
+
+.freeform {
+    height: 300px;
+    width: 800px;
+    margin-bottom: -30px;
+    background: url('../../images/notebook.png') no-repeat;
 }

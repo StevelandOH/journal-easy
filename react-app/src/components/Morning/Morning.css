@@ -1,7 +1,7 @@
 .morning-container {
     background-color: rgba(82, 82, 82, 0.85);
     width: 240px;
-    height: 420px;
+    height: 440px;
     display: flex;
     align-items: left;
     position: fixed;
@@ -12,7 +12,7 @@
     border-top: 3px solid rgba(255, 255, 255, 0.2);
     border-right: 3px solid rgba(255, 255, 255, 0.2);
     border-bottom: 3px solid rgba(255, 255, 255, 0.2);
-    padding: 50px;
+    padding: 75px 50px 50px 50px;
     box-shadow: 50px 50px 50px rgba(0, 0, 0, 1),
         -50px 50px 50px rgba(0, 0, 0, 1);
 }
@@ -23,15 +23,15 @@
 }
 
 .cancel-button.morning {
-    margin: 30px 10px 10px 30px;
-    height: 45px;
-    width: 75px;
-    padding: 10px;
+    height: 40px;
+    width: 55px;
+    padding: 8px 10px 10px 10px;
+    margin: 20px 0px 0px 15px;
+    border-radius: 15px;
 }
 
 .cancel-button.morning:hover {
-    margin: 31px 10px 10px 31px;
-    box-shadow: 8px 8px 8px black;
+    box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.5);
 }
 
 .morning-text {
@@ -43,8 +43,8 @@
     cursor: pointer;
     text-decoration: none;
     color: white;
-    font-weight: lighter;
-    font-size: 22px;
+
+    font-size: 26px;
 }
 
 .morning-text a:hover {

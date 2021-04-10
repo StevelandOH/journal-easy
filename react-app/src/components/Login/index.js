@@ -46,15 +46,6 @@ const LoginForm = ({
             }
         >
             <div className="login-form-container">
-                <div className="cancel-button-container">
-                    <button
-                        className="cancel-button"
-                        onClickCapture={toggleNav}
-                        onClick={toggleLogin}
-                    >
-                        ⬅
-                    </button>
-                </div>
                 <form onSubmit={onLogin}>
                     <div className="errors-container">
                         {errors &&
@@ -85,9 +76,20 @@ const LoginForm = ({
                         />
                     </div>
                     <div className="signup-b-container">
-                        <button className="signup-b" type="submit">
-                            Login
-                        </button>
+                        <div>
+                            <button
+                                className="cancel-button"
+                                onClickCapture={toggleNav}
+                                onClick={toggleLogin}
+                            >
+                                ⬅
+                            </button>
+                        </div>
+                        <div>
+                            <button className="signup-b login" type="submit">
+                                Login
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>
