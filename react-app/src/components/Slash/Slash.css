@@ -362,18 +362,13 @@
 }
 
 .bottom-landing {
-    border: 2px solid rgba(255, 255, 255, 0.7);
     text-align: center;
     font-size: 22pt;
     width: 800px;
-    background-color: rgba(255, 255, 255, 0.5);
-    margin: 90px 20px 20px 20px;
     padding: 60px 40px 90px 40px;
     display: flex;
     flex-direction: column;
     color: black;
-
-    border-radius: 0px 0px 300px 300px;
 }
 
 .land.rat {
@@ -426,8 +421,7 @@
 }
 
 .land-title {
-    text-shadow: 2px 2px 2px white;
-    font-size: 26pt;
+    font-size: 22pt;
     color: rgb(102, 102, 116);
 }
 
@@ -448,7 +442,6 @@
 .explination > p {
     font-size: 10pt;
     margin: 5px;
-    font-family: 'Lexend', sans-serif;
 }
 
 .affirmations-container {

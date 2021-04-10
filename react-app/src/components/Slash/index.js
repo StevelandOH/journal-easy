@@ -475,10 +475,9 @@ const Slash = ({
                     <div className="title y">y</div>
                 </div>
                 <div className="bottom-landing">
-                    Create an account today and get practice with . . .
                     <div className="bottom-top">
                         <div className="land">
-                            <div className="land-title">affirmations</div>
+                            <div className="land-title">Affirmations</div>
                             <div className="explination left">
                                 <p>Create and store</p>
                                 <p>your own custom </p>
@@ -487,18 +486,18 @@ const Slash = ({
                             </div>
                         </div>
                         <div className="land-right">
-                            <div className="land-title">journaling</div>
+                            <div className="land-title">Journaling</div>
                             <div className="explination">
                                 <p>Respond to daily</p>
                                 <p>gratitude, dream</p>
-                                <p>and 'one thing from</p>
-                                <p>the day' prompts...</p>
+                                <p>and "one thing"</p>
+                                <p>prompts...</p>
                             </div>
                         </div>
                     </div>
                     <div className="bottom-mid ">
                         <div className="land rat">
-                            <div className="land-title">daily ratings</div>
+                            <div className="land-title">Rate the Day</div>
                             <div className="explination left rat ">
                                 <p>Rate each day </p>
                                 <p>and keep up on </p>
@@ -508,7 +507,7 @@ const Slash = ({
                             </div>
                         </div>
                         <div className="land-right brain">
-                            <div className="land-title">brain boosters</div>
+                            <div className="land-title">Brain Boosters</div>
                             <div className="explination brain">
                                 <p>Wake up and get</p>
                                 <p>your mind going</p>

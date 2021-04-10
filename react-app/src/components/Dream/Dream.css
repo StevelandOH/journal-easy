@@ -17,7 +17,6 @@
     margin-bottom: -10px;
 }
 .dream-prompt {
-    /* font-family: 'Lexend', sans-serif; */
     font-size: 26pt;
     font-weight: bolder;
     color: rgb(111, 111, 111);
@@ -37,7 +36,6 @@
 }
 
 .dream-input {
-    font-family: 'Lexend', sans-serif;
     background-color: rgba(255, 246, 233, 0.7);
     height: 200px;
     border-radius: 10px;
