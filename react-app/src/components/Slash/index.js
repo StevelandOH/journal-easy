@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { LineChart } from 'react-chartkick';
+import { addEntry } from '../../store/entries';
 import Modal from 'react-modal';
 import Stats from '../Stats';
 import 'chart.js';
@@ -30,6 +31,7 @@ const Slash = ({
     setRateGraph,
     toggleGraph,
 }) => {
+    const dispatch = useDispatch();
     const [dayOne, setDayOne] = useState('');
     const [dayTwo, setDayTwo] = useState('');
     const [monthOne, setMonthOne] = useState('');
@@ -40,7 +42,14 @@ const Slash = ({
     const [yearFour, setYearFour] = useState('');
     const [e, setE] = useState([]);
     const [modal, setModal] = useState(false);
+    const [data, setData] = useState('');
+    const [type, setType] = useState('none');
+    const [okModal, setOkModal] = useState(false);
 
+    const updateData = (e) => setData(e.target.value);
+    const updateType = (e) => {
+        setType(e.target.value);
+    };
     const sessionUser = useSelector((state) => state.users.user);
     const ratings = useSelector((state) => state.ratings);
     const entries = useSelector((state) => state.entries);
@@ -49,9 +58,6 @@ const Slash = ({
         Math.floor(Math.random() * Object.values(affirmations).length - 1)
     ];
 
-    if (a) {
-        console.log(a.affirmations);
-    }
     const errors = useSelector((state) =>
         sessionUser ? sessionUser.errors : null
     );
@@ -123,9 +129,14 @@ const Slash = ({
             });
         return data;
     };
-
     const graphData = thirtyRatings();
 
+    const getAverage = () => {
+        let total = 0;
+        Object.values(ratings).map((el, i) => (total += parseInt(el.rating)));
+        return Math.floor(total / Object.values(ratings).length);
+    };
+    getAverage();
     useEffect(() => {
         setRateGraph(true);
         setOne(true);
@@ -241,21 +252,154 @@ const Slash = ({
         }
     };
 
+    const toggleOk = () => setOkModal(!okModal);
+
+    const freeformEntry = async (e) => {
+        e.preventDefault();
+        let x = new Date();
+        let date = x.toLocaleDateString();
+        let prompt = 'free form';
+        await dispatch(addEntry({ prompt, data, type, date }));
+        await setType('none');
+        await setData('');
+        toggleOk();
+    };
+
     if (sessionUser && !errors) {
         return (
             <div className="page-container">
-                <div
-                    className={
-                        rateGraph
-                            ? 'affirmations-container'
-                            : 'affirmations-container inactive'
-                    }
-                >
-                    <div className="dash-title">{dashTitle()}</div>
+                <div className={rateGraph ? 'freeform' : 'freeform inactive'}>
+                    <div className="freeform-container">
+                        <div className="freeform-left">{dashTitle()}</div>
+                        <div className="freeform-right">
+                            <form
+                                className="freeform-form"
+                                onSubmit={freeformEntry}
+                            >
+                                <div>
+                                    <textarea
+                                        value={data}
+                                        onChange={updateData}
+                                        placeholder="...freeform journaling"
+                                        style={{
+                                            fontSize: '14pt',
+                                            textAlign: 'right',
+                                            padding: '10px',
+                                            border: 'none',
+                                            resize: 'none',
+                                            height: '175px',
+                                            width: '250px',
+                                            borderRadius: '10px',
+                                            backgroundColor:
+                                                'rgba(0, 0, 0, 0.0)',
+                                            overflow: 'scroll',
+                                        }}
+                                    />
+                                </div>
+                                <div style={{ textAlign: 'right' }}>
+                                    <button
+                                        className="ent-b"
+                                        type="submit"
+                                        style={{
+                                            padding: '5px',
+                                            margin: '0px 15px 0px 0px',
+                                            fontSize: '14pt',
+                                            borderRadius: '10px',
+                                            border: '1px solid white',
+                                            backgroundColor:
+                                                'rgba(179, 230, 164, 0.6)',
+                                            color: 'rgba(104, 104, 104, 0.9)',
+                                        }}
+                                    >
+                                        Add to
+                                    </button>
+                                    <select
+                                        value={type}
+                                        onChange={updateType}
+                                        style={{
+                                            width: '170px',
+                                            border: 'none',
+                                            borderRadius: '10px',
+                                            padding: '5px',
+                                            color: 'rgba(104, 104, 104, 0.9)',
+                                            fontSize: '12pt',
+                                            textAlignLast: 'center',
+                                        }}
+                                    >
+                                        <option value="none">
+                                            choose entry type
+                                        </option>
+                                        <option value="general">general</option>
+                                        <option value="remember">
+                                            things to remember
+                                        </option>
+                                        <option value="goal">goals</option>
+                                        <option value="other">...other</option>
+                                    </select>
+                                </div>
+                            </form>
+                            <Modal
+                                appElement={document.getElementById('root')}
+                                isOpen={okModal}
+                                style={{
+                                    textAlign: 'center',
+                                    background: 'rgba(0,0,0, 0.7)',
+                                    zIndex: '1000',
+                                    margin: '100px',
+                                }}
+                                className="newModal"
+                            >
+                                <div
+                                    style={{
+                                        borderRadius: '10px',
+                                        border: '1px solid black',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        backgroundColor:
+                                            'rgba(212, 134, 142, 0.7)',
+                                        height: '150px',
+                                        width: '450px',
+                                        marginTop: '300px',
+                                        marginLeft: '35%',
+                                        boxShadow:
+                                            '10px 10px 10px rgba(0,0,0,0.7)',
+                                        color: 'rgba(104, 104, 104, 0.9)',
+                                    }}
+                                >
+                                    <div
+                                        style={{
+                                            fontSize: '16pt',
+                                            margin: '20px 20px 10px 20px',
+                                        }}
+                                    >
+                                        ENTRY SUBMITTED, KEEP UP THE GREAT WORK!
+                                    </div>
+                                    <div
+                                        style={{
+                                            margin: '10px 20px 20px 20px',
+                                        }}
+                                    >
+                                        <button
+                                            className="ent-b"
+                                            style={{
+                                                padding: '10px',
+                                                borderRadius: '10px',
+                                                border: '1px solid grey',
+                                                backgroundColor:
+                                                    'rgba(186, 234, 237, 0.8)',
+                                            }}
+                                            onClick={toggleOk}
+                                        >
+                                            thanks
+                                        </button>
+                                    </div>
+                                </div>
+                            </Modal>
+                        </div>
+                    </div>
                 </div>
-                <div
-                    className={rateGraph ? 'freeform' : 'freeform inactive'}
-                ></div>
                 <div
                     className={
                         rateGraph
@@ -405,18 +549,13 @@ const Slash = ({
                         ></input>
                     </div>
                 </div>
-                <div
-                    className={rateGraph ? 'date-title' : 'date-title inactive'}
-                >
-                    enter a date to view entries
-                </div>
                 <div className="b-container">
                     <button
                         className={rateGraph ? 'date-b' : 'date-b inactive'}
                         ref={button}
                         onClick={handleDate}
                     >
-                        <i class="fas fa-check"></i>
+                        Review Date
                     </button>
                 </div>
                 <div
@@ -432,6 +571,13 @@ const Slash = ({
                             download={true}
                             data={graphData}
                         />
+                        <div className="legend-container">
+                            <div className="ratings-legend">
+                                <div className="rating-p">Ratings</div>
+                                <div className="rating-box"></div>
+                            </div>
+                            <div className="rating-avg">{`30 Day Average ( ${getAverage()} )`}</div>
+                        </div>
                     </div>
                 </div>
                 <Modal

@@ -18,12 +18,13 @@
 
 .container {
     transition: 200ms;
-    box-shadow: 10px 10px 10px black;
+    box-shadow: 40px 40px 40px rgba(0, 0, 0, 0.7);
     height: 320px;
     padding: 10px;
     border: 1px solid rgba(194, 194, 194, 0.7);
     border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.6);
+
+    background-color: rgba(249, 249, 229, 0.75);
 }
 
 .chart-container {
@@ -31,10 +32,9 @@
     font-weight: bold;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
     font-size: 18pt;
-    padding: 20px 50px 20px 50px;
-
+    padding: 0px 50px 20px 50px;
     width: 800px;
-    height: 450px;
+    height: 500px;
     margin: -25px;
     text-align: center;
     border-right: 2px solid rgba(255, 255, 255, 0.6);
@@ -61,7 +61,7 @@
 }
 
 .b-container {
-    padding: 20px;
+    padding: 0 0 25px 0;
     text-align: center;
     width: 800px;
     margin-bottom: 25px;
@@ -115,11 +115,11 @@
 .number.one {
     background-color: rgba(186, 234, 237, 0.8);
     border: 2px solid rgba(255, 255, 255, 0.5);
-    height: 75px;
-    width: 75px;
+    height: 55px;
+    width: 55px;
     margin: 5px;
     padding: 10px;
-    font-size: 40pt;
+    font-size: 24pt;
     text-align: center;
     border-radius: 10px;
     transition: 3000ms;
@@ -133,11 +133,11 @@
 .number.two {
     background-color: rgba(186, 234, 237, 0.8);
     border: 2px solid rgba(255, 255, 255, 0.5);
-    height: 75px;
-    width: 75px;
+    height: 55px;
+    width: 55px;
     margin: 5px;
     padding: 10px;
-    font-size: 40pt;
+    font-size: 24pt;
     text-align: center;
     border-radius: 10px;
     transition: 2600ms;
@@ -151,11 +151,11 @@
 .number.three {
     background-color: rgba(186, 234, 237, 0.8);
     border: 2px solid rgba(255, 255, 255, 0.5);
-    height: 75px;
-    width: 75px;
+    height: 55px;
+    width: 55px;
     margin: 5px;
     padding: 10px;
-    font-size: 40pt;
+    font-size: 24pt;
     text-align: center;
     border-radius: 10px;
     transition: 2300ms;
@@ -169,11 +169,11 @@
 .number.four {
     background-color: rgba(186, 234, 237, 0.8);
     border: 2px solid rgba(255, 255, 255, 0.5);
-    height: 75px;
-    width: 75px;
+    height: 55px;
+    width: 55px;
     margin: 5px;
     padding: 10px;
-    font-size: 40pt;
+    font-size: 24pt;
     text-align: center;
     border-radius: 10px;
     transition: 1950ms;
@@ -187,11 +187,11 @@
 .number.five {
     background-color: rgba(186, 234, 237, 0.8);
     border: 2px solid rgba(255, 255, 255, 0.5);
-    height: 75px;
-    width: 75px;
+    height: 55px;
+    width: 55px;
     margin: 5px;
     padding: 10px;
-    font-size: 40pt;
+    font-size: 24pt;
     text-align: center;
     border-radius: 10px;
     transition: 1600ms;
@@ -205,11 +205,11 @@
 .number.six {
     background-color: rgba(186, 234, 237, 0.8);
     border: 2px solid rgba(255, 255, 255, 0.5);
-    height: 75px;
-    width: 75px;
+    height: 55px;
+    width: 55px;
     margin: 5px;
     padding: 10px;
-    font-size: 40pt;
+    font-size: 24pt;
     text-align: center;
     border-radius: 10px;
     transition: 1250ms;
@@ -223,11 +223,11 @@
 .number.seven {
     background-color: rgba(186, 234, 237, 0.8);
     border: 2px solid rgba(255, 255, 255, 0.5);
-    height: 75px;
-    width: 75px;
+    height: 55px;
+    width: 55px;
     margin: 5px;
     padding: 10px;
-    font-size: 40pt;
+    font-size: 24pt;
     text-align: center;
     border-radius: 10px;
 
@@ -242,14 +242,13 @@
 .number.eight {
     background-color: rgba(186, 234, 237, 0.8);
     border: 2px solid rgba(255, 255, 255, 0.5);
-    height: 75px;
-    width: 75px;
+    height: 55px;
+    width: 55px;
     margin: 5px;
     padding: 10px;
-    font-size: 40pt;
+    font-size: 24pt;
     text-align: center;
     border-radius: 10px;
-
     transition: 550ms;
 }
 
@@ -265,7 +264,11 @@
 }
 
 .number {
-    box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.8);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);
+}
+
+.number:focus {
+    background-color: rgba(249, 249, 229, 0.6);
 }
 
 .landing-title {
@@ -348,15 +351,15 @@
     background-color: rgb(177, 210, 177);
     font-size: 14pt;
     font-family: 'Lexend', sans-serif;
-    margin: 0px 10px 20px 10px;
+    margin: 0px 10px 25px 10px;
     width: 200px;
     height: 40px;
-    box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.9);
+    box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.5);
 }
 
 .date-b:hover {
     width: 195px;
-    box-shadow: 12px 12px 12px black;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.6);
     color: rgb(254, 254, 217);
     border: 2px solid rgb(254, 254, 217);
 }
@@ -466,4 +469,76 @@
     width: 800px;
     margin-bottom: -30px;
     background: url('../../images/notebook.png') no-repeat;
+}
+
+.ratings-legend {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.rating-box {
+    margin: 10px;
+    border-radius: 15em;
+    height: 20px;
+    width: 20px;
+    background-color: rgb(169, 127, 208);
+    border: 1px solid black;
+}
+
+.rating-p {
+    margin: 10px;
+}
+
+.rating-avg {
+    margin: 10px;
+    text-align: center;
+}
+
+.legend-container {
+    color: rgb(114, 114, 114);
+    font-size: 14pt;
+    background-color: rgba(238, 238, 210, 0.7);
+    margin: 30px 40px 40px 0;
+    padding: 5px;
+    width: 175px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.freeform-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 40px;
+}
+
+.freeform-left,
+.freeform-right {
+    padding: 20px;
+}
+
+.freeform-left {
+    margin: 20px 10px 20px 15px;
+    font-size: 32pt;
+    width: 40%;
+
+    text-align: center;
+}
+.freeform-right {
+    margin: 20px 40px 20px 10px;
+    width: 40%;
+}
+
+.ent-b {
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.6);
+    font-size: 12pt;
+}
+
+.ent-b:hover {
+    box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    border: 2px solid rgb(254, 254, 217);
+    color: rgb(254, 254, 217);
 }
