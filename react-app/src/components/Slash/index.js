@@ -329,6 +329,7 @@ const Slash = ({
                                         <option value="none">
                                             choose entry type
                                         </option>
+                                        <option value="todo">to do</option>
                                         <option value="general">general</option>
                                         <option value="remember">
                                             things to remember

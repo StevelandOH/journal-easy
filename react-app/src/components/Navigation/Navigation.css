@@ -35,7 +35,7 @@
     transition: 1000ms;
     border-radius: 0px 100px 100px 0px;
     border-top: 3px solid rgba(255, 255, 255, 0.2);
-    border-right: 3px solid rgba(255, 255, 255, 0.2);
+
     border-bottom: 3px solid rgba(255, 255, 255, 0.2);
     padding: 50px;
     box-shadow: 50px 50px 50px rgba(0, 0, 0, 1),
@@ -201,11 +201,43 @@
     border-radius: 25px;
     background-color: rgba(0, 0, 0, 0.6);
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.8);
-    border: 2px solid rgba(255, 255, 255, 0.7);
+    border: 2px solid rgba(254, 254, 254, 0.7);
     text-align: center;
 }
 
-.sentence {
+.todo-b {
+    padding: 20px 10px 20px 30px;
+    width: 120px;
+    border-radius: 50px 0px 0px 50px;
+    border: none;
+    box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.7),
+        10px 10px 10px rgba(0, 0, 0, 1);
+    background-color: rgba(82, 82, 82, 0.85);
+    font-size: 14pt;
+    color: white;
+}
+
+.back {
+    background-color: rgba(212, 134, 142, 0.7);
+    border: 1px solid white;
+    padding: 7px 12px 7px 12px;
+    border-radius: 15px;
+    color: white;
+    margin: 20px 0px 10px 20px;
+    font-size: 14pt;
+    box-shadow: 5px 5px 5px black;
+}
+
+.back:hover {
+    color: rgb(255, 255, 200);
+    border: 1px solid rgb(255, 255, 200);
+    cursor: pointer;
+    box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.6);
+}
+
+.todo-b:hover {
+    cursor: pointer;
+    color: rgb(255, 255, 200);
 }
 
 .name-ok-button {
@@ -224,4 +256,31 @@
     padding: 10px 9px 10px 9px;
     color: rgb(237, 233, 172);
     border: 1px solid rgb(237, 233, 172);
+}
+
+.todo-list {
+    transition: 200ms;
+    margin-top: 320px;
+    background-color: rgba(82, 82, 82, 0.85);
+    padding: 40px 20px 40px 60px;
+    border-radius: 100px 0px 0px 100px;
+    font-size: 18pt;
+    box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.6),
+        -25px 25px 25px rgba(0, 0, 0, 0.6);
+    border-top: 3px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.todo-list.inactive {
+    transition: 500ms;
+    margin-right: -100%;
+}
+
+.td-list {
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.listitem {
+    margin: 10px;
 }

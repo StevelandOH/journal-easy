@@ -19,6 +19,7 @@ const NavBar = ({
     toggleDates,
 }) => {
     const dispatch = useDispatch();
+    const [todo, setTodo] = useState(false);
     const [name, setName] = useState('');
     const [username, setUsername] = useState('');
     const [nameModal, setNameModal] = useState(false);
@@ -29,6 +30,16 @@ const NavBar = ({
     const errors = useSelector((state) =>
         sessionUser ? sessionUser.errors : null
     );
+
+    const x = useSelector((state) => state.entries);
+    const todoList = [];
+    Object.values(x).map((el) => {
+        if (el.type === 'todo') {
+            todoList.push(el);
+        }
+    });
+
+    const toggleTodo = () => setTodo(!todo);
 
     const toggleNameModal = () => {
         setSettings(false);
@@ -102,10 +113,40 @@ const NavBar = ({
     if (sessionUser && !errors) {
         return (
             <div className="navbar">
-                <div className="menu-bars" onClick={toggleNav}>
-                    <i class="fas fa-bars"></i>h
+                <div
+                    style={{
+                        width: '100%',
+                        display: 'flex',
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                    }}
+                >
+                    <div className="menu-bars" onClick={toggleNav}>
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <div>
+                        {!todo && (
+                            <button onClick={toggleTodo} className="todo-b">
+                                TO.DO list
+                            </button>
+                        )}
+                    </div>
                 </div>
-
+                <div className={todo ? 'todo-list' : 'todo-list inactive'}>
+                    <ul className="td-list">
+                        {todoList &&
+                            todoList.map((el, i) => {
+                                return (
+                                    <li className="listitem" key={i}>
+                                        {el.response}
+                                    </li>
+                                );
+                            })}
+                    </ul>
+                    <button className="back" onClick={toggleTodo}>
+                        close
+                    </button>
+                </div>
                 <nav className={nav ? 'nav-menu active' : 'nav-menu'}>
                     <ul onClick={toggleNav} className="nav-menu-items">
                         <li className="nav-text">
