@@ -1,5 +1,6 @@
 .navbar {
     height: 80px;
+
     display: flex;
     align-items: center;
     color: rgba(255, 255, 255, 0.7);
@@ -91,7 +92,7 @@
 }
 
 .logout-b {
-    border: 2px solid rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255);
     border-radius: 1em;
     padding: 10px;
     background-color: rgba(212, 134, 142, 0.7);
@@ -104,7 +105,7 @@
 .logout-b:hover {
     backface-visibility: hidden;
     color: rgb(254, 254, 217);
-    border: 2px solid rgb(254, 254, 217);
+    border: 1px solid rgb(254, 254, 217);
     box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.5);
 }
 
@@ -221,7 +222,7 @@
     background-color: rgba(212, 134, 142, 0.7);
     border: 1px solid white;
     padding: 7px 12px 7px 12px;
-    border-radius: 15px;
+    border-radius: 12px;
     color: white;
     margin: 20px 0px 10px 20px;
     font-size: 14pt;
@@ -259,8 +260,9 @@
 }
 
 .todo-list {
+    width: 800px;
     z-index: 1000;
-    transition: 200ms;
+    transition: 1000ms;
     margin-top: 320px;
     background-color: rgba(82, 82, 82, 0.85);
     padding: 40px 20px 40px 60px;
@@ -273,15 +275,50 @@
 }
 
 .todo-list.inactive {
-    transition: 500ms;
-    margin-right: -100%;
+    transition: 1000ms;
+    margin-right: -500%;
 }
 
 .td-list {
     list-style-type: none;
     text-decoration: none;
+    text-align: right;
 }
 
 .listitem {
     margin: 10px;
+}
+
+.fa-clipboard-check {
+    margin: 5px 25px 5px 0;
+    font-size: 25pt;
+    color: white;
+    transition: 1000ms;
+}
+
+.fa-clipboard-check.inactive {
+    transition: 0ms;
+    color: rgba(0, 0, 0, 0);
+}
+
+.fa-clipboard-check:hover {
+    color: rgb(220, 215, 143);
+    cursor: pointer;
+    font-size: 26pt;
+}
+
+.todone {
+    background-color: rgba(179, 230, 164, 0.7);
+    font-size: 12pt;
+    margin: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 5px 5px 5px black;
+}
+
+.todone:hover {
+    cursor: pointer;
+    box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.5);
+    border: 1px solid rgb(240, 240, 145);
 }

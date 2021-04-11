@@ -132,11 +132,14 @@ const NavBar = ({
                         <i class="fas fa-bars"></i>
                     </div>
                     <div>
-                        {!todo && (
-                            <button onClick={toggleTodo} className="todo-b">
-                                TO.DO list
-                            </button>
-                        )}
+                        <i
+                            onClick={toggleTodo}
+                            class={
+                                !todo
+                                    ? 'fas fa-clipboard-check'
+                                    : 'fas fa-clipboard-check inactive'
+                            }
+                        ></i>
                     </div>
                 </div>
                 <div className={todo ? 'todo-list' : 'todo-list inactive'}>
@@ -146,10 +149,12 @@ const NavBar = ({
                                 return (
                                     <li className="listitem" value={el} key={i}>
                                         {el.response}
-                                        <i
+                                        <button
                                             onClick={(e) => deleteTodo(e, el)}
-                                            class="fas fa-minus-circle"
-                                        ></i>
+                                            className="todone"
+                                        >
+                                            to.done.
+                                        </button>
                                     </li>
                                 );
                             })}
