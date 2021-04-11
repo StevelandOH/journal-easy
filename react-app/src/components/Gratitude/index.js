@@ -51,7 +51,6 @@ const Gratitude = ({
                             name="entry"
                             value={data}
                             onChange={updateEntry}
-                            placeholder="...gratitude"
                         />
                     </div>
 

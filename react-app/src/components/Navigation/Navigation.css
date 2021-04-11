@@ -277,6 +277,7 @@
 .todo-list.inactive {
     transition: 1000ms;
     margin-right: -500%;
+    box-shadow: none;
 }
 
 .td-list {

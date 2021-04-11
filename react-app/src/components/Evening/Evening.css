@@ -35,9 +35,14 @@
     width: 50px;
     border-radius: 1em;
     color: white;
-    box-shadow: 5px 5px 5px black;
+    box-shadow: 10px 10px 10px rgba(235, 235, 235, 0.7);
     border: 2px solid rgba(255, 255, 255, 0.8);
     background-color: rgba(212, 134, 142, 0.7);
+}
+
+.sleep-cancel-b:hover {
+    color: rgb(254, 254, 217);
+    border: 2px solid rgb(254, 254, 217);
 }
 
 .evening-container.active {

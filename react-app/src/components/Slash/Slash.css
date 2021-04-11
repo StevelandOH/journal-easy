@@ -542,3 +542,7 @@
     border: 2px solid rgb(254, 254, 217);
     color: rgb(254, 254, 217);
 }
+
+.freeform.inactive {
+    margin-top: -500%;
+}

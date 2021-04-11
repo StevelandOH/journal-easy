@@ -77,6 +77,11 @@
     background-color: rgba(212, 134, 142, 0.7);
 }
 
+.health-cancel-b:hover {
+    color: rgb(254, 254, 217);
+    border: 2px solid rgb(254, 254, 217);
+}
+
 .answer.inactive {
     margin-top: -200%;
 }

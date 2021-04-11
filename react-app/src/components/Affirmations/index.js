@@ -51,6 +51,7 @@ const Affirmations = ({ toggle }) => {
                 <form onSubmit={handleAffirmation}>
                     <div className="aff-form-submit">
                         <input
+                            placeholder="...new affirmation"
                             className="aff-input"
                             type="text"
                             onChange={updateAffirmation}

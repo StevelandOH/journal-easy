@@ -1,11 +1,9 @@
 .affirmation-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
 
     align-items: center;
     transition: 1000ms;
-
     margin-top: 10%;
     padding: 30px 20px 0px 20px;
     color: black;
@@ -23,43 +21,43 @@
 
 .aff-input {
     text-align: right;
-
     font-size: 16pt;
     border-radius: 10px;
     width: 457px;
     overflow: scroll;
-    height: 25px;
+    height: 50px;
     border: none;
-    background-color: rgba(255, 246, 233, 0);
-    padding: 5px;
+    background-color: rgba(255, 246, 233, 0.8);
+    padding: 15px;
 }
 
 .aff-cont {
-    margin: 10px 0px 0px 55px;
+    margin: 10px;
     padding: 10px;
 }
 
 .aff-list {
-    height: 160px;
-    overflow: scroll;
+    width: 500px;
+    padding: 2px;
 }
 
 .aff-form-submit {
-    margin: 0px 10px 10px 10px;
+    width: 500px;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
 }
 
 .dream-button.aff {
-    margin-left: 10px;
+    margin: 10px;
     border: none;
+    border-radius: 5em;
 }
 
 .fa-check-circle.aff {
     font-size: 20px;
     color: rgb(80, 171, 80);
-    background-color: white;
+
     border-radius: 5em;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
 }
