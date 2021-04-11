@@ -33,7 +33,6 @@ export const addAffirmation = (affirmation) => async (dispatch) => {
 };
 
 export const deleteAffirmation = (affirmation) => async (dispatch) => {
-    console.log(affirmation);
     const res = await fetch('/api/affirmation/', {
         method: 'DELETE',
         headers: {

@@ -259,6 +259,7 @@
 }
 
 .todo-list {
+    z-index: 1000;
     transition: 200ms;
     margin-top: 320px;
     background-color: rgba(82, 82, 82, 0.85);

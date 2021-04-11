@@ -7,6 +7,7 @@ import { logout } from '../../store/users';
 import { updateUser } from '../../store/users';
 
 import './Navigation.css';
+import { deleteEntry } from '../../store/entries';
 
 const NavBar = ({
     toggleEvening,
@@ -110,6 +111,12 @@ const NavBar = ({
         toggleUsernameModal();
     };
 
+    const deleteTodo = async (e, v) => {
+        e.preventDefault();
+        await dispatch(deleteEntry(v));
+        await window.location.reload(true);
+    };
+
     if (sessionUser && !errors) {
         return (
             <div className="navbar">
@@ -137,8 +144,12 @@ const NavBar = ({
                         {todoList &&
                             todoList.map((el, i) => {
                                 return (
-                                    <li className="listitem" key={i}>
+                                    <li className="listitem" value={el} key={i}>
                                         {el.response}
+                                        <i
+                                            onClick={(e) => deleteTodo(e, el)}
+                                            class="fas fa-minus-circle"
+                                        ></i>
                                     </li>
                                 );
                             })}

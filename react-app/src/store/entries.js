@@ -35,6 +35,18 @@ export const addEntry = (entry, userId) => async (dispatch) => {
     return dispatch(setEntry(x));
 };
 
+export const deleteEntry = (entry) => async (dispatch) => {
+    const res = await fetch('/api/entry/', {
+        method: 'DELETE',
+        headers: {
+            'Content-type': 'application/json',
+        },
+        body: JSON.stringify({ entry }),
+    });
+    const x = res.json();
+    return dispatch(setEntries(x));
+};
+
 const entryReducer = (state = {}, action) => {
     let newState = JSON.parse(JSON.stringify(state));
     switch (action.type) {

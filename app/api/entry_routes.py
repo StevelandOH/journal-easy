@@ -32,3 +32,20 @@ def add_entry():
     db.session.add(entry)
     db.session.commit()
     return entry.to_dict()
+
+
+@entry_routes.route('/', methods=['DELETE'])
+def delete_entry():
+    user = current_user.to_dict()
+    data = request.data
+    j = json.loads(data)
+    res = {}
+    entries = Entry.query.filter(Entry.user_id == user['id']).all()
+    for entry in entries:
+        if entry.id != j['entry']['id']:
+            res[entry.id] = entry.to_dict()
+        else:
+            del_entry = entry
+    db.session.delete(del_entry)
+    db.session.commit()
+    return res
