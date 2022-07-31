@@ -1,5 +1,22 @@
 # Journal Easy
-Journaling made simple with an application that introduces users to the practice of mindful living, daily gratitude, affirmations, and other thoughtful techniques through the help of a prompt based and easy to navigate journaling UI
-***
+
+### Update the package files:
+
+- from root dir \
+    **`pipenv install -d dependencies.txt`**
+- from ../react-app \
+    **`npm install`** 
+
+
+### Run local development server:
+
+- from root dir \
+    **`pipenv shell`**
+    **`pipenv run flask run`**
+- from ../react-app \
+    RUN **`npm start`** 
+
+
+
 
 Live Site: https://journal-easy.herokuapp.com/
