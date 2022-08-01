@@ -1,5 +1,5 @@
 from flask import Blueprint, request, json
-from app.models import Affirmation, db, User
+from app.models import Affirmation, db
 from flask_login import current_user
 
 
