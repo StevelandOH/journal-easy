@@ -62,7 +62,7 @@ export const signUp = (user) => async (dispatch) => {
 export const restoreUser = () => async (dispatch) => {
     const response = await fetch('/api/auth/');
     const data = await response.json();
-    dispatch(setUser(data));
+    if (data) dispatch(setUser(data));
     return response;
 };
 
