@@ -38,11 +38,13 @@ app.register_blueprint(edit_routes, url_prefix='/api/edit/')
 # initialize and migrate the connection between our api and db
 db.init_app(app)
 Migrate(app, db)
-# CORS will help manage the response header configurations providing an extra layer of security
+# CORS will help manage the response header configurations providing an extra
+#  layer of security
 CORS(app)
 
 
-# these methods will maintain 'http' integrity on browsers that forcibly add an 's'
+# these methods will maintain 'http' integrity on browsers that forcibly add
+#  an 's'
 @app.before_request
 def https_redirect():
     if os.environ.get('FLASK_ENV') == 'production':
