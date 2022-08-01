@@ -26,11 +26,11 @@
     contentId (fk)
     }
 
-    -   type object: {
-        0: Affirmation
-        1: DailyEntry
-        2: Rating
-        }
+    enum type object: {
+    0: Affirmation
+    1: DailyEntry
+    2: Rating
+    }
 
     new Content model: {
     id: (pk), \* type: enum,
@@ -40,5 +40,7 @@
     type === 2 ? array.length = 1 (rating as string)
     )
     }
+
+-   testing
 
 Live Site: https://journal-easy.herokuapp.com/
