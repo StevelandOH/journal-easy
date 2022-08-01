@@ -1,10 +1,9 @@
 import os
-from flask import Flask, render_template, request, session, redirect
+from flask import Flask, request, redirect
 from flask_cors import CORS
 from flask_migrate import Migrate
-from flask_wtf.csrf import CSRFProtect, generate_csrf
+from flask_wtf.csrf import generate_csrf
 from flask_login import LoginManager
-
 from .models.db import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
@@ -12,14 +11,10 @@ from .api.entry_routes import entry_routes
 from .api.rating_routes import rating_routes
 from .api.affirmation_routes import affirmation_routes
 from .api.edit_user_routes import edit_routes
-
 from .seeds import seed_commands
-
 from .config import Config
 
 app = Flask(__name__)
-
-# Setup login manager
 login = LoginManager(app)
 login.login_view = 'auth.unauthorized'
 
@@ -29,28 +24,25 @@ def load_user(id):
     return User.query.get(int(id))
 
 
-# Tell flask about our seed commands
+# apply the the seed commands for models from /seeds
 app.cli.add_command(seed_commands)
-
+# apply the Config object from config.py to the flask app
 app.config.from_object(Config)
+# restful routing api file mappers
 app.register_blueprint(user_routes, url_prefix='/api/users/')
 app.register_blueprint(auth_routes, url_prefix='/api/auth/')
 app.register_blueprint(entry_routes, url_prefix='/api/entry/')
 app.register_blueprint(rating_routes, url_prefix='/api/rating/')
 app.register_blueprint(affirmation_routes, url_prefix='/api/affirmation/')
 app.register_blueprint(edit_routes, url_prefix='/api/edit/')
+# initialize and migrate the connection between our api and db
 db.init_app(app)
 Migrate(app, db)
-# Application Security
+# CORS will help manage the response header configurations providing an extra layer of security
 CORS(app)
 
-# Since we are deploying with Docker and Flask,
-# we won't be using a buildpack when we deploy to Heroku.
-# Therefore, we need to make sure that in production any
-# request made over http is redirected to https.
-# Well.........
 
-
+# these methods will maintain 'http' integrity on browsers that forcibly add an 's'
 @app.before_request
 def https_redirect():
     if os.environ.get('FLASK_ENV') == 'production':
